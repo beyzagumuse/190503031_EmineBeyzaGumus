@@ -18,32 +18,8 @@ public class Person {
             return true;
         }
         return false;
-    }
-
-
-    @Override
-    public boolean equals(Object o){
-        Person p = (Person) o;
-        if(id.equals(p.id) ==true){
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public String toString(){
-        String s = "Id: " + id + "\nName: " + name + "\nNachname: " + nachname;
-        return s;
-    }
-
-    public void setAll(String n, String a, int al){
-        name = n;
-        adresse = a;
-        alter = al;
     }*/
 
-
-    //public abstract void printinfo();
 
     public void setId(String id) {
         this.id = id;
@@ -82,12 +58,12 @@ public class Person {
         return adresse;
     }
 
-    public int getAlter() {
-        return alter;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
+    public String getTelno() {
+        return telno;
     }
 
     public String getNachname() {
