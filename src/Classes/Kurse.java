@@ -45,21 +45,21 @@ public class  Kurse extends Trainer,Sportler{
         return tage;
     }
 
-    public void addKurse(){
-
+    public void addKurse(//kursename,kursenummer,tage,preis,anzahlderSportler){
+        //create new Kurse() with taken informations
 
     }
 
     public void deleteKurse(String kursenummer){
-
+        // delete kurse with kursenummer
     }
 
     public void searchKurse(String kursenummer){
-
+        //look in database with kursenummer
     }
 
-    public void editKurse(String kursenummer){
-
+    public void editKurse(String kursenummer // informations for edit){
+      //change kurse details with informations
     }
 
 

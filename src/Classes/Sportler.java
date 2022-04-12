@@ -9,19 +9,20 @@ public class Sportler extends Person{
 
     public void addSportler(String sportlernummer, Person a){
         this.sportlernummer = sportlernummer;
+        //add new person/sportler in database
 
     }
 
     public void deleteSportler(String sportlernummer){
-
+          //delete sportler with sportlernummer from database
     }
 
     public void searchSportler(String sportlernummer){
-
+          //search sportler with sportlernummer in database
     }
 
-    public void editSportler(String sportlernummer){
-
+    public void editSportler(String sportlernummer //informationen for edit){
+        //change informationen über sportler
     }
 
 
