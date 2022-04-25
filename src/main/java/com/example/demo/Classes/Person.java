@@ -1,3 +1,5 @@
+package com.example.demo.Classes;
+
 public class Person {
     private String id;
     private String name;
@@ -34,7 +36,7 @@ public class Person {
     }
 
     public void setTelno(String telno){
-        this.telno = telno();
+        this.telno = telno;
     }
 
     public void setEmail(String email){

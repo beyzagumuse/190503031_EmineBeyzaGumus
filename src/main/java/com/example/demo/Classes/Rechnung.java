@@ -1,4 +1,6 @@
-public class Rechnung extends Sportler,Trainer,Kurse{
+package com.example.demo.Classes;
+
+public class Rechnung extends Person{
     private String rechnungsnummer;
     private String sportlernummer;
     private String kursenummer;

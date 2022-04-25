@@ -1,4 +1,6 @@
-public class  Kurse extends Trainer,Sportler{
+package com.example.demo.Classes;
+
+/*public class  Kurse extends Person{
     private String kursenummer;
     private int preis;
     private String tage; //arraylist or array
@@ -58,7 +60,7 @@ public class  Kurse extends Trainer,Sportler{
         //look in database with kursenummer
     }
 
-    public void editKurse(String kursenummer // informations for edit){
+    public void editKurse(String kursenummer /*informations for edit){
       //change kurse details with informations
     }
 
@@ -79,4 +81,4 @@ public class  Kurse extends Trainer,Sportler{
 
 
 
-}
+

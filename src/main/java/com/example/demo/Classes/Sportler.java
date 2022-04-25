@@ -1,3 +1,5 @@
+package com.example.demo.Classes;
+
 public class Sportler extends Person{
     private String sportlernummer;
     private int schuld;
@@ -21,7 +23,7 @@ public class Sportler extends Person{
           //search sportler with sportlernummer in database
     }
 
-    public void editSportler(String sportlernummer //informationen for edit){
+    public void editSportler(String sportlernummer /*informationen for edit*/){
         //change informationen über sportler
     }
 

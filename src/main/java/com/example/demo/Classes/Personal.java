@@ -1,3 +1,5 @@
+package com.example.demo.Classes;
+
 public class Personal extends Person{
     private String personalnummer;
 

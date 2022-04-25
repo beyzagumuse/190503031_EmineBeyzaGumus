@@ -1,3 +1,5 @@
+package com.example.demo.Classes;
+
 public class Trainer extends Person{
     private String trainernummer;
     //private Kurse[];
