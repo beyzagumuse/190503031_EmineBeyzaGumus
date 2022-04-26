@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="514.0" prefWidth="621.0" style="-fx-background-color: black;" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Yeni Eğitmen Ekleme">
+               <content>
+                  <AnchorPane prefHeight="431.0" prefWidth="590.0" style="-fx-background-color: FB9939;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="22.0" layoutY="184.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin çalışabileceği tarihleri seçiniz." />
+                        <DatePicker layoutX="255.0" layoutY="184.0" />
+                        <Label alignment="CENTER" layoutX="22.0" layoutY="241.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin verebileceği kursu seçiniz." />
+                        <Label alignment="CENTER" layoutX="22.0" layoutY="299.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin soyadını giriniz." />
+                        <ComboBox layoutX="254.0" layoutY="242.0" prefHeight="26.0" prefWidth="175.0" />
+                        <TextField layoutX="254.0" layoutY="299.0" prefHeight="26.0" prefWidth="175.0" />
+                        <Label alignment="CENTER" layoutX="143.0" layoutY="22.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="YENİ EĞİTMEN EKLEME" />
+                        <Label alignment="CENTER" layoutX="22.0" layoutY="356.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin kişisel bilgilerini giriniz. (Person.fxml)" />
+                        <TextField layoutX="254.0" layoutY="356.0" prefHeight="26.0" prefWidth="175.0" />
+                        <Label alignment="CENTER" layoutX="22.0" layoutY="89.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin adını giriniz." />
+                        <Label alignment="CENTER" layoutX="22.0" layoutY="138.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin kodunu giriniz." />
+                        <TextField layoutX="255.0" layoutY="89.0" prefHeight="26.0" prefWidth="175.0" />
+                        <TextField layoutX="255.0" layoutY="138.0" prefHeight="26.0" prefWidth="175.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Eğitmen Bilgilerini Güncelleme - Silme">
+               <content>
+                  <AnchorPane prefHeight="426.0" prefWidth="967.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="43.0" layoutY="51.0" prefHeight="42.0" prefWidth="224.0" style="-fx-background-color: white;" text="Eğitmen kodunu giriniz." />
+                        <Label alignment="CENTER" layoutX="43.0" layoutY="112.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Değiştirmek istediğiniz bilgiyi seçiniz" />
+                        <Label alignment="CENTER" layoutX="43.0" layoutY="178.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Değiştirilecek bilgiyi giriniz." />
+                        <Label alignment="CENTER" layoutX="43.0" layoutY="247.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Silicenek eğitmenin kodunu giriniz." />
+                        <TextField layoutX="304.0" layoutY="54.0" prefHeight="35.0" prefWidth="197.0" />
+                        <TextField layoutX="304.0" layoutY="178.0" prefHeight="35.0" prefWidth="197.0" />
+                        <TextField layoutX="304.0" layoutY="247.0" prefHeight="35.0" prefWidth="197.0" />
+                        <ComboBox layoutX="304.0" layoutY="116.0" prefHeight="32.0" prefWidth="197.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

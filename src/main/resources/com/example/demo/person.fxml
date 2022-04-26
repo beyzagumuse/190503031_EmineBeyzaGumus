@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Kişi Kaydı">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+                           <children>
+                              <Label layoutX="84.0" layoutY="57.0" prefHeight="32.0" prefWidth="111.0" text="Kaydedilecek Kişi:" />
+                              <ComboBox layoutX="252.0" layoutY="60.0" prefWidth="150.0" promptText="Eğitmen,Öğrenci,Personel" />
+                              <Label layoutX="77.0" layoutY="106.0" prefHeight="32.0" prefWidth="111.0" text="Kişinin ID'si :" />
+                              <Label layoutX="84.0" layoutY="154.0" prefHeight="32.0" prefWidth="111.0" text="Kişinin Adı :" />
+                              <Label layoutX="77.0" layoutY="200.0" prefHeight="32.0" prefWidth="111.0" text="Kişinin Soyadı :" />
+                              <Label layoutX="163.0" layoutY="264.0" prefHeight="32.0" prefWidth="370.0" text="(Personda istenen bilgiler)" />
+                              <TextField layoutX="253.0" layoutY="109.0" />
+                              <TextField layoutX="253.0" layoutY="158.0" />
+                              <TextField layoutX="254.0" layoutY="204.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Kişi Bilgileri Güncelleme - Silme">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="-2.0" prefHeight="400.0" prefWidth="665.0" style="-fx-background-color: black;">
+                           <children>
+                              <Label alignment="CENTER" layoutX="144.0" layoutY="50.0" prefHeight="42.0" prefWidth="224.0" style="-fx-background-color: white;" text="Kişinin kodunu giriniz." />
+                              <Label alignment="CENTER" layoutX="144.0" layoutY="111.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Değiştirmek istediğiniz bilgiyi seçiniz" />
+                              <Label alignment="CENTER" layoutX="144.0" layoutY="177.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Değiştirilecek bilgiyi giriniz." />
+                              <Label alignment="CENTER" layoutX="144.0" layoutY="246.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Silicenek kişinin kodunu giriniz." />
+                              <TextField layoutX="405.0" layoutY="53.0" prefHeight="35.0" prefWidth="197.0" />
+                              <TextField layoutX="405.0" layoutY="177.0" prefHeight="35.0" prefWidth="197.0" />
+                              <TextField layoutX="405.0" layoutY="246.0" prefHeight="35.0" prefWidth="197.0" />
+                              <ComboBox layoutX="405.0" layoutY="121.0" prefHeight="30.0" prefWidth="196.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
