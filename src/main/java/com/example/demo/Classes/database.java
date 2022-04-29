@@ -19,7 +19,7 @@ public class database {
             Statement stmt = conn.createStatement();
             ResultSet res = stmt.executeQuery("SELECT * FROM person");
             if (res.next()) {
-                System.out.println("username: " + res.getString("username") + " Pass: " + res.getString("password"));
+                //System.out.println("username: " + res.getString("username") + " Pass: " + res.getString("password"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
