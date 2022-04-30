@@ -12,7 +12,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
 
     private static Stage primaryStage;
-    private AnchorPane mainLayout;
+    private static AnchorPane mainLayout;
     @Override
     public void start(Stage stage) throws IOException {
         /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -40,7 +40,7 @@ public class HelloApplication extends Application {
         db.connect();
     }
 
-    public void showMainView() throws IOException{
+    public static void showMainView() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(HelloApplication.class.getResource("log.fxml"));
         mainLayout = fxmlLoader.load();

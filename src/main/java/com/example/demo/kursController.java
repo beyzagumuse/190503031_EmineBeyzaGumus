@@ -1,6 +1,5 @@
-package com.example.demo.Classes;
+package com.example.demo;
 
-import com.example.demo.HelloApplication;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
@@ -10,7 +9,7 @@ public class kursController {
     private HelloApplication application;
 
     @FXML
-    private void returnHome() throws IOException {
+    private void goHomepage() throws IOException {
         application.showHomepageScene();
     }
 }
