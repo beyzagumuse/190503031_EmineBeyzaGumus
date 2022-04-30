@@ -22,4 +22,9 @@ public class kursController {
     private void godeleteKurs() throws IOException {
         application.showdeleteKursScene();
     }
+
+    @FXML
+    private void goeditKurs() throws IOException {
+        application.showeditKursScene();
+    }
 }

@@ -98,6 +98,14 @@ public class HelloApplication extends Application {
 
     }
 
+    public static void showeditKursScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("editkurs.fxml"));
+        Scene scene = new Scene(loader.load());
+        primaryStage.setScene(scene);
+
+    }
+
     public static void main(String[] args) {
         launch();
     }

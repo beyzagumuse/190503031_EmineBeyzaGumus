@@ -96,7 +96,7 @@
                     </columns>
                   </TableView>
                   <Button layoutX="18.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddKurs" prefHeight="26.0" text="Add" />
-                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="Edit" />
+                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditKurs" prefHeight="26.0" prefWidth="50.0" text="Edit" />
                   <Button layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#godeleteKurs" prefHeight="26.0" text="Delete" />
                </children>
             </AnchorPane>
