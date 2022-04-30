@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
         stage.show();*/
 
         this.primaryStage = stage;
-        //this.primaryStage.setTitle("Sportcentrum");
+        this.primaryStage.setTitle("Sportcentrum");
 
 
         showMainView();

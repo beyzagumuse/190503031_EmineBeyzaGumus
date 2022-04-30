@@ -1,6 +1,6 @@
 package com.example.demo.Classes;
 
-/*public class  Kurse extends Person{
+public class  Kurse extends Person{
     private String kursenummer;
     private int preis;
     private String tage; //arraylist or array
@@ -47,7 +47,7 @@ package com.example.demo.Classes;
         return tage;
     }
 
-    public void addKurse(//kursename,kursenummer,tage,preis,anzahlderSportler){
+    public void addKurse(/*kursename,kursenummer,tage,preis,anzahlderSportler*/){
         //create new Kurse() with taken informations
 
     }
@@ -60,7 +60,7 @@ package com.example.demo.Classes;
         //look in database with kursenummer
     }
 
-    public void editKurse(String kursenummer /*informations for edit){
+    public void editKurse(String kursenummer /*informations for edit*/){
       //change kurse details with informations
     }
 
@@ -74,7 +74,11 @@ package com.example.demo.Classes;
     public String toString(){
         String s = "PersonalId: " + id + "\nName: " + name + "\nNachname: " + nachname;
         return super.toString();
-    }*/
+    }
+
+     */
+}
+
 
 
 
