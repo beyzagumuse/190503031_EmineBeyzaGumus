@@ -12,4 +12,9 @@ public class kursController {
     private void goHomepage() throws IOException {
         application.showHomepageScene();
     }
+
+    @FXML
+    private void goaddKurs() throws IOException {
+        application.showaddKursScene();
+    }
 }

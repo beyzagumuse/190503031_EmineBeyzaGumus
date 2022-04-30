@@ -21,7 +21,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();*/
         //Parent parent = FXMLLoader.load(getClass().getResource("homepage.fxml"));
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("homepage.fxml"));
+        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addkurs.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Login!");
         stage.setScene(scene);
@@ -77,6 +77,14 @@ public class HelloApplication extends Application {
     public static void showPersonScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("person.fxml"));
+        Scene scene = new Scene(loader.load(),600,400);
+        primaryStage.setScene(scene);
+
+    }
+
+    public static void showaddKursScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("addkurs.fxml"));
         Scene scene = new Scene(loader.load(),600,400);
         primaryStage.setScene(scene);
 
