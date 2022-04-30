@@ -13,8 +13,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class HelloController {
+
+    private HelloApplication application;
     @FXML
     private Label welcomeText;
 
@@ -58,6 +61,11 @@ public class HelloController {
 
              JOptionPane.showMessageDialog(null, e);
          }
+    }
+
+    @FXML
+    private void goHomepage() throws IOException {
+        application.showHomepageScene();
     }
 
 

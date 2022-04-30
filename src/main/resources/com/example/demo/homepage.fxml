@@ -16,7 +16,7 @@
             <Font name="Niagara Solid" size="46.0" />
          </font>
       </Label>
-      <Button fx:id="rechnung_btn" layoutX="246.0" layoutY="187.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="127.0" text="Rechnung" />
+      <Button fx:id="rechnung_btn" layoutX="246.0" layoutY="187.0" mnemonicParsing="false" onAction="#goRechnung" prefHeight="99.0" prefWidth="127.0" text="Rechnung" />
       <Button fx:id="kurse_btn" layoutX="99.0" layoutY="187.0" mnemonicParsing="false" onAction="#goKurse" prefHeight="99.0" prefWidth="127.0" text="Kurse" />
       <MenuBar layoutX="-2.0" layoutY="1.0" prefHeight="26.0" prefWidth="606.0">
         <menus>
@@ -39,6 +39,6 @@
         </menus>
       </MenuBar>
       <ComboBox fx:id="person_combobox" layoutX="50.0" layoutY="336.0" prefWidth="150.0" promptText="Personal, Trainer, Sportler" visible="false" />
-      <Button layoutX="398.0" layoutY="187.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="127.0" text="Person" />
+      <Button fx:id="person_btn" layoutX="398.0" layoutY="187.0" mnemonicParsing="false" onAction="#goPerson" prefHeight="99.0" prefWidth="127.0" text="Person" />
    </children>
 </AnchorPane>

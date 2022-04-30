@@ -72,6 +72,19 @@ public class homepageController {
     }*/
     @FXML
     private void goKurse() throws IOException {
-        //application.showKurseScene();
+        application.showKurseScene();
     }
+
+    @FXML
+    private void goRechnung() throws IOException {
+        application.showRechnungScene();
+    }
+
+    @FXML
+    private void goPerson() throws IOException {
+        application.showPersonScene();
+    }
+
+
+
 }
