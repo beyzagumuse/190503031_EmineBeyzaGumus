@@ -52,7 +52,7 @@ public class HelloApplication extends Application {
     public static void showHomepageScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("homepage.fxml"));
-        Scene scene = new Scene(loader.load(),600,400);
+        Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
 
     }
@@ -61,7 +61,7 @@ public class HelloApplication extends Application {
     public static void showKurseScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("kurs.fxml"));
-        Scene scene = new Scene(loader.load(),600,400);
+        Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
 
     }
@@ -69,7 +69,7 @@ public class HelloApplication extends Application {
     public static void showRechnungScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("rechnung.fxml"));
-        Scene scene = new Scene(loader.load(),600,400);
+        Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
 
     }
@@ -77,7 +77,7 @@ public class HelloApplication extends Application {
     public static void showPersonScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("person.fxml"));
-        Scene scene = new Scene(loader.load(),600,400);
+        Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
 
     }
@@ -85,7 +85,15 @@ public class HelloApplication extends Application {
     public static void showaddKursScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("addkurs.fxml"));
-        Scene scene = new Scene(loader.load(),600,400);
+        Scene scene = new Scene(loader.load());
+        primaryStage.setScene(scene);
+
+    }
+
+    public static void showdeleteKursScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("deletekurs.fxml"));
+        Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
 
     }

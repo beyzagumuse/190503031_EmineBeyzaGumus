@@ -17,4 +17,9 @@ public class kursController {
     private void goaddKurs() throws IOException {
         application.showaddKursScene();
     }
+
+    @FXML
+    private void godeleteKurs() throws IOException {
+        application.showdeleteKursScene();
+    }
 }
