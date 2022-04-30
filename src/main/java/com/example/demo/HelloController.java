@@ -41,7 +41,7 @@ public class HelloController {
 
     @FXML
     protected void onLoginButtonClick() {
-        btn_login.setText("Hi darling!");
+        System.out.println("Hello darling!");
 
     }
 
