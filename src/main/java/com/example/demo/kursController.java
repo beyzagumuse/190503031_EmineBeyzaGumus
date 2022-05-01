@@ -74,7 +74,7 @@ public class kursController{
         kursename.setCellValueFactory(new PropertyValueFactory<Kurse,String>("kursename"));
         kursepreis.setCellValueFactory(new PropertyValueFactory<Kurse,Integer>("preis"));
         kursetag.setCellValueFactory(new PropertyValueFactory<Kurse,Date>("tage"));
-        //kursetrainer.setCellValueFactory(new PropertyValueFactory<Kurse,String>("kurse_id"));
+        //kursetrainer.setCellValueFactory(new PropertyValueFactory<Kurse,String>("kurse_id"));/
         kurseanzahl.setCellValueFactory(new PropertyValueFactory<Kurse,Integer>("anzahlSportler"));
         kursebeginn.setCellValueFactory(new PropertyValueFactory<Kurse,Integer>("beginn"));
         kurseend.setCellValueFactory(new PropertyValueFactory<Kurse,Integer>("end"));
