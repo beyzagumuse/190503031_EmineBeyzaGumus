@@ -9,6 +9,23 @@ public class  Kurse extends Person{
     private String kursename;
     private int anzahlSportler;
 
+    private int beginn;
+
+    private int end;
+
+    private Trainer trainer;
+
+    public Kurse(String kurse_id, String kurse_name, int kurse_preis, java.sql.Date kurse_tage, String trainer_id, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
+        super();
+        kursenummer = kurse_id;
+        kursename = kurse_name;
+        preis = kurse_preis;
+        tage = kurse_tage;
+        anzahlSportler = kurse_anzahlSportler;
+        beginn = kurse_beginn;
+        end = kurse_end;
+    }
+
     public void setPreis(int preis) {
         this.preis = preis;
     }
@@ -47,6 +64,30 @@ public class  Kurse extends Person{
 
     public Date getTage() {
         return tage;
+    }
+
+    public void setBeginn(int beginn) {
+        this.beginn = beginn;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
+
+    public int getBeginn() {
+        return beginn;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
     }
 
     public void addKurse(/*kursename,kursenummer,tage,preis,anzahlderSportler*/){
