@@ -17,9 +17,9 @@ public class database {
 
             System.out.println("Connection to SQLite has been established.");
             Statement stmt = conn.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM person");
+            ResultSet res = stmt.executeQuery("SELECT kurse_name,kurse_preis FROM kurse");
             if (res.next()) {
-                //System.out.println("username: " + res.getString("username") + " Pass: " + res.getString("password"));
+                System.out.println("username: " + res.getString("kurse_name") + " Preis: " + res.getString("kurse_preis"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -1,9 +1,11 @@
 package com.example.demo.Classes;
 
+import java.util.Date;
+
 public class  Kurse extends Person{
     private String kursenummer;
     private int preis;
-    private String tage; //arraylist or array
+    private Date tage; //arraylist or array
     private String kursename;
     private int anzahlSportler;
 
@@ -23,7 +25,7 @@ public class  Kurse extends Person{
         this.kursenummer = kursenummer;
     }
 
-    public void setTage(String tage) {
+    public void setTage(Date tage) {
         this.tage = tage;
     }
 
@@ -43,7 +45,7 @@ public class  Kurse extends Person{
         return kursenummer;
     }
 
-    public String getTage() {
+    public Date getTage() {
         return tage;
     }
 
