@@ -1,11 +1,9 @@
 package com.example.demo.Classes;
 
-import java.util.Date;
-
 public class  Kurse extends Person{
     private String kursenummer;
     private int preis;
-    private Date tage; //arraylist or array
+    private String tage; //arraylist or array
     private String kursename;
     private int anzahlSportler;
 
@@ -13,15 +11,16 @@ public class  Kurse extends Person{
 
     private int end;
 
-    private Trainer trainer;
+    private String trainer;
 
-    public Kurse(String kurse_id, String kurse_name, int kurse_preis, java.sql.Date kurse_tage, String trainer_id, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
+    public Kurse(String kurse_id, String kurse_name, int kurse_preis, String kurse_tage, String trainer_id, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
         super();
         kursenummer = kurse_id;
         kursename = kurse_name;
         preis = kurse_preis;
         tage = kurse_tage;
         anzahlSportler = kurse_anzahlSportler;
+        trainer = trainer_id;
         beginn = kurse_beginn;
         end = kurse_end;
     }
@@ -42,7 +41,7 @@ public class  Kurse extends Person{
         this.kursenummer = kursenummer;
     }
 
-    public void setTage(Date tage) {
+    public void setTage(String tage) {
         this.tage = tage;
     }
 
@@ -62,9 +61,10 @@ public class  Kurse extends Person{
         return kursenummer;
     }
 
-    public Date getTage() {
+    public String getTage() {
         return tage;
     }
+
 
     public void setBeginn(int beginn) {
         this.beginn = beginn;
@@ -74,7 +74,7 @@ public class  Kurse extends Person{
         this.end = end;
     }
 
-    public void setTrainer(Trainer trainer) {
+    public void setTrainer(String trainer) {
         this.trainer = trainer;
     }
 
@@ -86,7 +86,7 @@ public class  Kurse extends Person{
         return end;
     }
 
-    public Trainer getTrainer() {
+    public String getTrainer() {
         return trainer;
     }
 

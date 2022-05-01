@@ -1,8 +1,5 @@
 package com.example.demo.Classes;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import java.sql.*;
 
 
@@ -32,7 +29,28 @@ public class database {
         }
     }
 
-    public static ObservableList<Kurse> getDatakurse(){
+    public static Boolean containBenutzer(String userName, String pass){
+        //this.connect();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT benutzename , password FROM benutzer");
+            while (res.next()){
+                String s1 = res.getString("benutzename");
+                String s2 = res.getString("password");
+                if(s1.equals(userName) && s2.equals(pass)){
+                    return true;
+                }
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return false;
+
+    }
+
+
+    /*public static ObservableList<Kurse> getDatakurse(){
 
         Connection conn = connect();
         ObservableList<Kurse> kurselist = FXCollections.observableArrayList();
@@ -41,11 +59,13 @@ public class database {
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
-                kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getDate("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("kurse_beginn"),rs.getInt("kurse_end")));
+                System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + rs.getString("trainer_id") + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
+                kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
             }
         } catch(Exception e){
 
         }
-        return null;
-    }
+        System.out.println(kurselist);
+        return kurselist;
+    }*/
 }

@@ -1,8 +1,10 @@
 package com.example.demo;
 
+import com.example.demo.Classes.database;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -48,15 +50,30 @@ public class HelloController {
 
     }
 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     @FXML
     protected void Login(ActionEvent event) throws Exception{
          try {
-             btn_login.getScene().getWindow().hide();
+             if(database.containBenutzer(benutzername.getText(),password.getText())){
+                 root = FXMLLoader.load(homepageController.class.getResource("homepage.fxml"));
+                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                 scene = new Scene(root);
+                 stage.setScene(scene);
+                 stage.show();
+             }else{
+                 //hata mesajı
+             }
+
+
+             /*btn_login.getScene().getWindow().hide();
              Parent root = FXMLLoader.load(getClass().getResource("mate.fxml"));
              Stage mainStage = new Stage();
              Scene scene = new Scene(root);
              mainStage.setScene(scene);
-             mainStage.show();
+             mainStage.show();*/
          } catch (Exception e){
 
              JOptionPane.showMessageDialog(null, e);
