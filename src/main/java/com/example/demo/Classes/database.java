@@ -1,5 +1,8 @@
 package com.example.demo.Classes;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 
@@ -16,11 +19,11 @@ public class database {
             conn = DriverManager.getConnection(url);
 
             System.out.println("Connection to SQLite has been established.");
-            Statement stmt = conn.createStatement();
+            /*Statement stmt = conn.createStatement();
             ResultSet res = stmt.executeQuery("SELECT kurse_name,kurse_preis FROM kurse");
             if (res.next()) {
                 System.out.println("username: " + res.getString("kurse_name") + " Preis: " + res.getString("kurse_preis"));
-            }
+            }*/
 
             return conn;
         } catch (SQLException e) {
@@ -28,6 +31,13 @@ public class database {
             return null;
         }
     }
+
+
+    /*public static Connection connectt() throws SQLException {
+        String url = "jdbc:sqlite:D:\\demo\\sqlite3\\database.db";
+        Connection con = DriverManager.getConnection(url);
+        return con;
+    }*/
 
     public static Boolean containBenutzer(String userName, String pass){
         //this.connect();
@@ -50,13 +60,14 @@ public class database {
     }
 
 
-    /*public static ObservableList<Kurse> getDatakurse(){
+    public static ObservableList<Kurse> getDatakurse(){
 
         Connection conn = connect();
         ObservableList<Kurse> kurselist = FXCollections.observableArrayList();
         try{
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
-            ResultSet rs = ps.executeQuery();
+            Statement stmt = conn.createStatement();
+            //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM kurse");
 
             while(rs.next()){
                 System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + rs.getString("trainer_id") + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
@@ -67,5 +78,5 @@ public class database {
         }
         System.out.println(kurselist);
         return kurselist;
-    }*/
+    }
 }
