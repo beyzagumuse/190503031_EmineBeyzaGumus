@@ -26,8 +26,9 @@
             <TextField fx:id="txt_id" layoutX="322.0" layoutY="143.0" />
             <Label alignment="CENTER" layoutX="119.0" layoutY="142.0" prefHeight="26.0" prefWidth="166.0" style="-fx-background-color: white;" text="Please Enter Your ID" />
             <Label alignment="CENTER" layoutX="133.0" layoutY="221.0" prefHeight="26.0" prefWidth="166.0" style="-fx-background-color: white;" text="Please Enter Your Password" />
-            <Button fx:id="btn_login" layoutX="274.0" layoutY="313.0" mnemonicParsing="false" onAction="#goHomepage" style="-fx-background-color: grey; -fx-border-color: black;" text="Log In" />
+            <Button fx:id="btn_login" layoutX="274.0" layoutY="313.0" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: grey; -fx-border-color: black;" text="Log In" />
             <PasswordField fx:id="txt_password" layoutX="323.0" layoutY="222.0" />
+            <Label fx:id="errMsg" alignment="CENTER" layoutX="152.0" layoutY="350.0" prefHeight="18.0" prefWidth="310.0" style="-fx-background-color: red;" textFill="#fcfcfc" visible="false" />
          </children>
       </AnchorPane>
    </children>

@@ -40,6 +40,9 @@ public class HelloController {
     @FXML
     private PasswordField txt_password;
 
+    @FXML
+    private Label errMsg;
+
     /*public void LoginPaneShow(){
         pane_login.setVisible(true);
     }*/
@@ -57,14 +60,16 @@ public class HelloController {
     @FXML
     protected void Login(ActionEvent event) throws Exception{
          try {
-             if(database.containBenutzer(benutzername.getText(),password.getText())){
+             if(database.containBenutzer(txt_id.getText(),txt_password.getText())){
                  root = FXMLLoader.load(homepageController.class.getResource("homepage.fxml"));
                  stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                  scene = new Scene(root);
                  stage.setScene(scene);
                  stage.show();
              }else{
-                 //hata mesajı
+
+                 errMsg.setText("Es gibt keine Person mit diesen Informationen!");
+                 errMsg.setVisible(true);
              }
 
 
