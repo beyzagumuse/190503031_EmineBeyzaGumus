@@ -4,12 +4,18 @@ import com.example.demo.Classes.Kurse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ResourceBundle;
 
-public class kursController {
+public class kursController implements Initializable {
 
     private HelloApplication application;
 
@@ -64,16 +70,17 @@ public class kursController {
 
     //int index =-1;
 
-    //Connection conn = null;
-    //ResultSet rs = null;
-    //PreparedStatement pst = null;
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
-    /*@Override
+
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        try {
-            Connection con = database.connect();
-            ResultSet rs = con.createStatement().executeQuery("SELECT * FROM kurse");
+        /*try {
+            conn = database.connect();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM kurse");
 
             while (rs.next()) {
                 listKurs.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
@@ -93,6 +100,6 @@ public class kursController {
 
         //listKurs = database.getDatakurse();
         System.out.println(listKurs);
-        kursetable.setItems(listKurs);
-    }*/
+        kursetable.setItems(listKurs);*/
+    }
 }
