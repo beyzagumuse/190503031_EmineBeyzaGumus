@@ -85,6 +85,11 @@ public class homepageController {
         application.showPersonScene();
     }
 
+    @FXML
+    private void goPersonChoice() throws IOException {
+        application.showPersonChoiceScene();
+    }
+
 
 
 }

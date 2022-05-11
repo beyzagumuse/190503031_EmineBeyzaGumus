@@ -94,7 +94,6 @@ public class kursController implements Initializable {
         this.kursename.setCellValueFactory(new PropertyValueFactory<>("kursename"));
         this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
         this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tage"));
-        //this.kursetrainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
         this.kursetrainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
         this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
         this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));

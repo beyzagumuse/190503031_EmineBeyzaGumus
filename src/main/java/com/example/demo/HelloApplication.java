@@ -106,6 +106,40 @@ public class HelloApplication extends Application {
 
     }
 
+    public static void showPersonalScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("personal.fxml"));
+        Scene scene = new Scene(loader.load());
+        primaryStage.setScene(scene);
+
+    }
+
+    public static void showTrainerScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("trainer.fxml"));
+        Scene scene = new Scene(loader.load());
+        primaryStage.setScene(scene);
+
+    }
+
+    public static void showSportlerScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("sportler.fxml"));
+        Scene scene = new Scene(loader.load());
+        primaryStage.setScene(scene);
+
+    }
+
+    public static void showPersonChoiceScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("personchoice.fxml"));
+        Scene scene = new Scene(loader.load());
+        primaryStage.setScene(scene);
+
+    }
+
+
+
     public static void main(String[] args) {
         launch();
     }
