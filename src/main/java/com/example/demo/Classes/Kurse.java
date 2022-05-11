@@ -13,14 +13,14 @@ public class  Kurse extends Person{
 
     private String trainer;
 
-    public Kurse(String kurse_id, String kurse_name, int kurse_preis, String kurse_tage, String trainer_id, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
+    public Kurse(String kurse_id, String kurse_name, int kurse_preis, String kurse_tage, String trainer, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
         super();
         kursenummer = kurse_id;
         kursename = kurse_name;
         preis = kurse_preis;
         tage = kurse_tage;
         anzahlSportler = kurse_anzahlSportler;
-        trainer = trainer_id;
+        this.trainer = trainer;
         beginn = kurse_beginn;
         end = kurse_end;
     }
