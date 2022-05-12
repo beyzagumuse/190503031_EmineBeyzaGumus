@@ -138,7 +138,7 @@ public class HelloApplication extends Application {
 
     }
 
-    public static void showDetails() throws IOException {
+    public static void showDetailsScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("details.fxml"));
         Scene scene = new Scene(loader.load());
