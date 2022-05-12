@@ -23,5 +23,10 @@ public class personchoice {
         application.showTrainerScene();
     }
 
+    @FXML
+    private void goDetails() throws IOException {
+        application.showDetailsScene();
+    }
+
 
 }
