@@ -3,8 +3,6 @@ package com.example.demo;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class deletekursController {
@@ -15,7 +13,7 @@ public class deletekursController {
     @FXML
     private TextField id_deletekurs;
 
-    @FXML
+    /*@FXML
     void buttondelete(ActionEvent event) throws Exception {
 
         try {
@@ -27,13 +25,13 @@ public class deletekursController {
                 oneKurse.forEach(allKurse::remove);
             } else {
                 System.out.println("Bu id'ye sahip bir kurs bulunmamaktadır.");
-            }*/
+            }
         }catch(Exception e){
 
-            JOptionPane.showMessageDialog(null, e);
+            //JOptionPane.showMessageDialog(null, e);
 
         }
-    }
+    }*/
 
 
 
