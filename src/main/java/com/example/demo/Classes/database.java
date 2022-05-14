@@ -60,7 +60,7 @@ public class database {
     }
 
 
-    public static Boolean containIdKurse(String id){
+    /*public static Boolean containIdKurse(String id){
         //this.connect();
         try {
             Statement stmt = conn.createStatement();
@@ -77,7 +77,7 @@ public class database {
         }
         return false;
 
-    }
+    }*/
 
     public static ObservableList<Kurse> getDatakurse(){
 
@@ -97,6 +97,20 @@ public class database {
         }
         //System.out.println(kurselist);
         return kurselist;
+    }
+
+    public static void deleteDataKurse(int id){
+        Connection conn = connect();
+
+        try{
+
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("DELETE FROM kurse WHERE kurse_id = id");
+
+        }catch(Exception e){
+
+        }
+
     }
 
 
