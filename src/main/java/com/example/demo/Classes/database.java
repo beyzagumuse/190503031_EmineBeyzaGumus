@@ -70,13 +70,37 @@ public class database {
             ResultSet rs = stmt.executeQuery("SELECT * FROM kurse");
 
             while(rs.next()){
-                System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
+                //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
                 kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
             }
         } catch(Exception e){
 
         }
-        System.out.println(kurselist);
+        //System.out.println(kurselist);
         return kurselist;
     }
+
+
+    /*public static void deleteDataKurse() throws SQLException {
+        //conn = database.connect();
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery("DELETE FROM kurse WHERE kurse_id = *");
+
+        //String sql = "DELETE FROM kurse WHERE kurse_id = ?";
+        try{
+            //pst = conn.prepareStatement(sql);
+            //pst.setString(1, txt_id.getText());
+            //pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Delete");
+            //UpdateTable();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }*/
+
+
+
+
 }
+

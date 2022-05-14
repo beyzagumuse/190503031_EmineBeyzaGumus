@@ -104,4 +104,6 @@ public class kursController implements Initializable {
         System.out.println(listKurs);
         this.kursetable.setItems(listKurs);
     }
+
+
 }

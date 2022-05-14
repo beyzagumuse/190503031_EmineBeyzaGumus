@@ -73,17 +73,13 @@ public class HelloController {
              }
 
 
-             /*btn_login.getScene().getWindow().hide();
-             Parent root = FXMLLoader.load(getClass().getResource("mate.fxml"));
-             Stage mainStage = new Stage();
-             Scene scene = new Scene(root);
-             mainStage.setScene(scene);
-             mainStage.show();*/
          } catch (Exception e){
 
              JOptionPane.showMessageDialog(null, e);
          }
     }
+
+
 
     @FXML
     private void goHomepage() throws IOException {
