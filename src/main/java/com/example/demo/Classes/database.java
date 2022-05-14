@@ -60,6 +60,25 @@ public class database {
     }
 
 
+    public static Boolean containIdKurse(String id){
+        //this.connect();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT kurse_id FROM kurse");
+            while (res.next()){
+                String s1 = res.getString("kurse_id");
+                if(s1.equals(id)){
+                    return true;
+                }
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return false;
+
+    }
+
     public static ObservableList<Kurse> getDatakurse(){
 
         Connection conn = connect();

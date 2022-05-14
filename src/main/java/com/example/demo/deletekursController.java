@@ -1,22 +1,49 @@
 package com.example.demo;
 
+import com.example.demo.Classes.Kurse;
 import com.example.demo.Classes.database;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-import java.awt.event.MouseEvent;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-public class deletekursController implements Initializable {
+public class deletekursController {
 
     private HelloApplication application;
 
+
     @FXML
-    private TextField txt_id;
+    private TextField id_deletekurs;
+
+    @FXML
+    void buttondelete(ActionEvent event) throws Exception {
+
+        try {
+            if (database.containIdKurse(id_deletekurs.getText())) {
+                kursController kc = new kursController();
+                ObservableList<Kurse> allKurse, oneKurse;
+                allKurse = kc.getKursetable().getItems();
+                oneKurse = kc.getKursetable().getSelectionModel().getSelectedItems();
+                oneKurse.forEach(allKurse::remove);
+            } else {
+                System.out.println("Bu id'ye sahip bir kurs bulunmamaktadır.");
+            }
+        }catch(Exception e){
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+    }
+
+
+
+
 
     Connection conn = null;
     ResultSet rs = null;
@@ -44,9 +71,9 @@ public class deletekursController implements Initializable {
         }
     }*/
 
-    public void initialize(URL url, ResourceBundle rb){}
+    /*public void initialize(URL url, ResourceBundle rb){}*/
 
-    Connection connection = null;
+    /*Connection connection = null;
     ResultSet resultSet = null;
     PreparedStatement preparedStatement;
     Statement stm ;
@@ -59,7 +86,7 @@ public class deletekursController implements Initializable {
         resultSet = stm.executeQuery(sql);
 
 
-    }
+    }*/
 
 
 

@@ -48,6 +48,10 @@ public class kursController implements Initializable {
     @FXML
     private TableView<Kurse> kursetable;
 
+    public TableView<Kurse> getKursetable() {
+        return kursetable;
+    }
+
     @FXML
     private void goHomepage() throws IOException {
         application.showHomepageScene();
