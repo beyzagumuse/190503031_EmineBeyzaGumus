@@ -3,6 +3,10 @@ package com.example.demo;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+
 public class deletekursController {
 
     private HelloApplication application;
@@ -11,11 +15,11 @@ public class deletekursController {
     @FXML
     private TextField id_deletekurs;
 
-   /* @FXML
+    @FXML
     void buttondelete(ActionEvent event) throws Exception {
 
         try {
-            if (database.containIdKurse(id_deletekurs.getText())) {
+           /* if (database.containIdKurse(id_deletekurs.getText())) {
                 kursController kc = new kursController();
                 ObservableList<Kurse> allKurse, oneKurse;
                 allKurse = kc.getKursetable().getItems();
@@ -23,13 +27,13 @@ public class deletekursController {
                 oneKurse.forEach(allKurse::remove);
             } else {
                 System.out.println("Bu id'ye sahip bir kurs bulunmamaktadır.");
-            }
+            }*/
         }catch(Exception e){
 
             JOptionPane.showMessageDialog(null, e);
 
         }
-    } */
+    }
 
 
 
@@ -37,14 +41,14 @@ public class deletekursController {
 
    /* Connection conn = null;
     ResultSet rs = null;
-    PreparedStatement pst = null;
+    PreparedStatement pst = null;*/
 
     @FXML
     private void goKurspage() throws IOException {
         application.showKurseScene();
-    }*/
+    }
 
-   /* @FXML
+   /* @FXMLbeyza
     public void deleteOk(){
         conn = database.connect();
         String sql = "DELETE FROM kurse WHERE kurse_id = ?";
