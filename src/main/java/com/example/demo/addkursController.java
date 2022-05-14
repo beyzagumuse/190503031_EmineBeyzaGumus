@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.Classes.Kurse;
+import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -39,5 +41,13 @@ public class addkursController {
     @FXML
     private void goKurspage() throws IOException {
         application.showKurseScene();
+    }
+
+    Kurse kurse = new Kurse();
+
+    public void  addKurse(){
+        kurse.setKursename(addKursName.getText());
+        kurse.setKursenummer(addKursId.getText());
+        database.createKurse(kurse);
     }
 }

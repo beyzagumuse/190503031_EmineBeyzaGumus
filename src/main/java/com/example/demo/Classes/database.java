@@ -3,7 +3,14 @@ package com.example.demo.Classes;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static java.sql.DriverManager.getConnection;
 
 
 public class database {
@@ -16,7 +23,7 @@ public class database {
             // db parameters
             String url = "jdbc:sqlite:D:\\demo\\sqlite3\\database.db";
             // create a connection to the database
-            conn = DriverManager.getConnection(url);
+            conn = getConnection(url);
 
             System.out.println("Connection to SQLite has been established.");
             /*Statement stmt = conn.createStatement();
@@ -111,6 +118,18 @@ public class database {
 
         }
 
+    }
+
+
+    public static void createKurse(Kurse s) {
+        try {
+            Statement st = connect().createStatement();
+            st.execute("INSERT INTO kurse (kurse_id,kurse_name) VALUES('" + s.getId()
+                    + "','" + s.getName() + "')");
+        } catch (SQLException ex) {
+            Logger.getLogger(database.class.getName()).log(Level.SEVERE, null,
+                    ex);
+        }
     }
 
 

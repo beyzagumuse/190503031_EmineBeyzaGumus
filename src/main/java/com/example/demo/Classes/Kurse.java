@@ -25,6 +25,8 @@ public class  Kurse extends Person{
         end = kurse_end;
     }
 
+    public Kurse(){}
+
     public void setPreis(int preis) {
         this.preis = preis;
     }
