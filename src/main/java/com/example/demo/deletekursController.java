@@ -1,17 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.Classes.Kurse;
-import com.example.demo.Classes.database;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class deletekursController {
 
@@ -21,7 +11,7 @@ public class deletekursController {
     @FXML
     private TextField id_deletekurs;
 
-    @FXML
+   /* @FXML
     void buttondelete(ActionEvent event) throws Exception {
 
         try {
@@ -39,20 +29,20 @@ public class deletekursController {
             JOptionPane.showMessageDialog(null, e);
 
         }
-    }
+    } */
 
 
 
 
 
-    Connection conn = null;
+   /* Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
 
     @FXML
     private void goKurspage() throws IOException {
         application.showKurseScene();
-    }
+    }*/
 
    /* @FXML
     public void deleteOk(){
