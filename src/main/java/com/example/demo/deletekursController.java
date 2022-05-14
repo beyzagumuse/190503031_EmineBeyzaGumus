@@ -25,6 +25,8 @@ public class deletekursController {
     @FXML
     private Button ok_btn;
 
+
+
     @FXML
     private void deletebyId(){
         database.deleteDataKurse(Integer.parseInt(id_deletekurs.getText()));
