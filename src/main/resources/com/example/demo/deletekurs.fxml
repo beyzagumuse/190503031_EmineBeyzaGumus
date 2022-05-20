@@ -33,7 +33,7 @@
       </Label>
       <Label layoutX="44.0" layoutY="83.0" prefHeight="29.0" prefWidth="72.0" text="Kurs ID " />
       <TextField fx:id="id_deletekurs" layoutX="93.0" layoutY="85.0" />
-      <Button fx:id="ok_btn" layoutX="100.0" layoutY="145.0" mnemonicParsing="false" onAction="#deletebyId" text="OK" />
+      <Button fx:id="ok_btn" layoutX="100.0" layoutY="145.0" mnemonicParsing="false" onAction="#deleteKursebyId" text="OK" />
       <Button layoutX="142.0" layoutY="145.0" mnemonicParsing="false" onAction="#goKurspage" text="Cancel" />
    </children>
 </AnchorPane>

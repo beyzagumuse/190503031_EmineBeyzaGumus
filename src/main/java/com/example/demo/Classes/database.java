@@ -3,10 +3,7 @@ package com.example.demo.Classes;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,6 +11,11 @@ import static java.sql.DriverManager.getConnection;
 
 
 public class database {
+
+
+    public static Statement stmt;
+    public  static PreparedStatement pstmt;
+    public  static ResultSet rs;
 
     public static Connection conn = null;
     public static Connection connect() {
@@ -106,7 +108,7 @@ public class database {
         return kurselist;
     }
 
-    public static void deleteDataKurse(int id){
+    /*public static void deleteDataKurse(int id){
         Connection conn = connect();
 
         try{
@@ -118,6 +120,19 @@ public class database {
 
         }
 
+    }*/
+
+
+    public static void deleteKurse(int kurse_id) {
+        String query = "DELETE FROM kurse WHERE kurse_id = ?";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setInt(1, kurse_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
