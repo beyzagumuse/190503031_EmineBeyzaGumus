@@ -25,6 +25,13 @@ public class  Kurse extends Person{
         end = kurse_end;
     }
 
+    public Kurse(int kurse_id,String kurse_name,int kurse_preis){
+        super();
+        kursenummer = kurse_id;
+        kursename = kurse_name;
+        preis = kurse_preis;
+    }
+
     public Kurse(){}
 
     public void setPreis(int preis) {
@@ -92,36 +99,8 @@ public class  Kurse extends Person{
         return trainer;
     }
 
-    public void addKurse(/*kursename,kursenummer,tage,preis,anzahlderSportler*/){
-        //create new Kurse() with taken informations
-
-    }
-
-    public void deleteKurse(String kursenummer){
-        // delete kurse with kursenummer
-    }
-
-    public void searchKurse(String kursenummer){
-        //look in database with kursenummer
-    }
-
-    public void editKurse(String kursenummer /*informations for edit*/){
-      //change kurse details with informations
-    }
 
 
-    /*@Override
-    public String getName(){
-        return "Personal: " + name;
-    }
-
-    @Override
-    public String toString(){
-        String s = "PersonalId: " + id + "\nName: " + name + "\nNachname: " + nachname;
-        return super.toString();
-    }
-
-     */
 }
 
 
