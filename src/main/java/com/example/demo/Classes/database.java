@@ -108,19 +108,6 @@ public class database {
         return kurselist;
     }
 
-    /*public static void deleteDataKurse(int id){
-        Connection conn = connect();
-
-        try{
-
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("DELETE FROM kurse WHERE kurse_id = id");
-
-        }catch(Exception e){
-
-        }
-
-    }*/
 
 
     public static void deleteKurse(int kurse_id) {
@@ -148,23 +135,6 @@ public class database {
     }
 
 
-    /*public static void deleteDataKurse() throws SQLException {
-        //conn = database.connect();
-        Statement stm = conn.createStatement();
-        ResultSet rs = stm.executeQuery("DELETE FROM kurse WHERE kurse_id = *");
-
-        //String sql = "DELETE FROM kurse WHERE kurse_id = ?";
-        try{
-            //pst = conn.prepareStatement(sql);
-            //pst.setString(1, txt_id.getText());
-            //pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Delete");
-            //UpdateTable();
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }*/
 
 
 
