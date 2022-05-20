@@ -31,7 +31,7 @@ public class kursController implements Initializable {
     private TableColumn<Kurse, Integer> kurseend;
 
     @FXML
-    private TableColumn<Kurse,String> kurseid;
+    private TableColumn<Kurse,Integer> kurseid;
 
     @FXML
     private TableColumn<Kurse, String> kursename;

@@ -1,7 +1,7 @@
 package com.example.demo.Classes;
 
 public class  Kurse extends Person{
-    private String kursenummer;
+    private int kursenummer;
     private int preis;
     private String tage; //arraylist or array
     private String kursename;
@@ -13,7 +13,7 @@ public class  Kurse extends Person{
 
     private String trainer;
 
-    public Kurse(String kurse_id, String kurse_name, int kurse_preis, String kurse_tage, String trainer, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
+    public Kurse(int kurse_id, String kurse_name, int kurse_preis, String kurse_tage, String trainer, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
         super();
         kursenummer = kurse_id;
         kursename = kurse_name;
@@ -39,7 +39,7 @@ public class  Kurse extends Person{
         this.kursename = kursename;
     }
 
-    public void setKursenummer(String kursenummer) {
+    public void setKursenummer(int kursenummer) {
         this.kursenummer = kursenummer;
     }
 
@@ -59,7 +59,7 @@ public class  Kurse extends Person{
         return kursename;
     }
 
-    public String getKursenummer() {
+    public int getKursenummer() {
         return kursenummer;
     }
 

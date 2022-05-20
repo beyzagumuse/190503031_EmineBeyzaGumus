@@ -42,10 +42,19 @@ public class database {
     }
 
 
-    /*public static Connection connectt() throws SQLException {
-        String url = "jdbc:sqlite:D:\\demo\\sqlite3\\database.db";
-        Connection con = DriverManager.getConnection(url);
-        return con;
+
+    /*public static void addKurse(int kurse_id, String benutzername, String passwort) {
+        String query = "INSERT INTO Person(PersonID,Benutzername,Passwort) VALUES(?,?,?)";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, personID);
+            pstmt.setString(2, benutzername);
+            pstmt.setString(3, passwort);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }*/
 
     public static Boolean containBenutzer(String userName, String pass){
@@ -99,7 +108,7 @@ public class database {
 
             while(rs.next()){
                 //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
-                kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
+                kurselist.add(new Kurse(rs.getInt("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
             }
         } catch(Exception e){
 
