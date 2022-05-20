@@ -43,19 +43,19 @@ public class database {
 
 
 
-    /*public static void addKurse(int kurse_id, String benutzername, String passwort) {
-        String query = "INSERT INTO Person(PersonID,Benutzername,Passwort) VALUES(?,?,?)";
+    public static void addKurse(int kurse_id, String kurse_name, int kurse_preis) {
+        String query = "INSERT INTO kurse(kurse_id,kurse_name,kurse_preis) VALUES(?,?,?)";
 
         try {
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, personID);
-            pstmt.setString(2, benutzername);
-            pstmt.setString(3, passwort);
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setInt(1, kurse_id);
+            pstmt.setString(2, kurse_name);
+            pstmt.setInt(3, kurse_preis);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    }*/
+    }
 
     public static Boolean containBenutzer(String userName, String pass){
         //this.connect();
