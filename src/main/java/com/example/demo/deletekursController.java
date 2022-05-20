@@ -28,7 +28,7 @@ public class deletekursController {
 
    @FXML
     private void deleteKursebyId() throws IOException {
-        //database.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
+        database.printKurseData(Integer.parseInt(id_deletekurs.getText()));
         database.deleteKurse(Integer.parseInt(id_deletekurs.getText()));
         System.out.println("Patient wurde vom Datenbank geloescht.");
         goKurspage();

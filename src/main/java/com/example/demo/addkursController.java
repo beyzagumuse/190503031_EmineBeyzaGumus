@@ -56,7 +56,7 @@ public class addkursController {
     @FXML
     private void addKurse() throws IOException {
         database.addKurse(Integer.parseInt(addKursId.getText()), addKursName.getText(), Integer.parseInt(addKursPreis.getText()));
-        //DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
+        database.printKurseData(Integer.parseInt(addKursId.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
         goKurspage();

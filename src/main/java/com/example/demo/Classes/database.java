@@ -57,7 +57,23 @@ public class database {
         }
     }
 
-    public static Boolean containBenutzer(String userName, String pass){
+    public static void printKurseData(int kurse_id) {
+        String query = "SELECT * FROM kurse WHERE kurse_id = ?";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setInt(1, kurse_id);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                System.out.println("kurse_id:" + rs.getInt("kurse_id") + "|" + "Kursename:" + rs.getString("kurse_name") + "|" + "Preis:" + rs.getInt("kurse_preis"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+        public static Boolean containBenutzer(String userName, String pass){
         //this.connect();
         try {
             Statement stmt = conn.createStatement();
@@ -116,6 +132,8 @@ public class database {
         //System.out.println(kurselist);
         return kurselist;
     }
+
+
 
 
 
