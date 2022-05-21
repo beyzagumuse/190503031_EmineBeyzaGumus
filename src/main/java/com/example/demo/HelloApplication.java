@@ -57,6 +57,14 @@ public class HelloApplication extends Application {
 
     }
 
+    public static void showSignInScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("signin.fxml"));
+        Scene scene = new Scene(loader.load());
+        primaryStage.setScene(scene);
+
+    }
+
 
     public static void showKurseScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();

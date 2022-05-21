@@ -90,6 +90,11 @@ public class homepageController {
         application.showPersonChoiceScene();
     }
 
+    @FXML
+    private void goSignIn() throws IOException {
+        application.showSignInScene();
+    }
+
 
 
 }

@@ -40,5 +40,6 @@
       </MenuBar>
       <ComboBox fx:id="person_combobox" layoutX="50.0" layoutY="336.0" prefWidth="150.0" promptText="Personal, Trainer, Sportler" visible="false" />
       <Button fx:id="person_btn" layoutX="398.0" layoutY="187.0" mnemonicParsing="false" onAction="#goPersonChoice" prefHeight="99.0" prefWidth="127.0" text="Person" />
+      <Button layoutX="284.0" layoutY="324.0" mnemonicParsing="false" onAction="#goSignIn" text="Sign In" />
    </children>
 </AnchorPane>
