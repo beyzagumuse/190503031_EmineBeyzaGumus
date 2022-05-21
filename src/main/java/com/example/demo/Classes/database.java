@@ -195,6 +195,18 @@ public class database {
 
 
 
+    public static void deleteAdmin(String benutzename) {
+        String query = "DELETE FROM benutzer WHERE benutzename = ?";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setString(1, benutzename);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 
 

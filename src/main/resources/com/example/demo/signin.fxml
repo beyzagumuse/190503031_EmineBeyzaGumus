@@ -12,5 +12,6 @@
       <TextField fx:id="benutzername_txt" layoutX="192.0" layoutY="79.0" />
       <TextField fx:id="password_txt" layoutX="193.0" layoutY="147.0" />
       <Button fx:id="signinbtn" layoutX="343.0" layoutY="249.0" mnemonicParsing="false" onAction="#addAdmin" prefHeight="43.0" prefWidth="96.0" text="Sign In" />
+      <Button layoutX="477.0" layoutY="258.0" mnemonicParsing="false" onAction="#deleteBenutzer" text="Delete" />
    </children>
 </AnchorPane>

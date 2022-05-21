@@ -28,4 +28,13 @@ public class signinController {
         System.out.println("Person wurde zum Datenbank addiert.");
 
     }
+
+
+    @FXML
+    private void deleteBenutzer() throws IOException {
+        database.printBenutzerData((benutzername_txt.getText()));
+        database.deleteAdmin((benutzername_txt.getText()));
+        System.out.println("Patient wurde vom Datenbank geloescht.");
+
+    }
 }
