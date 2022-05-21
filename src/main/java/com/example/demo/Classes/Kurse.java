@@ -3,7 +3,7 @@ package com.example.demo.Classes;
 public class  Kurse extends Person{
     private int kursenummer;
     private int preis;
-    private String tage; //arraylist or array
+    private String tage;
     private String kursename;
     private int anzahlSportler;
 

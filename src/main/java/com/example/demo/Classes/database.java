@@ -163,6 +163,39 @@ public class database {
 
 
 
+    public static void addAdmin(String benutzename, String password) {
+        String query = "INSERT INTO benutzer(benutzename,password) VALUES(?,?)";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setString(1, benutzename);
+            pstmt.setString(2, password);
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public static void printBenutzerData(String benutzename) {
+        String query = "SELECT * FROM benutzer WHERE benutzename = ?";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setString(1, benutzename);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                System.out.println("benutzename:" + rs.getString("benutzename") + "|" + "password:" + rs.getString("password") );
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+
+
 
 
 
