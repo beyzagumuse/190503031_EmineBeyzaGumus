@@ -43,14 +43,19 @@ public class database {
 
 
 
-    public static void addKurse(int kurse_id, String kurse_name, int kurse_preis) {
-        String query = "INSERT INTO kurse(kurse_id,kurse_name,kurse_preis) VALUES(?,?,?)";
+    public static void addKurse(int kurse_id, String kurse_name, int kurse_preis,String kurse_tage, String trainer_id,int kurse_anzahlSportler, int beginn,int end) {
+        String query = "INSERT INTO kurse(kurse_id,kurse_name,kurse_preis,kurse_tage,trainer_id,kurse_anzahlSportler,beginn,end) VALUES(?,?,?,?,?,?,?,?)";
 
         try {
             pstmt = database.conn.prepareStatement(query);
             pstmt.setInt(1, kurse_id);
             pstmt.setString(2, kurse_name);
             pstmt.setInt(3, kurse_preis);
+            pstmt.setString(4,kurse_tage);
+            pstmt.setString(5,trainer_id);
+            pstmt.setInt(6,kurse_anzahlSportler);
+            pstmt.setInt(7,beginn);
+            pstmt.setInt(8,end);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

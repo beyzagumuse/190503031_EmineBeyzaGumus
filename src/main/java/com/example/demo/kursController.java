@@ -1,13 +1,11 @@
 package com.example.demo;
 
 import com.example.demo.Classes.Kurse;
-import com.example.demo.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -106,7 +104,7 @@ public class kursController {
         this.kursetable.setItems(listKurs);
     }*/
 
-    @FXML
+    /*@FXML
     public void initialize() {
 
         /*try {
@@ -118,7 +116,7 @@ public class kursController {
             }
         } catch (SQLException e) {
             Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
-        }*/
+        }*//*
         this.kurseid.setCellValueFactory(new PropertyValueFactory<>("kursenummer"));
         this.kursename.setCellValueFactory(new PropertyValueFactory<>("kursename"));
         this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
@@ -132,7 +130,7 @@ public class kursController {
         listKurs = database.getDatakurse();
         System.out.println(listKurs);
         this.kursetable.setItems(listKurs);
-    }
+    }*/
 
 
 }

@@ -3,8 +3,6 @@ package com.example.demo;
 import com.example.demo.Classes.Kurse;
 import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -32,10 +30,16 @@ public class addkursController {
     private TextField addKursPreis;
 
     @FXML
-    private ComboBox<?> addKursTrainer;
+    private TextField add_tage;
 
     @FXML
-    private DatePicker addTag;
+    private TextField add_trainer;
+
+    //@FXML
+    //private ComboBox<?> addKursTrainer;
+
+    //@FXML
+    //private DatePicker addTag;
     private HelloApplication application;
 
     @FXML
@@ -55,7 +59,7 @@ public class addkursController {
 
     @FXML
     private void addKurse() throws IOException {
-        database.addKurse(Integer.parseInt(addKursId.getText()), addKursName.getText(), Integer.parseInt(addKursPreis.getText()));
+        database.addKurse(Integer.parseInt(addKursId.getText()), addKursName.getText(), Integer.parseInt(addKursPreis.getText()),add_tage.getText(),add_trainer.getText(),Integer.parseInt(addAnzahlderSportler.getText()),Integer.parseInt(addBeginn.getText()),Integer.parseInt(addEnd.getText()));
         database.printKurseData(Integer.parseInt(addKursId.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
