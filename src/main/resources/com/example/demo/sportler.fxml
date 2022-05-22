@@ -19,8 +19,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.sportlerController">
    <children>
       <MenuBar prefHeight="26.0" prefWidth="794.0">
          <menus>
@@ -50,72 +49,13 @@
                         <TableColumn prefWidth="174.39998782873153" text="SPORTLER" />
                      </columns>
                   </TableView>
-                  <Button layoutX="18.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddKurs" prefHeight="26.0" text="Add" />
-                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditKurs" prefHeight="26.0" prefWidth="50.0" text="Edit" />
-                  <Button layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#godeleteKurs" prefHeight="26.0" text="Delete" />
+                  <Button layoutX="18.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddSportler" prefHeight="26.0" text="Add" />
+                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditSportler" prefHeight="26.0" prefWidth="50.0" text="Edit" />
+                  <Button layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#godeleteSportler" prefHeight="26.0" text="Delete" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="351.0">
                <children>
-                  <AnchorPane fx:id="addSportlerpane" layoutX="159.0" layoutY="24.0" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <GridPane layoutX="64.0" layoutY="63.0" prefHeight="256.0" prefWidth="570.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="63.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="306.0" text="  Sportler ID:" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Sportler Name:" GridPane.rowIndex="1" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="310.0" text=" Sportler Tel No:" GridPane.rowIndex="2" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Sportler Adresse:" GridPane.rowIndex="3" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="316.0" text=" E-Mail:" GridPane.rowIndex="4" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Muskelverhältnis:" GridPane.rowIndex="5" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Fettrate:" GridPane.rowIndex="6" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="309.0" text=" Krankenheiten:" GridPane.rowIndex="7" />
-                              <TextField GridPane.columnIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                           </children>
-                        </GridPane>
-                        <Button layoutX="234.0" layoutY="331.0" mnemonicParsing="false" text="OK" />
-                        <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" text="CANCEL" />
-                        <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="ADD NEW SPORTLER">
-                           <font>
-                              <Font name="Bodoni MT Condensed" size="29.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow>
-                                       <color>
-                                          <Color opacity="0.5805470943450928" />
-                                       </color>
-                                    </Shadow>
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Label>
-                     </children>
-                  </AnchorPane>
                   <AnchorPane layoutX="140.0" prefHeight="370.4" prefWidth="616.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane fx:id="editsportlerpane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false">
@@ -202,6 +142,65 @@
                               <TextField layoutX="264.0" layoutY="133.0" />
                               <Button layoutX="222.0" layoutY="200.0" mnemonicParsing="false" text="OK" />
                               <Button layoutX="282.0" layoutY="200.0" mnemonicParsing="false" text="Cancel" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="addSportlerpane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <GridPane layoutX="64.0" layoutY="63.0" prefHeight="256.0" prefWidth="570.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="63.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="306.0" text="  Sportler ID:" />
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Sportler Name:" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="310.0" text=" Sportler Tel No:" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Sportler Adresse:" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="316.0" text=" E-Mail:" GridPane.rowIndex="4" />
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Muskelverhältnis:" GridPane.rowIndex="5" />
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Fettrate:" GridPane.rowIndex="6" />
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="309.0" text=" Krankenheiten:" GridPane.rowIndex="7" />
+                                    <TextField GridPane.columnIndex="1" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                 </children>
+                              </GridPane>
+                              <Button layoutX="234.0" layoutY="331.0" mnemonicParsing="false" text="OK" />
+                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" text="CANCEL" />
+                              <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="ADD NEW SPORTLER">
+                                 <font>
+                                    <Font name="Bodoni MT Condensed" size="29.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow>
+                                             <color>
+                                                <Color opacity="0.5805470943450928" />
+                                             </color>
+                                          </Shadow>
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </Label>
                            </children>
                         </AnchorPane>
                      </children>

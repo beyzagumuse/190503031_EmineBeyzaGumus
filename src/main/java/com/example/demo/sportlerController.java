@@ -3,8 +3,6 @@ package com.example.demo;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.event.ActionEvent;
-
 public class sportlerController {
 
     @FXML
@@ -17,19 +15,25 @@ public class sportlerController {
     private AnchorPane editsportlerpane;
 
     @FXML
-    void goaddSportler(ActionEvent event) {
-
+    void goaddSportler() {
+        addSportlerpane.setVisible(true);
+        deleteSportlerpane.setVisible(false);
+        editsportlerpane.setVisible(false);
     }
 
     @FXML
-    void godeleteSportler(ActionEvent event) {
-
+    void godeleteSportler() {
+        addSportlerpane.setVisible(false);
+        deleteSportlerpane.setVisible(true);
+        editsportlerpane.setVisible(false);
     }
 
     @FXML
-    void goeditSportler(ActionEvent event) {
-
+    void goeditSportler() {
+        addSportlerpane.setVisible(false);
+        deleteSportlerpane.setVisible(false);
+        editsportlerpane.setVisible(true);
     }
 
 }
-}
+
