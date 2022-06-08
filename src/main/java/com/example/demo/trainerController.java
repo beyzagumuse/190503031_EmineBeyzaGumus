@@ -40,6 +40,39 @@ public class trainerController {
     @FXML
     private Button finishaddtrainer;
 
+
+
+    @FXML
+    void goaddTrainer() {
+        addtrainerpane.setVisible(true);
+        deletetrainerpane.setVisible(false);
+        edittrainerpane.setVisible(false);
+        detailspane.setVisible(false);
+    }
+    @FXML
+    void godeleteTrainer() {
+        addtrainerpane.setVisible(false);
+        deletetrainerpane.setVisible(true);
+        edittrainerpane.setVisible(false);
+        detailspane.setVisible(false);
+    }
+
+    @FXML
+    void goeditTrainer() {
+        addtrainerpane.setVisible(false);
+        deletetrainerpane.setVisible(false);
+        edittrainerpane.setVisible(true);
+        detailspane.setVisible(false);
+    }
+
+    @FXML
+    void godetailsTrainer() {
+        addtrainerpane.setVisible(false);
+        deletetrainerpane.setVisible(false);
+        edittrainerpane.setVisible(false);
+        detailspane.setVisible(true);
+    }
+
     @FXML
     void closedetails(){
         closePane(detailspane);
