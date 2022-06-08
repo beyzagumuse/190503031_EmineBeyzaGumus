@@ -225,6 +225,27 @@ public class database {
     }
 
 
+    public static void addSportler(int personid, String personname, String telno ,String adresse, String email,int muskel, int fettrate,String krank) {
+        String query = "INSERT INTO person(person_id,person_name,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?)";
+        String query2 = "INSERT INTO sportler(sportler_muskelv,sportler_fettrate,sportler_krankheit) VALUES (?,?,?)";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setInt(1, personid);
+            pstmt.setString(2, personname);
+            pstmt.setString(3, telno);
+            pstmt.setString(4,adresse);
+            pstmt.setString(5,email);
+            pstmt.setInt(6,muskel);
+            pstmt.setInt(7,fettrate);
+            pstmt.setString(8,krank);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 
 
 

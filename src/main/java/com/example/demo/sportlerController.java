@@ -1,9 +1,12 @@
 package com.example.demo;
 
+import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class sportlerController {
 
@@ -59,15 +62,14 @@ public class sportlerController {
         detailspane.setVisible(false);
     }
 
-    /*@FXML
+    @FXML
     private void addSportler() throws IOException {
-        database.addKurse(Integer.parseInt(addsportlerid.getText()), addsportlername.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()),addsportlerkrank.getText());
-        database.printKurseData(Integer.parseInt(addSportler.getText()));
+        database.addSportler(Integer.parseInt(addsportlerid.getText()), addsportlername.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()),addsportlerkrank.getText());
+        database.printKurseData(Integer.parseInt(addsportlerid.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
-        goKurspage();
 
-    }*/
+    }
 
     @FXML
     void godeleteSportler() {
