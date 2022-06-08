@@ -55,6 +55,7 @@ public class editkurs {
         database.editKurseId(Integer.parseInt(editKursID.getText()));
         System.out.println("Kurs Id'si değiştirildi.");
         goKurspage();
+        //
     }
 
 }
