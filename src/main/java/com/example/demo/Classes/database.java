@@ -15,6 +15,8 @@ public class database {
 
     public static Statement stmt;
     public  static PreparedStatement pstmt;
+
+    public static PreparedStatement pstmt2;
     public  static ResultSet rs;
 
     public static Connection conn = null;
@@ -231,14 +233,15 @@ public class database {
 
         try {
             pstmt = database.conn.prepareStatement(query);
+            pstmt2 = database.conn.prepareStatement(query2);
             pstmt.setInt(1, personid);
             pstmt.setString(2, personname);
             pstmt.setString(3, telno);
             pstmt.setString(4,adresse);
             pstmt.setString(5,email);
-            pstmt.setInt(6,muskel);
-            pstmt.setInt(7,fettrate);
-            pstmt.setString(8,krank);
+            pstmt2.setInt(6,muskel);
+            pstmt2.setInt(7,fettrate);
+            pstmt2.setString(8,krank);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
