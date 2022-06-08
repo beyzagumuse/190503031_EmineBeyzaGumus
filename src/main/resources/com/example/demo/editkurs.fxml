@@ -68,21 +68,23 @@
                         <Label text="Preis" GridPane.rowIndex="2" />
                         <Label text="Tage" GridPane.rowIndex="3" />
                         <Label text="Kurse Trainer" GridPane.rowIndex="4" />
-                        <TextField fx:id="editKursID" GridPane.columnIndex="1" />
+                        <TextField fx:id="editKursID" onAction="#editKurseId" GridPane.columnIndex="1" />
                         <TextField fx:id="editname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="editpreis" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label prefHeight="18.0" prefWidth="54.0" text="Kurs ID" />
-                        <DatePicker fx:id="edittag" prefHeight="26.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <ComboBox fx:id="edittrainer" prefHeight="26.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label text="Anzahl der Sportler" GridPane.rowIndex="5" />
                         <TextField fx:id="editanzahl" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label text="Beginn (Uhr)" GridPane.rowIndex="6" />
                         <TextField fx:id="editbeginn" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <TextField fx:id="editend" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                         <Label text="End (Uhr)" GridPane.rowIndex="7" />
+                        <TextField fx:id="edittage" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="edit_trainer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <Line endX="299.0" endY="1.20001220703125" layoutX="101.0" layoutY="470.0" startX="-100.0" />
+                  <ComboBox fx:id="edittrainer" layoutX="91.0" layoutY="428.0" prefHeight="26.0" prefWidth="289.0" />
+                  <DatePicker fx:id="edittag" layoutX="98.0" layoutY="417.0" prefHeight="26.0" prefWidth="289.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="48.0" prefWidth="400.0">

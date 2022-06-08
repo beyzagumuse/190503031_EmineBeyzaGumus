@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -12,6 +13,12 @@ public class editkurs {
     private HelloApplication application;
     @FXML
     private TextField editKursID;
+
+    @FXML
+    private TextField edit_trainer;
+
+    @FXML
+    private TextField edittage;
 
     @FXML
     private TextField editanzahl;
@@ -39,4 +46,15 @@ public class editkurs {
     private void goKurspage() throws IOException {
         application.showKurseScene();
     }
+
+
+
+    @FXML
+    private void editKurseId() throws IOException {
+        database.printKurseData(Integer.parseInt(editKursID.getText()));
+        database.editKurseId(Integer.parseInt(editKursID.getText()));
+        System.out.println("Kurs Id'si değiştirildi.");
+        goKurspage();
+    }
+
 }

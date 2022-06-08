@@ -154,6 +154,18 @@ public class database {
         }
     }
 
+    public static void editKurseId(int kurse_id) {
+        String query = "UPDATE kurse SET kurse_id = '"+kurse_id+"'";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            //pstmt.setInt(1, kurse_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     public static void createKurse(Kurse s) {
         try {
