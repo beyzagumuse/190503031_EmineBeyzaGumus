@@ -249,6 +249,24 @@ public class database {
     }
 
 
+    public static void addPerson(int person_id, String person_name, String person_nachname, String person_telno, String person_adresse, String person_mail) {
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?,?)";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setInt(1, person_id);
+            pstmt.setString(2, person_name);
+            pstmt.setString(3, person_nachname);
+            pstmt.setString(4, person_telno);
+            pstmt.setString(5,person_adresse);
+            pstmt.setString(6,person_mail);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 
 
 

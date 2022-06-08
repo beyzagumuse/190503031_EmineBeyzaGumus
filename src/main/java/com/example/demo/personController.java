@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class personController {
@@ -84,8 +83,8 @@ public class personController {
 
     @FXML
     private void addPerson() throws IOException {
-        database.addSportler(Integer.parseInt(addid.getText()), addname.getText(),addnachname.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()),addsportlerkrank.getText());
-        database.printKurseData(Integer.parseInt(addsportlerid.getText()));
+        database.addPerson(Integer.parseInt(addid.getText()), addname.getText(),addnachname.getText(),addtel.getText(),addadresse.getText(),addmail.getText());
+        database.printKurseData(Integer.parseInt(addid.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
 

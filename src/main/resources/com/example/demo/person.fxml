@@ -101,10 +101,10 @@
                         <TableColumn prefWidth="174.39998782873153" text="PERSON" />
                      </columns>
                   </TableView>
-                  <Button layoutX="18.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddTrainer" prefHeight="26.0" text="Add" />
-                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditTrainer" prefHeight="26.0" prefWidth="50.0" text="Edit" />
-                  <Button layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#godeleteTrainer" prefHeight="26.0" text="Delete" />
-                  <Button layoutX="55.0" layoutY="282.0" mnemonicParsing="false" onAction="#godetailsTrainer" text="Details" />
+                  <Button layoutX="18.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddPerson" prefHeight="26.0" text="Add" />
+                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditPerson" prefHeight="26.0" prefWidth="50.0" text="Edit" />
+                  <Button layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#godeletePerson" prefHeight="26.0" text="Delete" />
+                  <Button layoutX="55.0" layoutY="282.0" mnemonicParsing="false" onAction="#godetailsPerson" text="Details" />
                   <Line endX="65.19996643066406" layoutX="106.0" layoutY="317.0" startX="-106.79999542236328" stroke="#121212" />
                </children>
             </AnchorPane>
@@ -265,7 +265,7 @@
                               <TextField fx:id="addnachname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
-                        <Button fx:id="finishaddtrainer" layoutX="234.0" layoutY="331.0" mnemonicParsing="false" text="OK" />
+                        <Button fx:id="finishaddtrainer" layoutX="234.0" layoutY="331.0" mnemonicParsing="false" onAction="#addPerson" text="OK" />
                         <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" text="CANCEL" />
                         <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="ADD NEW PERSON">
                            <font>

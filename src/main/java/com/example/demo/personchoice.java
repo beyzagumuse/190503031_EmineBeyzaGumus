@@ -24,6 +24,12 @@ public class personchoice {
     }
 
     @FXML
+    private void goPerson() throws IOException {
+        application.showPersonScene();
+    }
+
+
+    @FXML
     private void goDetails() throws IOException {
         application.showDetailsScene();
     }

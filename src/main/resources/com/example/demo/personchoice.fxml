@@ -152,6 +152,7 @@
                         <Button layoutX="65.0" layoutY="122.0" mnemonicParsing="false" onAction="#goPersonal" prefHeight="125.0" prefWidth="134.0" text="Personal" />
                         <Button layoutX="240.0" layoutY="122.0" mnemonicParsing="false" onAction="#goSportler" prefHeight="125.0" prefWidth="134.0" text="Sportler" />
                         <Button layoutX="413.0" layoutY="122.0" mnemonicParsing="false" onAction="#goTrainer" prefHeight="125.0" prefWidth="134.0" text="Trainer" />
+                        <Button layoutX="172.0" mnemonicParsing="false" onAction="#goPerson" prefHeight="98.0" prefWidth="105.0" text="Person" />
                      </children>
                   </AnchorPane>
                </items>
