@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.Classes.database;
+import com.example.demo.Classes.Person;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -71,7 +71,7 @@ public class personController {
     private Button home_btn;
 
 
-
+    private Person person;
 
     @FXML
     void goaddPerson() {
@@ -83,13 +83,29 @@ public class personController {
 
     @FXML
     private void addPerson() throws IOException {
-        database.addPerson(Integer.parseInt(addid.getText()), addname.getText(),addnachname.getText(),addtel.getText(),addadresse.getText(),addmail.getText());
-        database.printKurseData(Integer.parseInt(addid.getText()));
+        dbControl.addPerson(Integer.parseInt(addid.getText()), addname.getText(),addnachname.getText(),addtel.getText(),addadresse.getText(),addmail.getText());
+        dbControl.printKurseData(Integer.parseInt(addid.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
 
     }
 
+
+
+
+    //@FXML
+
+    /*private void updatePerson() throws IOException{
+        String id = editid.getText();
+
+
+          person.setId(id);
+
+
+          dbControl.updatePerson(person);
+
+    }*/
+    /**/
     @FXML
     void godeletePerson() {
         addpersonpane.setVisible(false);
@@ -120,8 +136,29 @@ public class personController {
     }
 
     @FXML
+    void closeedit(){
+        closePane(editpersonpane);
+    }
+
+    @FXML
+    void closeadd(){
+        closePane(addpersonpane);
+    }
+
+    @FXML
+    void closedelete(){
+        closePane(deletepersonpane);
+    }
+
+
+    @FXML
     void closePane(AnchorPane pane) {
         pane.setVisible(false);
+    }
+
+    @FXML
+    private void returnPersonchoice() throws IOException{
+        application.showPersonChoiceScene();
     }
 
     private HelloApplication application;

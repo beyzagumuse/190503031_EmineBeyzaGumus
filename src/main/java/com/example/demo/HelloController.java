@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.Classes.database;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -60,7 +59,7 @@ public class HelloController {
     @FXML
     protected void Login(ActionEvent event) throws Exception{
          try {
-             if(database.containBenutzer(txt_id.getText(),txt_password.getText())){
+             if(dbControl.containBenutzer(txt_id.getText(),txt_password.getText())){
                  root = FXMLLoader.load(homepageController.class.getResource("homepage.fxml"));
                  stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                  scene = new Scene(root);

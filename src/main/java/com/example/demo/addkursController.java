@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.Classes.Kurse;
-import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -59,8 +58,8 @@ public class addkursController {
 
     @FXML
     private void addKurse() throws IOException {
-        database.addKurse(Integer.parseInt(addKursId.getText()), addKursName.getText(), Integer.parseInt(addKursPreis.getText()),add_tage.getText(),add_trainer.getText(),Integer.parseInt(addAnzahlderSportler.getText()),Integer.parseInt(addBeginn.getText()),Integer.parseInt(addEnd.getText()));
-        database.printKurseData(Integer.parseInt(addKursId.getText()));
+        dbControl.addKurse(Integer.parseInt(addKursId.getText()), addKursName.getText(), Integer.parseInt(addKursPreis.getText()),add_tage.getText(),add_trainer.getText(),Integer.parseInt(addAnzahlderSportler.getText()),Integer.parseInt(addBeginn.getText()),Integer.parseInt(addEnd.getText()));
+        dbControl.printKurseData(Integer.parseInt(addKursId.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
         goKurspage();

@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -22,8 +21,8 @@ public class signinController {
 
     @FXML
     private void addAdmin() throws IOException {
-        database.addAdmin((benutzername_txt.getText()), password_txt.getText());
-        database.printBenutzerData((benutzername_txt.getText()));
+        dbControl.addAdmin((benutzername_txt.getText()), password_txt.getText());
+        dbControl.printBenutzerData((benutzername_txt.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
 
@@ -32,8 +31,8 @@ public class signinController {
 
     @FXML
     private void deleteBenutzer() throws IOException {
-        database.printBenutzerData((benutzername_txt.getText()));
-        database.deleteAdmin((benutzername_txt.getText()));
+        dbControl.printBenutzerData((benutzername_txt.getText()));
+        dbControl.deleteAdmin((benutzername_txt.getText()));
         System.out.println("Patient wurde vom Datenbank geloescht.");
 
     }

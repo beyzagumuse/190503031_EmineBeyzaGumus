@@ -64,8 +64,8 @@ public class sportlerController {
 
     @FXML
     private void addSportler() throws IOException {
-        database.addSportler(Integer.parseInt(addsportlerid.getText()), addsportlername.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()),addsportlerkrank.getText());
-        database.printKurseData(Integer.parseInt(addsportlerid.getText()));
+        dbControl.addSportler(Integer.parseInt(addsportlerid.getText()), addsportlername.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()),addsportlerkrank.getText());
+        dbControl.printKurseData(Integer.parseInt(addsportlerid.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
 

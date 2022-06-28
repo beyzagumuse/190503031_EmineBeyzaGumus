@@ -1,50 +1,33 @@
-package com.example.demo.Classes;
+package com.example.demo;
+
+import com.example.demo.Classes.Kurse;
+import com.example.demo.Classes.Person;
+import com.example.demo.Classes.database;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import static java.sql.DriverManager.getConnection;
+import static com.example.demo.Classes.database.connect;
 
+public class dbControl {
 
-public class database {
-
-
+    database db = new database();
     public static Statement stmt;
     public  static PreparedStatement pstmt;
 
     public static PreparedStatement pstmt2;
     public  static ResultSet rs;
 
-    public static Connection conn = null;
-    public static Connection connect() {
+    public static Connection conn = database.connect();
 
-
-        try {
-            // db parameters
-            String url = "jdbc:sqlite:D:\\demo\\sqlite3\\database.db";
-            // create a connection to the database
-            conn = getConnection(url);
-
-            System.out.println("Connection to SQLite has been established.");
-            /*Statement stmt = conn.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT kurse_name,kurse_preis FROM kurse");
-            if (res.next()) {
-                System.out.println("username: " + res.getString("kurse_name") + " Preis: " + res.getString("kurse_preis"));
-            }*/
-
-            return conn;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-
-    /*
     public static void addKurse(int kurse_id, String kurse_name, int kurse_preis,String kurse_tage, String trainer_id,int kurse_anzahlSportler, int beginn,int end) {
         String query = "INSERT INTO kurse(kurse_id,kurse_name,kurse_preis,kurse_tage,trainer_id,kurse_anzahlSportler,beginn,end) VALUES(?,?,?,?,?,?,?,?)";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
+            pstmt = dbControl.conn.prepareStatement(query);
             pstmt.setInt(1, kurse_id);
             pstmt.setString(2, kurse_name);
             pstmt.setInt(3, kurse_preis);
@@ -63,7 +46,7 @@ public class database {
         String query = "SELECT * FROM kurse WHERE kurse_id = ?";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
+            pstmt = dbControl.conn.prepareStatement(query);
             pstmt.setInt(1, kurse_id);
             rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -75,7 +58,7 @@ public class database {
     }
 
 
-        public static Boolean containBenutzer(String userName, String pass){
+    public static Boolean containBenutzer(String userName, String pass){
         //this.connect();
         try {
             Statement stmt = conn.createStatement();
@@ -114,7 +97,7 @@ public class database {
         return false;
 
     }*/
-    /*
+
     public static ObservableList<Kurse> getDatakurse(){
 
         Connection conn = connect();
@@ -143,7 +126,7 @@ public class database {
         String query = "DELETE FROM kurse WHERE kurse_id = ?";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
+            pstmt = dbControl.conn.prepareStatement(query);
             pstmt.setInt(1, kurse_id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -155,7 +138,7 @@ public class database {
         String query = "UPDATE kurse SET kurse_id = '"+kurse_id+"'";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
+            pstmt = dbControl.conn.prepareStatement(query);
             //pstmt.setInt(1, kurse_id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -170,7 +153,7 @@ public class database {
             st.execute("INSERT INTO kurse (kurse_id,kurse_name) VALUES('" + s.getId()
                     + "','" + s.getName() + "')");
         } catch (SQLException ex) {
-            Logger.getLogger(database.class.getName()).log(Level.SEVERE, null,
+            Logger.getLogger(dbControl.class.getName()).log(Level.SEVERE, null,
                     ex);
         }
     }
@@ -181,7 +164,7 @@ public class database {
         String query = "INSERT INTO benutzer(benutzename,password) VALUES(?,?)";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
+            pstmt = dbControl.conn.prepareStatement(query);
             pstmt.setString(1, benutzename);
             pstmt.setString(2, password);
 
@@ -196,7 +179,7 @@ public class database {
         String query = "SELECT * FROM benutzer WHERE benutzename = ?";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
+            pstmt = dbControl.conn.prepareStatement(query);
             pstmt.setString(1, benutzename);
             rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -213,7 +196,7 @@ public class database {
         String query = "DELETE FROM benutzer WHERE benutzename = ?";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
+            pstmt = dbControl.conn.prepareStatement(query);
             pstmt.setString(1, benutzename);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -227,8 +210,8 @@ public class database {
         String query2 = "INSERT INTO sportler(sportler_muskelv,sportler_fettrate,sportler_krankheit) VALUES (?,?,?)";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
-            pstmt2 = database.conn.prepareStatement(query2);
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt2 = dbControl.conn.prepareStatement(query2);
             pstmt.setInt(1, personid);
             pstmt.setString(2, personname);
             pstmt.setString(3, telno);
@@ -248,7 +231,7 @@ public class database {
         String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?,?)";
 
         try {
-            pstmt = database.conn.prepareStatement(query);
+            pstmt = dbControl.conn.prepareStatement(query);
             pstmt.setInt(1, person_id);
             pstmt.setString(2, person_name);
             pstmt.setString(3, person_nachname);
@@ -261,11 +244,27 @@ public class database {
         }
     }
 
-     */
 
 
+    public static void updatePerson(Person person) {
+
+        String person_id = "UPDATE person SET person_id = '" +person.getId() ;
+        //String telefonnummer = "UPDATE Kunde SET Telefonnummer ='"+ kunde.getTelefonnummer() + "' WHERE TrId=" + kunde.getId();
+        //String vorstrafen = "UPDATE Kunde SET VorstrafenNote = '"+ kunde.getVorstrafeNote() + "' WHERE TrId=" + kunde.getId();
+        //String name = "UPDATE Kunde SET Name= '" + kunde.getName() + "' WHERE TrId=" + kunde.getId();
+        //String nachname = "UPDATE Kunde SET Nachname= '" + kunde.getNachname()+ "' WHERE TrId=" + kunde.getId();
 
 
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute(person_id);
+            //statement.execute(telefonnummer);
+            //statement.execute(vorstrafen);
+            //statement.execute(name);
+            //statement.execute(nachname);
 
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
-
