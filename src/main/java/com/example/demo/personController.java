@@ -1,12 +1,16 @@
 package com.example.demo;
 
-import com.example.demo.Classes.Person;
+import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import javax.swing.*;
 import java.io.IOException;
+
+import static com.example.demo.dbControl.conn;
+import static com.example.demo.dbControl.pstmt;
 
 public class personController {
 
@@ -71,7 +75,7 @@ public class personController {
     private Button home_btn;
 
 
-    private Person person;
+    //private Person person;
 
     @FXML
     void goaddPerson() {
@@ -91,7 +95,46 @@ public class personController {
     }
 
 
+    public void Edit (){
+        try {
+            conn = database.connect();
+            String value1 = editid.getText();
+            String value2 = editname.getText();
+            String value3 = editnachname.getText();
+            String value4 = edittel.getText();
+            String value5 = editadresse.getText();
+            String value6 = editmail.getText();
+            String sql = "update person set person_id= '"+value1+"',person_name= '"+value2+"',person_nachname= '"+
+                    value3+"',person_telno= '"+value4+"',person_adresse= '"+value5+ "',person_mail= '" +value6+ "' where user_id='"+value1+"' ";
+            dbControl.pstmt= conn.prepareStatement(sql);
+            pstmt.execute();
+            JOptionPane.showMessageDialog(null, "Update");
+            //UpdateTable();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
+    }
+
+    /*
+    public void UpdateTable(){
+
+        this.editid.setCellValueFactory
+        editid.setCellValueFactory(new PropertyValueFactory<users,Integer>("id"));
+        col_username.setCellValueFactory(new PropertyValueFactory<users,String>("username"));
+        col_password.setCellValueFactory(new PropertyValueFactory<users,String>("password"));
+        col_email.setCellValueFactory(new PropertyValueFactory<users,String>("email"));
+        col_type.setCellValueFactory(new PropertyValueFactory<users,String>("type"));
+
+        listM = mysqlconnect.getDatausers();
+        table_users.setItems(listM);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        UpdateTable();
+    }
+    */
 
     //@FXML
 
@@ -156,12 +199,12 @@ public class personController {
         pane.setVisible(false);
     }
 
+
+    private HelloApplication application;
     @FXML
     private void returnPersonchoice() throws IOException{
         application.showPersonChoiceScene();
     }
-
-    private HelloApplication application;
 
     @FXML
     private void goHomepage() throws IOException {

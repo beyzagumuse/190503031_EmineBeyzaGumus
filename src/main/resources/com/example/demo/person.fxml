@@ -187,7 +187,7 @@
                               <TextField fx:id="editnachname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
-                        <Button layoutX="234.0" layoutY="331.0" mnemonicParsing="false" onAction="#updatePerson" style="-fx-background-color: WHEAT;" text="OK" />
+                        <Button layoutX="234.0" layoutY="331.0" mnemonicParsing="false" onAction="#Edit" style="-fx-background-color: WHEAT;" text="OK" />
                         <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" onAction="#closeedit" style="-fx-background-color: WHEAT;" text="CANCEL" />
                         <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: WHEAT;" text="EDIT PERSON">
                            <font>
