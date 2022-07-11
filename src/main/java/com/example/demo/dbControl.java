@@ -119,6 +119,26 @@ public class dbControl {
     }
 
 
+    public static ObservableList<Person> getDataperson(){
+
+        Connection conn = connect();
+        ObservableList<Person> personlist = FXCollections.observableArrayList();
+        try{
+            Statement stmt = conn.createStatement();
+            //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
+            ResultSet rs = stmt.executeQuery("SELECT person_id FROM person");
+
+            while(rs.next()){
+                //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
+                //kurselist.add(new Kurse(rs.getInt("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
+            }
+        } catch(Exception e){
+
+        }
+        //System.out.println(kurselist);
+        return personlist;
+    }
+
 
 
 

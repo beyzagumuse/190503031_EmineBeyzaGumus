@@ -1,19 +1,22 @@
 package com.example.demo;
 
+import com.example.demo.Classes.Kurse;
 import com.example.demo.Classes.Person;
 import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
 import java.io.IOException;
-
-import static com.example.demo.dbControl.conn;
-import static com.example.demo.dbControl.pstmt;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class personController {
 
@@ -100,7 +103,10 @@ public class personController {
 
     }
 
-
+    public TableView<Person> getPersontable() {
+        return persontable;
+    }
+/*
     public void Edit (){
         try {
             conn = database.connect();
@@ -138,8 +144,39 @@ public class personController {
     public void initialize() {
 
         UpdateTable();
+    }*/
+
+    @FXML
+    public void initialize() {
+
+        try {
+            Connection conn = database.connect();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM kurse");
+
+            while (rs.next()) {
+                //(this.listKurs.add(new Person(rs.getInt("kurse_id"));
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
+        }
+        this.persontable.setCellValueFactory(new PropertyValueFactory<>("person_id"));
+        //this.kursename.setCellValueFactory(new PropertyValueFactory<>("kursename"));
+        //this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
+        //this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tage"));
+        //this.kursetrainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
+        //this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
+        //this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));
+        //this.kurseend.setCellValueFactory(new PropertyValueFactory<>("end"));
+
+
+        listPerson = dbControl.getDataperson();
+        System.out.println(listPerson);
+        this.persontable.setItems(listPerson);
+
+
     }
-    
+
+
 
     //@FXML
 
