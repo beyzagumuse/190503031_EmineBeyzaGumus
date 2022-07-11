@@ -7,8 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.example.demo.Classes.database.connect;
 
@@ -167,16 +165,6 @@ public class dbControl {
     }
 
 
-    public static void createKurse(Kurse s) {
-        try {
-            Statement st = connect().createStatement();
-            st.execute("INSERT INTO kurse (kurse_id,kurse_name) VALUES('" + s.getId()
-                    + "','" + s.getName() + "')");
-        } catch (SQLException ex) {
-            Logger.getLogger(dbControl.class.getName()).log(Level.SEVERE, null,
-                    ex);
-        }
-    }
 
 
 
@@ -266,7 +254,7 @@ public class dbControl {
 
 
 
-    public static void updatePerson(Person person) {
+   /* public static void updatePerson(Person person) {
 
         String person_id = "UPDATE person SET person_id = '" +person.getId() ;
         //String telefonnummer = "UPDATE Kunde SET Telefonnummer ='"+ kunde.getTelefonnummer() + "' WHERE TrId=" + kunde.getId();
@@ -286,5 +274,24 @@ public class dbControl {
         }catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
+
+    /*
+    public static void updatePerson(Person p) {
+
+        String id = "UPDATE person SET person_id = '" +p.getId() + "' WHERE person_id =  " + p.getId();
+        //String telefonnummer = "UPDATE Mitarbeiter SET Telefonnummer ='"+ m.getTelefonnummer() + "' WHERE TrId=" + m.getId();
+        //String name ="UPDATE Mitarbeiter SET Name ='"+ m.getName() + "' WHERE TrId=" + m.getId();
+        //String nachname = "UPDATE Mitarbeiter SET Nachname ='"+ m.getNachname() + "' WHERE TrId=" + m.getId();
+
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute(id);
+            //statement.execute(telefonnummer);
+            //statement.execute(name);
+            //statement.execute(nachname);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
 }

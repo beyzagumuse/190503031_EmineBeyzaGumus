@@ -8,6 +8,15 @@ public class Person {
     private String adresse;
     private String email;
 
+
+    public Person(String id, String name, String nachname,String telno,String adresse, String email){
+        this.id = id;
+        this.name = name;
+        this.nachname = nachname;
+        this.telno = telno;
+        this.adresse = adresse;
+        this.email = email;
+    }
     /*public Person(String a) {
 
 

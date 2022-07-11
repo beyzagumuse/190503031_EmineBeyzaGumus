@@ -8,8 +8,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class personController {
@@ -79,26 +77,77 @@ public class personController {
     @FXML
     private TableView<Person> persontableview;
 
-    @FXML
-    private Label detailsid;
 
 
-    int index = -1;
 
-    private Person person = new Person();
-    public void getSelected(MouseEvent event){
-        index= persontableview.getSelectionModel().getSelectedIndex();
-        if(index<= -1){
-            return;
-        }
-        detailsid.setText(person.getId().toString());
+
+    private Person p;
+
+    /*public void editInfo(Person person) {
+        p = person;
+        setInfos(p);
     }
 
-    public void details(){
-        detailsid.setText(person.getId().toString());
-
+    public void setInfos(Person p) {
+        editid.setText(p.getId());
+        //gdLabel.setText(m.getGeburtsdatumString());
+        //geschlechtLabel.setText(m.getGeschlecht());
+        //idLabel.setText(m.getId());
+        //nameField.setText(m.getName());
+        //nachnameField.setText(m.getNachname());
+        //rolleLabel.setText(m.getRolle());
+        //adressField.setText(m.getAdresse());
+        //telefonField.setText(m.getTelefonnummer());
     }
 
+    public void saveInfos() throws IOException {
+
+        String id = editid.getText();
+        //String name = nameField.getText();
+        //String nname = nachnameField.getText();
+        //String telefon = telefonField.getText();
+        //String adress = adressField.getId();
+
+
+        /*if(bn.isEmpty() || name.isEmpty() || nname.isEmpty() || telefon.isEmpty() || adress.isEmpty()) {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pop-up.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            PopUpController popUpController = fxmlLoader.getController();
+            popUpController.setMessage("Bitte geben Sie Infos vollständig ein!");
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setTitle("Warnung!");
+            stage.setScene(scene);
+            stage.show();
+
+        }else if(Person.checkTelefon(telefon) == false) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pop-up.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            PopUpController popUpController = fxmlLoader.getController();
+            popUpController.setMessage("Das Format von eingegebene Telefonnummer ist falsch.");
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setTitle("Warnung!");
+            stage.setScene(scene);
+            stage.show();
+        } else {*/
+
+            //p.setId(id);
+            //mit.setTelefonnummer(telefon);
+            //mit.setName(name);
+            //mit.setNachname(nname);
+            //mit.setBenutzername(bn);
+
+            //DBautovermietung.updateBenutzername(mit.getId(), bn);
+             //dbControl.updatePerson(p);
+            //MitarbeiterScreenController.mitarbeitersc.mitarbeiterListe();
+
+            //Stage s = (Stage) pane.getScene().getWindow();
+            //s.close();
+
+    //}
+    /**/
 
 
     //private Person person;
@@ -120,92 +169,7 @@ public class personController {
 
     }
 
-    //public TableView<Person> getPersontable() {return persontable;}
-/*
-    public void Edit (){
-        try {
-            conn = database.connect();
-            String value1 = editid.getText();
-            String value2 = editname.getText();
-            String value3 = editnachname.getText();
-            String value4 = edittel.getText();
-            String value5 = editadresse.getText();
-            String value6 = editmail.getText();
-            String sql = "update person set person_id= '"+value1+"',person_name= '"+value2+"',person_nachname= '"+
-                    value3+"',person_telno= '"+value4+"',person_adresse= '"+value5+ "',person_mail= '" +value6+ "' where user_id='"+value1+"' ";
-            dbControl.pstmt= conn.prepareStatement(sql);
-            pstmt.execute();
-            JOptionPane.showMessageDialog(null, "Update");
-            UpdateTable();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
 
-    }
-    
-    public void UpdateTable(){
-
-        //this.editid.setCellValueFactory
-        persontable.setCellValueFactory(new PropertyValueFactory<>("person_id"));
-        //editid.setCellValueFactory(new PropertyValueFactory<users,String>("username"));
-        //col_password.setCellValueFactory(new PropertyValueFactory<users,String>("password"));
-        //col_email.setCellValueFactory(new PropertyValueFactory<users,String>("email"));
-        //col_type.setCellValueFactory(new PropertyValueFactory<users,String>("type"));
-
-        //listM = mysqlconnect.getDatausers();
-        //table_users.setItems(listM);
-    }
-    @FXML
-    public void initialize() {
-
-        UpdateTable();
-    }*/
-
-    /*@FXML
-    public void initialize() {
-
-        try {
-            Connection conn = database.connect();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM kurse");
-
-            while (rs.next()) {
-                //(this.listKurs.add(new Person(rs.getInt("kurse_id"));
-            }
-        } catch (SQLException e) {
-            Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
-        }
-        this.persontable.setCellValueFactory(new PropertyValueFactory<>("person_id"));
-        //this.kursename.setCellValueFactory(new PropertyValueFactory<>("kursename"));
-        //this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
-        //this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tage"));
-        //this.kursetrainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
-        //this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
-        //this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));
-        //this.kurseend.setCellValueFactory(new PropertyValueFactory<>("end"));
-
-
-        listPerson = dbControl.getDataperson();
-        System.out.println(listPerson);
-        this.persontable.setItems(listPerson);
-
-
-    }
-*/
-
-
-    //@FXML
-
-    /*private void updatePerson() throws IOException{
-        String id = editid.getText();
-
-
-          person.setId(id);
-
-
-          dbControl.updatePerson(person);
-
-    }*/
-    /**/
     @FXML
     void godeletePerson() {
         addpersonpane.setVisible(false);

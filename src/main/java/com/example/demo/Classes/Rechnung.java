@@ -1,10 +1,12 @@
 package com.example.demo.Classes;
 
-public class Rechnung extends Person{
+public class Rechnung{
     private String rechnungsnummer;
     private String sportlernummer;
     private String kursenummer;
     private String kurseTage;
+
+
     private int preis;
     //private Kurse[];
 

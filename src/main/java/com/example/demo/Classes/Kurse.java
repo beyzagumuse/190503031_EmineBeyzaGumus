@@ -1,6 +1,6 @@
 package com.example.demo.Classes;
 
-public class  Kurse extends Person{
+public class  Kurse{
     private int kursenummer;
     private int preis;
     private String tage;
