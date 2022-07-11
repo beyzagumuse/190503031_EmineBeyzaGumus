@@ -100,7 +100,7 @@
                <children>
                   <TableView layoutY="35.0" prefHeight="270.0" prefWidth="171.0" style="-fx-background-color: PAPAYAWHIP;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
-                        <TableColumn prefWidth="174.39998782873153" style="-fx-background-color: WHEAT;" text="PERSON" />
+                        <TableColumn fx:id="persontable" prefWidth="174.39998782873153" style="-fx-background-color: WHEAT;" text="PERSON" />
                      </columns>
                   </TableView>
                   <Button layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddPerson" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />

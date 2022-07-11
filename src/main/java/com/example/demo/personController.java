@@ -1,9 +1,12 @@
 package com.example.demo;
 
+import com.example.demo.Classes.Person;
 import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import javax.swing.*;
@@ -74,6 +77,9 @@ public class personController {
     @FXML
     private Button home_btn;
 
+    @FXML
+    private TableColumn<Person,String> persontable;
+
 
     //private Person person;
 
@@ -109,32 +115,31 @@ public class personController {
             dbControl.pstmt= conn.prepareStatement(sql);
             pstmt.execute();
             JOptionPane.showMessageDialog(null, "Update");
-            //UpdateTable();
+            UpdateTable();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
     }
-
-    /*
+    
     public void UpdateTable(){
 
-        this.editid.setCellValueFactory
-        editid.setCellValueFactory(new PropertyValueFactory<users,Integer>("id"));
-        col_username.setCellValueFactory(new PropertyValueFactory<users,String>("username"));
-        col_password.setCellValueFactory(new PropertyValueFactory<users,String>("password"));
-        col_email.setCellValueFactory(new PropertyValueFactory<users,String>("email"));
-        col_type.setCellValueFactory(new PropertyValueFactory<users,String>("type"));
+        //this.editid.setCellValueFactory
+        persontable.setCellValueFactory(new PropertyValueFactory<>("person_id"));
+        //editid.setCellValueFactory(new PropertyValueFactory<users,String>("username"));
+        //col_password.setCellValueFactory(new PropertyValueFactory<users,String>("password"));
+        //col_email.setCellValueFactory(new PropertyValueFactory<users,String>("email"));
+        //col_type.setCellValueFactory(new PropertyValueFactory<users,String>("type"));
 
-        listM = mysqlconnect.getDatausers();
-        table_users.setItems(listM);
+        //listM = mysqlconnect.getDatausers();
+        //table_users.setItems(listM);
     }
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    @FXML
+    public void initialize() {
 
         UpdateTable();
     }
-    */
+    
 
     //@FXML
 
