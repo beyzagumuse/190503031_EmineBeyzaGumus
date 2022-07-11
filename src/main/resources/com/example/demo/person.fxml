@@ -98,7 +98,7 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="373.0" prefWidth="211.0" style="-fx-background-color: WHEAT;">
                <children>
-                  <TableView layoutY="35.0" prefHeight="270.0" prefWidth="171.0" style="-fx-background-color: PAPAYAWHIP;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="persontableview" layoutY="35.0" onMouseClicked="#getSelected" prefHeight="270.0" prefWidth="171.0" style="-fx-background-color: PAPAYAWHIP;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
                         <TableColumn fx:id="persontable" prefWidth="174.39998782873153" style="-fx-background-color: WHEAT;" text="PERSON" />
                      </columns>
@@ -290,6 +290,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <Label fx:id="detailsid" layoutX="155.0" layoutY="66.0" prefHeight="30.0" prefWidth="165.0" text="Label" />
                </children>
             </AnchorPane>
          </items>

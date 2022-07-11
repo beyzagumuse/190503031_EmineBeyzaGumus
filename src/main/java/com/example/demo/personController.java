@@ -1,22 +1,16 @@
 package com.example.demo;
 
-import com.example.demo.Classes.Kurse;
 import com.example.demo.Classes.Person;
-import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class personController {
 
@@ -82,6 +76,29 @@ public class personController {
 
     @FXML
     private TableColumn<Person,String> persontable;
+    @FXML
+    private TableView<Person> persontableview;
+
+    @FXML
+    private Label detailsid;
+
+
+    int index = -1;
+
+    private Person person = new Person();
+    public void getSelected(MouseEvent event){
+        index= persontableview.getSelectionModel().getSelectedIndex();
+        if(index<= -1){
+            return;
+        }
+        detailsid.setText(person.getId().toString());
+    }
+
+    public void details(){
+        detailsid.setText(person.getId().toString());
+
+    }
+
 
 
     //private Person person;
@@ -103,9 +120,7 @@ public class personController {
 
     }
 
-    public TableView<Person> getPersontable() {
-        return persontable;
-    }
+    //public TableView<Person> getPersontable() {return persontable;}
 /*
     public void Edit (){
         try {
@@ -146,7 +161,7 @@ public class personController {
         UpdateTable();
     }*/
 
-    @FXML
+    /*@FXML
     public void initialize() {
 
         try {
@@ -175,7 +190,7 @@ public class personController {
 
 
     }
-
+*/
 
 
     //@FXML
