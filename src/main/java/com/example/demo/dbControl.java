@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.Classes.Kurse;
-import com.example.demo.Classes.Person;
 import com.example.demo.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -117,25 +116,8 @@ public class dbControl {
     }
 
 
-    public static ObservableList<Person> getDataperson(){
 
-        Connection conn = connect();
-        ObservableList<Person> personlist = FXCollections.observableArrayList();
-        try{
-            Statement stmt = conn.createStatement();
-            //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
-            ResultSet rs = stmt.executeQuery("SELECT person_id FROM person");
 
-            while(rs.next()){
-                //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
-                //kurselist.add(new Kurse(rs.getInt("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
-            }
-        } catch(Exception e){
-
-        }
-        //System.out.println(kurselist);
-        return personlist;
-    }
 
 
 
@@ -162,6 +144,10 @@ public class dbControl {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public static void editKurs(String id){
+        String query = "UPDATE kurse SET kurse_id = '"+id+"' WHERE kurse_id = ' " + id + "'";
     }
 
 
@@ -252,46 +238,30 @@ public class dbControl {
         }
     }
 
+    public static void updateBenutzername(String id, String bn) {
 
-
-   /* public static void updatePerson(Person person) {
-
-        String person_id = "UPDATE person SET person_id = '" +person.getId() ;
-        //String telefonnummer = "UPDATE Kunde SET Telefonnummer ='"+ kunde.getTelefonnummer() + "' WHERE TrId=" + kunde.getId();
-        //String vorstrafen = "UPDATE Kunde SET VorstrafenNote = '"+ kunde.getVorstrafeNote() + "' WHERE TrId=" + kunde.getId();
-        //String name = "UPDATE Kunde SET Name= '" + kunde.getName() + "' WHERE TrId=" + kunde.getId();
-        //String nachname = "UPDATE Kunde SET Nachname= '" + kunde.getNachname()+ "' WHERE TrId=" + kunde.getId();
-
+        String bname = "UPDATE benutzer SET benutzename = '" + bn + "' WHERE id = '" + id +"'";
 
         try {
-            Statement statement = conn.createStatement();
-            statement.execute(person_id);
-            //statement.execute(telefonnummer);
-            //statement.execute(vorstrafen);
-            //statement.execute(name);
-            //statement.execute(nachname);
+            Statement stm = conn.createStatement();
+            stm.execute(bname);
 
         }catch (SQLException e) {
             e.printStackTrace();
         }
-    }*/
+    }
+    public static void updatePasswort(String id, String pass) {
 
-    /*
-    public static void updatePerson(Person p) {
-
-        String id = "UPDATE person SET person_id = '" +p.getId() + "' WHERE person_id =  " + p.getId();
-        //String telefonnummer = "UPDATE Mitarbeiter SET Telefonnummer ='"+ m.getTelefonnummer() + "' WHERE TrId=" + m.getId();
-        //String name ="UPDATE Mitarbeiter SET Name ='"+ m.getName() + "' WHERE TrId=" + m.getId();
-        //String nachname = "UPDATE Mitarbeiter SET Nachname ='"+ m.getNachname() + "' WHERE TrId=" + m.getId();
+        String passwort = "UPDATE benutzer SET password = '" + pass + "' WHERE id = '" + id +"'";
 
         try {
-            Statement statement = conn.createStatement();
-            statement.execute(id);
-            //statement.execute(telefonnummer);
-            //statement.execute(name);
-            //statement.execute(nachname);
+            Statement stm = conn.createStatement();
+            stm.execute(passwort);
+
         }catch (SQLException e) {
             e.printStackTrace();
         }
-    }*/
+    }
+
+
 }

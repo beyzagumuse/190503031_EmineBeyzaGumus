@@ -1,16 +1,22 @@
 package com.example.demo;
 
 import com.example.demo.Classes.Kurse;
+import com.example.demo.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class kursController {
 
@@ -48,6 +54,9 @@ public class kursController {
     }
 
     @FXML
+    private TextField editcheck;
+
+    @FXML
     private void goHomepage() throws IOException {
         application.showHomepageScene();
     }
@@ -79,7 +88,7 @@ public class kursController {
     @FXML
     public void initialize() {
 
-        /*try {
+        try {
             Connection conn = database.connect();
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM kurse");
 
@@ -103,7 +112,7 @@ public class kursController {
         System.out.println(listKurs);
         this.kursetable.setItems(listKurs);
 
-         */
+
     }
 
 

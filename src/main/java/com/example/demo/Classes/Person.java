@@ -8,6 +8,10 @@ public class Person {
     private String adresse;
     private String email;
 
+    public Person(String id){
+        this.id = id;
+    }
+
 
     public Person(String id, String name, String nachname,String telno,String adresse, String email){
         this.id = id;

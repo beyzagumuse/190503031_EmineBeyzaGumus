@@ -1,13 +1,25 @@
 package com.example.demo;
 
+import com.example.demo.Classes.benutzer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class signinController {
+public class signinController{
 
+
+    @FXML
+    private TableColumn<benutzer, String> benutzernamecolumn;
+
+    @FXML
+    private TableView<benutzer> benutzertable;
+
+    @FXML
+    private TableColumn<benutzer, String> passwordcolumn;
 
     @FXML
     private TextField benutzername_txt;
@@ -36,4 +48,10 @@ public class signinController {
         System.out.println("Patient wurde vom Datenbank geloescht.");
 
     }
+
+
+
+
+
+
 }
