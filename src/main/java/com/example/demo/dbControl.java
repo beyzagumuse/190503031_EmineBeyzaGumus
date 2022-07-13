@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.Classes.Kurse;
+import com.example.demo.Classes.Person;
 import com.example.demo.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -106,7 +107,7 @@ public class dbControl {
 
             while(rs.next()){
                 //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
-                kurselist.add(new Kurse(rs.getInt("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
+                kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
             }
         } catch(Exception e){
 
@@ -115,6 +116,35 @@ public class dbControl {
         return kurselist;
     }
 
+
+    public static ObservableList<Person> getDataperson(){
+
+        Connection conn = connect();
+        ObservableList<Person> personlist = FXCollections.observableArrayList();
+        try{
+            Statement stmt = conn.createStatement();
+            //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM person");
+
+            while(rs.next()){
+                //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
+                //personlist.add(new Person(rs.getString("kurse_name")));
+                Person p = new Person();
+                p.setId(rs.getString("person_id"));
+                p.setName(rs.getString("person_name"));
+                p.setNachname(rs.getString("person_nachname"));
+                p.setTelno(rs.getString("person_telno"));
+                p.setAdresse(rs.getString("person_adresse"));
+                p.setEmail(rs.getString("person_email"));
+                personlist.add(p);
+
+            }
+        } catch(Exception e){
+
+        }
+        //System.out.println(kurselist);
+        return personlist;
+    }
 
 
 
@@ -257,6 +287,34 @@ public class dbControl {
         try {
             Statement stm = conn.createStatement();
             stm.execute(passwort);
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateKurse(Kurse kurs) {
+
+        String name = "UPDATE kurse SET kurse_name = '" + kurs.getKursename() + "' WHERE kurse_id = '" + kurs.getKursenummer()+"'";
+        String preis = "UPDATE kurse SET kurse_preis =  '"+ kurs.getPreis()+"' WHERE kurse_id = '" + kurs.getKursenummer()+"'" ;
+        String tage = "UPDATE kurse SET kurse_tage = '" + kurs.getTage() + "' WHERE kurse_id = '" + kurs.getKursenummer()+"'";
+        String trainer = "UPDATE kurse SET trainer_id =  '" +  kurs.getTrainer() + "' WHERE kurse_id = '" + kurs.getKursenummer()+"'" ;
+        String anzahl = "UPDATE kurse SET kurse_anzahlSportler =  '" +  kurs.getAnzahlSportler() + "' WHERE kurse_id = '" + kurs.getKursenummer()+"'" ;
+        String beginn = "UPDATE kurse SET trainer_beginn =  '" +  kurs.getBeginn() + "' WHERE kurse_id = '" + kurs.getKursenummer()+"'" ;
+        String end = "UPDATE kurse SET trainer_end =  '" +  kurs.getEnd() + "' WHERE kurse_id = '" + kurs.getKursenummer()+"'" ;
+
+
+
+
+        try {
+            Statement stm = conn.createStatement();
+            stm.execute(name);
+            stm.execute(preis);
+            stm.execute(tage);
+            stm.execute(trainer);
+            stm.execute(anzahl);
+            stm.execute(beginn);
+            stm.execute(end);
 
         }catch (SQLException e) {
             e.printStackTrace();

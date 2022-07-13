@@ -1,7 +1,7 @@
 package com.example.demo.Classes;
 
 public class  Kurse{
-    private int kursenummer;
+    private String kursenummer;
     private int preis;
     private String tage;
     private String kursename;
@@ -13,7 +13,7 @@ public class  Kurse{
 
     private String trainer;
 
-    public Kurse(int kurse_id, String kurse_name, int kurse_preis, String kurse_tage, String trainer, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
+    public Kurse(String kurse_id, String kurse_name, int kurse_preis, String kurse_tage, String trainer, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
         super();
         kursenummer = kurse_id;
         kursename = kurse_name;
@@ -25,7 +25,7 @@ public class  Kurse{
         end = kurse_end;
     }
 
-    public Kurse(int kurse_id,String kurse_name,int kurse_preis){
+    public Kurse(String kurse_id,String kurse_name,int kurse_preis){
         super();
         kursenummer = kurse_id;
         kursename = kurse_name;
@@ -46,7 +46,7 @@ public class  Kurse{
         this.kursename = kursename;
     }
 
-    public void setKursenummer(int kursenummer) {
+    public void setKursenummer(String kursenummer) {
         this.kursenummer = kursenummer;
     }
 
@@ -66,7 +66,7 @@ public class  Kurse{
         return kursename;
     }
 
-    public int getKursenummer() {
+    public String getKursenummer() {
         return kursenummer;
     }
 
