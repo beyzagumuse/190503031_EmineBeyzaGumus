@@ -44,11 +44,6 @@
          <children>
             <AnchorPane prefHeight="496.0" prefWidth="182.0" style="-fx-background-color: black;">
                <children>
-                  <ImageView fitHeight="503.0" fitWidth="263.0" layoutX="-81.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../photos/1b6da34bf2edd5e48c2bee01b654603b.png" />
-                     </image>
-                  </ImageView>
                   <Button fx:id="person_btn" mnemonicParsing="false" onAction="#goPersonChoice" prefHeight="50.0" prefWidth="182.0" style="-fx-border-color: white; -fx-background-color: transparent;" text="Person" textFill="#fcfafa" />
                   <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="25.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>

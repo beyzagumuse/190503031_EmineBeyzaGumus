@@ -239,6 +239,10 @@ public class personController {
 
     }
 
+    public void personList(){
+
+    }
+
     @FXML
     void deleteaction() {
         ObservableList<Person> allPerson, SinglePerson;
@@ -253,6 +257,8 @@ public class personController {
 
         Person person = persontableview.getSelectionModel().getSelectedItem();
         person.setName(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateAuto(person);
     }
 
 

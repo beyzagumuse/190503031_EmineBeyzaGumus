@@ -149,6 +149,41 @@ public class dbControl {
 
 
 
+    public static void editPerson(Person p) {
+        String query = "UPDATE person_name FROM person";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, p.getName());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateAuto(Person p) {
+
+        String farbe = "UPDATE person SET person_name = '" + p.getName() + "' WHERE person_id = '" + p.getId()+"'";
+        //String km = "UPDATE person SET person_nachname =  '"+auto.getKilometerstand()+"'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+        //String typ = "UPDATE Autos SET Getriebetyp = '" + auto.getGetriebetyp() + "' WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+        //String preis = "UPDATE Autos SET Mietpreise =  '" +  auto.getMietpreise() + "'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+
+
+
+
+        try {
+            Statement stm = conn.createStatement();
+            stm.execute(farbe);
+            //stm.execute(km);
+            //stm.execute(typ);
+            //stm.execute(preis);
+
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
