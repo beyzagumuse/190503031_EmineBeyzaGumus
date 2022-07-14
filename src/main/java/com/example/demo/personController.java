@@ -4,6 +4,7 @@ import com.example.demo.Classes.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -196,6 +197,22 @@ public class personController {
     }
 
 
+    @FXML
+    private AnchorPane personpane;
+
+    @FXML
+    private void goBack() throws IOException{
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("personchoice.fxml"));
+           personpane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     ObservableList<Person> data = FXCollections.observableArrayList();
 
     /*
@@ -277,6 +294,7 @@ public class personController {
         dbControl.add_Person(p);
 
     }
+
 */
 
     @FXML
@@ -310,7 +328,7 @@ public class personController {
     public void personList(){
 
     }
-
+/*
     @FXML
     void deleteaction() {
         ObservableList<Person> allPerson, SinglePerson;
@@ -323,8 +341,38 @@ public class personController {
         String a = person.getId();
         SinglePerson.forEach(allPerson::remove);
         dbControl.delete_Person((a));
+    }*/
+
+    @FXML
+    void deleteaction() {
+        ObservableList<Person> allPerson, SinglePerson;
+        allPerson = allpersonview.getItems();
+        SinglePerson = allpersonview.getSelectionModel().getSelectedItems();
+
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        System.out.println(person.getId());
+
+        String a = person.getId();
+        SinglePerson.forEach(allPerson::remove);
+        dbControl.delete_Person((a));
     }
 
+    @FXML
+    void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        System.out.println(p.getName());
+        person.setId(personStringCellEditEvent.getNewValue());
+        person.setName(personStringCellEditEvent.getNewValue());
+        person.setNachname(personStringCellEditEvent.getNewValue());
+        person.setTelno(personStringCellEditEvent.getNewValue());
+        person.setAdresse(personStringCellEditEvent.getNewValue());
+        person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updatePerson(person);
+    }
+
+/*
     @FXML
     void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
 
@@ -332,7 +380,7 @@ public class personController {
         person.setName(personStringCellEditEvent.getNewValue());
         //dbControl.editPerson(person);
         dbControl.updatePerson(person);
-    }
+    }*/
 
 
 }

@@ -230,8 +230,12 @@ public class dbControl {
 
     public static void updatePerson(Person p) {
 
+        String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
         String name = "UPDATE person SET person_name = '" + p.getName() + "' WHERE person_id = '" + p.getId()+"'";
-        //String km = "UPDATE person SET person_nachname =  '"+auto.getKilometerstand()+"'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+        String nachname = "UPDATE person SET person_nachname =  '"+p.getNachname()+"'  WHERE person_id = '" + p.getId()+"'";
+        String telno = "UPDATE person SET person_nachname =  '"+p.getTelno()+"'  WHERE person_id = '" + p.getId()+"'";
+        String adresse = "UPDATE person SET person_nachname =  '"+p.getAdresse()+"'  WHERE person_id = '" + p.getId()+"'";
+        String email = "UPDATE person SET person_nachname =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getId()+"'";
         //String typ = "UPDATE Autos SET Getriebetyp = '" + auto.getGetriebetyp() + "' WHERE Nummernschild = '" + auto.getNummernschild()+"'";
         //String preis = "UPDATE Autos SET Mietpreise =  '" +  auto.getMietpreise() + "'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
 
@@ -240,7 +244,13 @@ public class dbControl {
 
         try {
             Statement stm = conn.createStatement();
+            stm.execute(id);
             stm.execute(name);
+            stm.execute(nachname);
+            stm.execute(telno);
+            stm.execute(adresse);
+            stm.execute(email);
+
             //stm.execute(km);
             //stm.execute(typ);
             //stm.execute(preis);

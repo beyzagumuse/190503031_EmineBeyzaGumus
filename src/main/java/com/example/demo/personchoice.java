@@ -36,6 +36,12 @@ public class personchoice {
     }
 
     @FXML
+    private void closePersonChoice(){
+
+        personchoicepane.setVisible(false);
+    }
+
+    @FXML
     private void goPersona() throws IOException{
         try {
 

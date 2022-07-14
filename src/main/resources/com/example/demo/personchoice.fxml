@@ -140,7 +140,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Button fx:id="home_btn" mnemonicParsing="false" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="home_btn" mnemonicParsing="false" onAction="#closePersonChoice" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: transparent;" />
             <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="D:\demo\photos\icons8-close-30.png" />
