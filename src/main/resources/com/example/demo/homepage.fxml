@@ -12,14 +12,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: LIGHTGREY;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.homepageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="913.0" style="-fx-background-color: LIGHTGREY;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.homepageController">
    <children>
-      <Label alignment="CENTER" layoutY="27.0" prefHeight="76.0" prefWidth="800.0" style="-fx-background-color: BLACK; -fx-border-color: WHİTE;" text="Welcome To Laria's" textFill="#fffdfd">
+      <Label alignment="CENTER" layoutY="27.0" prefHeight="76.0" prefWidth="913.0" style="-fx-background-color: BLACK; -fx-border-color: WHİTE;" text="Welcome To Laria's" textFill="#fffdfd">
          <font>
             <Font name="Niagara Solid" size="46.0" />
          </font>
       </Label>
-      <MenuBar layoutX="-2.0" layoutY="1.0" prefHeight="26.0" prefWidth="800.0">
+      <MenuBar layoutX="-2.0" layoutY="1.0" prefHeight="26.0" prefWidth="913.0">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
@@ -49,27 +49,12 @@
                         <Image url="D:\demo\photos\1b6da34bf2edd5e48c2bee01b654603b.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="person_btn" mnemonicParsing="false" onAction="#goPersonChoice" prefHeight="50.0" prefWidth="182.0" style="-fx-border-color: white; -fx-background-color: transparent;" text="Person" textFill="#fcfafa" />
+                  <Button fx:id="person_btn" mnemonicParsing="false" onAction="#loadPerson" prefHeight="50.0" prefWidth="182.0" style="-fx-border-color: white; -fx-background-color: transparent;" text="Person" textFill="#fcfafa" />
                   <Button fx:id="kurse_btn" layoutY="50.0" mnemonicParsing="false" onAction="#goKurse" prefHeight="50.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Kurse" textFill="#faf9f9" />
                   <Button layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Schedule" textFill="WHITE" />
                   <Button fx:id="rechnung_btn" layoutY="150.0" mnemonicParsing="false" onAction="#goRechnung" prefHeight="50.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Rechnung" textFill="#fcfcfc" />
                   <Button layoutX="65.0" layoutY="256.0" mnemonicParsing="false" onAction="#goSignIn" style="-fx-background-color: black; -fx-border-color: white;" text="Sign In" textFill="WHITE" />
                   <Button layoutX="62.0" layoutY="349.0" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: white;" text="Log Out" textFill="WHITE" />
-                  <ImageView fitHeight="50.0" fitWidth="37.0" layoutX="14.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../photos/icons8-bill-30.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="76.0" fitWidth="37.0" layoutX="14.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../photos/icons8-timetable-30.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="61.0" fitWidth="43.0" layoutX="11.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../photos/icons8-course-30.png" />
-                     </image>
-                  </ImageView>
                   <ImageView fitHeight="90.0" fitWidth="43.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="D:\demo\photos\icons8-person-30.png" />
@@ -77,8 +62,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="492.0" prefWidth="154.0" />
-            <AnchorPane prefHeight="496.0" prefWidth="400.0" />
+            <AnchorPane fx:id="generalpane" prefHeight="496.0" prefWidth="732.0" />
          </children>
       </HBox>
    </children>

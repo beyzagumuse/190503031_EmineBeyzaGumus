@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 
 import javax.swing.text.html.ImageView;
 import java.io.IOException;
@@ -8,6 +10,10 @@ import java.io.IOException;
 public class homepageController {
 
     private HelloApplication application;
+
+
+    @FXML
+    private AnchorPane generalpane;
 
 
     @FXML
@@ -106,6 +112,32 @@ public class homepageController {
     private void goSignIn() throws IOException {
         application.showSignInScene();
     }
+
+    @FXML
+    private void loadPerson(){
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("personchoice.fxml"));
+            generalpane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+/*
+    @FXML
+    public void loadPersona(){
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("person.fxml"));
+            generalpane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+*/
 
 
 

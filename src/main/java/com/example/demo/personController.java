@@ -106,8 +106,8 @@ public class personController {
 
     @FXML
     private void addPerson() throws IOException {
-        dbControl.addPerson(Integer.parseInt(addid.getText()), addname.getText(),addnachname.getText(),addtel.getText(),addadresse.getText(),addmail.getText());
-        dbControl.printKurseData(Integer.parseInt(addid.getText()));
+        dbControl.addPerson(((addid.getText())), addname.getText(),addnachname.getText(),addtel.getText(),addadresse.getText(),addmail.getText());
+        //dbControl.printKurseData((addid.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
 
@@ -211,6 +211,7 @@ public class personController {
     @FXML
     private TextField textfieldname;
 
+/*
     @FXML
     void buttonadd() {
 
@@ -219,7 +220,16 @@ public class personController {
         dbControl.add_Person(p);
 
     }
+*/
 
+    @FXML
+    void buttonadd() {
+
+        Person p = new Person(addid.getText(),addname.getText(),addnachname.getText(),addtel.getText(),addadresse.getText(),addmail.getText());
+        persontableview.getItems().add(p);
+        dbControl.add_Person(p);
+
+    }
     @FXML
     void detailsaction() {
         Person person = new Person();

@@ -103,7 +103,7 @@
                         <TableColumn fx:id="persontable" onEditCommit="#oneditchange" prefWidth="174.39998782873153" style="-fx-background-color: WHEAT;" text="PERSON" />
                      </columns>
                   </TableView>
-                  <Button layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#buttonadd" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
+                  <Button layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddPerson" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
                   <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditPerson" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: OLDLACE;" text="Edit" />
                   <Button layoutX="107.0" layoutY="329.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Delete" />
                   <Button layoutX="55.0" layoutY="282.0" mnemonicParsing="false" onAction="#detailsaction" style="-fx-background-color: OLDLACE;" text="Details" />
@@ -267,7 +267,7 @@
                               <TextField fx:id="addnachname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
-                        <Button fx:id="finishaddtrainer" layoutX="234.0" layoutY="331.0" mnemonicParsing="false" onAction="#addPerson" text="OK" />
+                        <Button fx:id="finishaddtrainer" layoutX="234.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonadd" text="OK" />
                         <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" onAction="#closeadd" text="CANCEL" />
                         <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="ADD NEW PERSON">
                            <font>

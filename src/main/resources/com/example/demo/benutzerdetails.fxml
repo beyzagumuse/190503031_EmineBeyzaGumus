@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="benutzertable" layoutX="121.0" layoutY="140.0" prefHeight="200.0" prefWidth="253.0">
+        <columns>
+          <TableColumn fx:id="benutzernamecolumn" prefWidth="124.0" text="Benutzername" />
+            <TableColumn fx:id="passwordcolumn" prefWidth="127.19999999999999" text="Password" />
+        </columns>
+      </TableView>
+      <Button layoutX="147.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#getAddView" text="ADD" />
+      <Button layoutX="519.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#close" text="close" />
+      <Button layoutX="249.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#print" text="print" />
+      <Button layoutX="342.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#refreshtable" text="REFRESH" />
+   </children>
+</AnchorPane>

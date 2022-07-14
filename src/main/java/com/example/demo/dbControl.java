@@ -149,15 +149,29 @@ public class dbControl {
 
 
     public static void add_Person(Person p) {
+
+        String id = p.getId();
         String name = p.getName();
-        String query = "INSERT INTO person(person_name) VALUES (?)";
+        String nachname = p.getNachname();
+        String telno = p.getTelno();
+        String adress = p.getAdresse();
+        String email = p.getEmail();
+
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES (?,?,?,?,?,?)";
 
         try {
             pstmt = dbControl.conn.prepareStatement(query);
-            pstmt.setString(1, p.getName());
+            pstmt.setString(1,id);
+            pstmt.setString(2, p.getName());
+            pstmt.setString(3, p.getNachname());
+            pstmt.setString(4,p.getTelno());
+            pstmt.setString(5,p.getAdresse());
+            pstmt.setString(6,p.getAdresse());
             //pstmt.setString(2, password);
 
             pstmt.executeUpdate();
+            pstmt.close();
+            conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -302,12 +316,12 @@ public class dbControl {
     }
 
 
-    public static void addPerson(int person_id, String person_name, String person_nachname, String person_telno, String person_adresse, String person_mail) {
+    public static void addPerson(String person_id, String person_name, String person_nachname, String person_telno, String person_adresse, String person_mail) {
         String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?,?)";
 
         try {
             pstmt = dbControl.conn.prepareStatement(query);
-            pstmt.setInt(1, person_id);
+            pstmt.setString(1, person_id);
             pstmt.setString(2, person_name);
             pstmt.setString(3, person_nachname);
             pstmt.setString(4, person_telno);
