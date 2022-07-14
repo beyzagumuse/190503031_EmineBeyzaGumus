@@ -216,6 +216,7 @@ public class personController {
 
         Person p = new Person(textfieldname.getText());
         persontableview.getItems().add(p);
+        dbControl.add_Person(p);
 
     }
 
@@ -248,8 +249,13 @@ public class personController {
         ObservableList<Person> allPerson, SinglePerson;
         allPerson = persontableview.getItems();
         SinglePerson = persontableview.getSelectionModel().getSelectedItems();
-        SinglePerson.forEach(allPerson::remove);
 
+        Person person = persontableview.getSelectionModel().getSelectedItem();
+        System.out.println(person.getId());
+
+        String a = person.getId();
+        SinglePerson.forEach(allPerson::remove);
+        dbControl.delete_Person((a));
     }
 
     @FXML
@@ -258,7 +264,7 @@ public class personController {
         Person person = persontableview.getSelectionModel().getSelectedItem();
         person.setName(personStringCellEditEvent.getNewValue());
         //dbControl.editPerson(person);
-        dbControl.updateAuto(person);
+        dbControl.updatePerson(person);
     }
 
 

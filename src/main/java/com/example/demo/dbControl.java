@@ -148,23 +148,25 @@ public class dbControl {
 
 
 
-
-    public static void editPerson(Person p) {
-        String query = "UPDATE person_name FROM person";
+    public static void add_Person(Person p) {
+        String name = p.getName();
+        String query = "INSERT INTO person(person_name) VALUES (?)";
 
         try {
             pstmt = dbControl.conn.prepareStatement(query);
             pstmt.setString(1, p.getName());
-            pstmt.executeUpdate();
+            //pstmt.setString(2, password);
 
+            pstmt.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 
-    public static void updateAuto(Person p) {
 
-        String farbe = "UPDATE person SET person_name = '" + p.getName() + "' WHERE person_id = '" + p.getId()+"'";
+    public static void updatePerson(Person p) {
+
+        String name = "UPDATE person SET person_name = '" + p.getName() + "' WHERE person_id = '" + p.getId()+"'";
         //String km = "UPDATE person SET person_nachname =  '"+auto.getKilometerstand()+"'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
         //String typ = "UPDATE Autos SET Getriebetyp = '" + auto.getGetriebetyp() + "' WHERE Nummernschild = '" + auto.getNummernschild()+"'";
         //String preis = "UPDATE Autos SET Mietpreise =  '" +  auto.getMietpreise() + "'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
@@ -174,7 +176,7 @@ public class dbControl {
 
         try {
             Statement stm = conn.createStatement();
-            stm.execute(farbe);
+            stm.execute(name);
             //stm.execute(km);
             //stm.execute(typ);
             //stm.execute(preis);
@@ -184,6 +186,20 @@ public class dbControl {
             e.printStackTrace();
         }
     }
+
+
+    public static void delete_Person(String person_id) {
+        String query = "DELETE FROM person WHERE person_id = ? ";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, person_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 
 

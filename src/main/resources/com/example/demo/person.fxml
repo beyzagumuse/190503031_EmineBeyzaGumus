@@ -296,7 +296,7 @@
          </items>
       </SplitPane>
       <Button layoutX="66.0" layoutY="-35.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="764.0" layoutY="1.0" mnemonicParsing="false" onAction="#returnPersonchoice" prefHeight="20.0" prefWidth="33.0" style="-fx-background-color: BLANCHEDALMOND;" />
+      <Button layoutX="746.0" layoutY="1.0" mnemonicParsing="false" onAction="#returnPersonchoice" prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: BLANCHEDALMOND;" />
       <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="764.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="C:\Users\ebeyz\Downloads\icons8-close-30.png" />

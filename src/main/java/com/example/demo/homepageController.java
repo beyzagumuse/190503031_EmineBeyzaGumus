@@ -2,11 +2,23 @@ package com.example.demo;
 
 import javafx.fxml.FXML;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 
 public class homepageController {
 
     private HelloApplication application;
+
+
+    @FXML
+    private ImageView backimg;
+
+    @FXML
+    private ImageView billimg;
+
+
+    @FXML
+    private ImageView kurseimg;
 
     /*@FXML
     private Button kurse_btn;
