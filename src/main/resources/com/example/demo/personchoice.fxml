@@ -4,9 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
@@ -22,7 +19,7 @@
 
 <AnchorPane fx:id="personchoicepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.personchoice">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="618.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="645.0" style="-fx-background-color: DIMGRAY;">
          <children>
             <TabPane prefHeight="488.0" prefWidth="610.0" style="-fx-background-color: black;" tabClosingPolicy="UNAVAILABLE" visible="false">
                <tabs>
@@ -108,25 +105,6 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <MenuBar layoutY="2.0" prefHeight="26.0" prefWidth="642.0">
-               <menus>
-                  <Menu mnemonicParsing="false" text="File">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Edit">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Help">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
             <Label layoutX="263.0" layoutY="41.0" prefHeight="18.0" prefWidth="270.0" text=" Kurse Details">
                <font>
                   <Font name="Microsoft JhengHei" size="12.0" />
@@ -134,35 +112,40 @@
             </Label>
             <Line endX="194.4000244140625" endY="-1.1444091796875E-5" layoutX="356.0" layoutY="59.0" opacity="0.38" startX="-100.0" />
             <Button layoutX="255.0" layoutY="79.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="123.0" text="Kurse Informations" />
-            <AnchorPane layoutY="28.0" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="645.0" style="-fx-background-color: DIMGRAY;">
+            <AnchorPane layoutY="37.0" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="646.0" style="-fx-background-color: DIMGRAY;">
                <children>
-                  <Button layoutX="85.0" layoutY="276.0" mnemonicParsing="false" onAction="#goPersonal" prefHeight="50.0" prefWidth="146.0" text="Personal" />
-                  <Button layoutX="85.0" layoutY="134.0" mnemonicParsing="false" onAction="#goSportler" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Sportler" textFill="WHITE" />
-                  <Button layoutX="85.0" layoutY="204.0" mnemonicParsing="false" onAction="#goTrainer" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Trainer" textFill="WHITE" />
-                  <Button layoutX="85.0" layoutY="63.0" mnemonicParsing="false" onAction="#goPersona" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Person" textFill="#fcfcfc" />
-                  <ImageView fitHeight="50.0" fitWidth="67.0" layoutX="85.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+                  <Button layoutX="62.0" layoutY="276.0" mnemonicParsing="false" onAction="#goPersonal" prefHeight="50.0" prefWidth="146.0" text="Personal" />
+                  <Button layoutX="62.0" layoutY="134.0" mnemonicParsing="false" onAction="#goSportler" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Sportler" textFill="WHITE" />
+                  <Button layoutX="62.0" layoutY="204.0" mnemonicParsing="false" onAction="#goTrainer" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Trainer" textFill="WHITE" />
+                  <Button layoutX="62.0" layoutY="63.0" mnemonicParsing="false" onAction="#goPersona" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Person" textFill="#fcfcfc" />
+                  <ImageView fitHeight="50.0" fitWidth="67.0" layoutX="62.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="D:\demo\photos\icons8-administrator-male-30.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="85.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="62.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="D:\demo\photos\icons8-girl-running-30.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="58.0" fitWidth="50.0" layoutX="85.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="58.0" fitWidth="50.0" layoutX="62.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="D:\demo\photos\icons8-personal-trainer-30.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="498.0" fitWidth="356.0" layoutX="295.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="541.0" fitWidth="375.0" layoutX="271.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="D:\demo\photos\photo-1580261450046-d0a30080dc9b.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <Button fx:id="home_btn" layoutX="580.0" layoutY="3.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: transparent;" text="Home" />
+            <Button fx:id="home_btn" mnemonicParsing="false" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: transparent;" />
+            <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="D:\demo\photos\icons8-close-30.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.Classes.Person;
-import com.example.demo.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,13 +13,8 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class personController {
 
@@ -88,6 +82,30 @@ public class personController {
     private TableColumn<Person,String> persontable;
     @FXML
     private TableView<Person> persontableview;
+
+
+    @FXML
+    private TableColumn<Person, String> tc_col;
+
+    @FXML
+    private TableColumn<Person, String> telno_col;
+
+    @FXML
+    private TableColumn<Person, String> mail_col;
+
+    @FXML
+    private TableColumn<Person, String> nachname_col;
+
+    @FXML
+    private TableColumn<Person, String> name_col;
+
+
+    @FXML
+    private TableColumn<Person, String> add_col;
+
+    @FXML
+    private TableView<Person> allpersonview;
+
 
 
 
@@ -180,6 +198,7 @@ public class personController {
 
     ObservableList<Person> data = FXCollections.observableArrayList();
 
+    /*
     @FXML
     public void initialize() {
 
@@ -206,6 +225,44 @@ public class personController {
 
 
     }
+    */
+
+    @FXML
+    public void initialize() {
+
+
+        /*
+        try {
+            Connection conn = database.connect();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+
+            while (rs.next()) {
+                this.data.add(new Person(rs.getString("person_id"),rs.getString("person_name"),rs.getString("person_nachname"),rs.getString("person_telno"),rs.getString("person_adresse"),rs.getString("person_email")));
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
+        }*/
+        dbControl.initPerson();
+
+        tc_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+        name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nachname_col.setCellValueFactory(new PropertyValueFactory<>("nachname"));
+        telno_col.setCellValueFactory(new PropertyValueFactory<>("telno"));
+        add_col.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+        mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+
+
+        data = dbControl.getDataperson();
+        System.out.println(data);
+        this.allpersonview.setItems(data);
+
+        persontableview.setEditable(true);
+        persontable.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+    }
+
 
 
     @FXML

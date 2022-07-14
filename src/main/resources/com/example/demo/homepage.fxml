@@ -12,14 +12,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="913.0" style="-fx-background-color: LIGHTGREY;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.homepageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="821.0" style="-fx-background-color: LIGHTGREY;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.homepageController">
    <children>
-      <Label alignment="CENTER" layoutY="27.0" prefHeight="76.0" prefWidth="913.0" style="-fx-background-color: BLACK; -fx-border-color: WHİTE;" text="Welcome To Laria's" textFill="#fffdfd">
+      <Label alignment="CENTER" layoutY="27.0" prefHeight="76.0" prefWidth="821.0" style="-fx-background-color: BLACK; -fx-border-color: WHİTE;" text="Welcome To Laria's" textFill="#fffdfd">
          <font>
             <Font name="Niagara Solid" size="46.0" />
          </font>
       </Label>
-      <MenuBar layoutX="-2.0" layoutY="1.0" prefHeight="26.0" prefWidth="913.0">
+      <MenuBar layoutX="-2.0" layoutY="1.0" prefHeight="26.0" prefWidth="822.0">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
@@ -40,7 +40,7 @@
          </menus>
       </MenuBar>
       <ComboBox fx:id="person_combobox" layoutX="50.0" layoutY="336.0" prefWidth="150.0" promptText="Personal, Trainer, Sportler" visible="false" />
-      <HBox layoutY="104.0" prefHeight="496.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="104.0">
+      <HBox layoutY="104.0" prefHeight="496.0" prefWidth="830.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="104.0">
          <children>
             <AnchorPane prefHeight="496.0" prefWidth="182.0" style="-fx-background-color: black;">
                <children>
@@ -62,7 +62,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="generalpane" prefHeight="496.0" prefWidth="732.0" />
+            <AnchorPane fx:id="generalpane" prefHeight="498.0" prefWidth="649.0" />
          </children>
       </HBox>
    </children>

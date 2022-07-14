@@ -7,6 +7,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static com.example.demo.Classes.database.connect;
 
@@ -96,6 +98,9 @@ public class dbControl {
 
     }*/
 
+
+    //KURSE
+
     public static ObservableList<Kurse> getDatakurse(){
 
         Connection conn = connect();
@@ -116,6 +121,36 @@ public class dbControl {
         return kurselist;
     }
 
+    public static void deleteKurse(int kurse_id) {
+        String query = "DELETE FROM kurse WHERE kurse_id = ?";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setInt(1, kurse_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void editKurseId(int kurse_id) {
+        String query = "UPDATE kurse SET kurse_id = '"+kurse_id+"'";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            //pstmt.setInt(1, kurse_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void editKurs(String id){
+        String query = "UPDATE kurse SET kurse_id = '"+id+"' WHERE kurse_id = ' " + id + "'";
+    }
+
+
+    //PERSON
 
     public static ObservableList<Person> getDataperson(){
 
@@ -146,7 +181,22 @@ public class dbControl {
         return personlist;
     }
 
+    public static void addPerson(String person_id, String person_name, String person_nachname, String person_telno, String person_adresse, String person_mail) {
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?,?)";
 
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, person_id);
+            pstmt.setString(2, person_name);
+            pstmt.setString(3, person_nachname);
+            pstmt.setString(4, person_telno);
+            pstmt.setString(5,person_adresse);
+            pstmt.setString(6,person_mail);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public static void add_Person(Person p) {
 
@@ -215,35 +265,23 @@ public class dbControl {
     }
 
 
-
-
-    public static void deleteKurse(int kurse_id) {
-        String query = "DELETE FROM kurse WHERE kurse_id = ?";
-
+    public static void initPerson(){
+        ObservableList<Person> data = FXCollections.observableArrayList();
         try {
-            pstmt = dbControl.conn.prepareStatement(query);
-            pstmt.setInt(1, kurse_id);
-            pstmt.executeUpdate();
+            Connection conn = database.connect();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+
+            while (rs.next()) {
+                data.add(new Person(rs.getString("person_id"),rs.getString("person_name"),rs.getString("person_nachname"),rs.getString("person_telno"),rs.getString("person_adresse"),rs.getString("person_email")));
+            }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
         }
     }
 
-    public static void editKurseId(int kurse_id) {
-        String query = "UPDATE kurse SET kurse_id = '"+kurse_id+"'";
 
-        try {
-            pstmt = dbControl.conn.prepareStatement(query);
-            //pstmt.setInt(1, kurse_id);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
-    public static void editKurs(String id){
-        String query = "UPDATE kurse SET kurse_id = '"+id+"' WHERE kurse_id = ' " + id + "'";
-    }
+
 
 
 
@@ -316,22 +354,7 @@ public class dbControl {
     }
 
 
-    public static void addPerson(String person_id, String person_name, String person_nachname, String person_telno, String person_adresse, String person_mail) {
-        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?,?)";
 
-        try {
-            pstmt = dbControl.conn.prepareStatement(query);
-            pstmt.setString(1, person_id);
-            pstmt.setString(2, person_name);
-            pstmt.setString(3, person_nachname);
-            pstmt.setString(4, person_telno);
-            pstmt.setString(5,person_adresse);
-            pstmt.setString(6,person_mail);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public static void updateBenutzername(String id, String bn) {
 
