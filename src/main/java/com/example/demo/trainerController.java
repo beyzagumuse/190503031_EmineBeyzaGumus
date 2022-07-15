@@ -1,9 +1,12 @@
 package com.example.demo;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class trainerController {
 
@@ -40,6 +43,29 @@ public class trainerController {
     @FXML
     private Button finishaddtrainer;
 
+    @FXML
+    private Button homebtn;
+
+    @FXML
+    private AnchorPane personpane;
+
+    HelloApplication application;
+    @FXML
+    void goPersonChoice() throws IOException {
+        application.showHomepageScene();
+    }
+
+    @FXML
+    private void goBack() throws IOException{
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("personchoice.fxml"));
+            personpane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
 
     @FXML

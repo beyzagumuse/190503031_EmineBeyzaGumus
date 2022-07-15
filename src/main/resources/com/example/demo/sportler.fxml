@@ -25,7 +25,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.sportlerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.sportlerController">
    <children>
       <MenuBar prefHeight="26.0" prefWidth="794.0" visible="false">
          <menus>
@@ -195,7 +195,7 @@
                         <Button layoutX="282.0" layoutY="200.0" mnemonicParsing="false" text="Cancel" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="addSportlerpane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="addSportlerpane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <GridPane layoutX="9.0" layoutY="74.0" prefHeight="256.0" prefWidth="570.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="74.0">
                           <columnConstraints>
@@ -261,6 +261,20 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <TableView fx:id="allpersonview" prefHeight="372.0" prefWidth="616.0">
+                    <columns>
+                      <TableColumn fx:id="tc_col" prefWidth="40.000001549720764" text="TC" />
+                      <TableColumn fx:id="name_col" onEditCommit="#oneditchange" prefWidth="57.59996032714844" text="Name" />
+                        <TableColumn fx:id="nachname_col" onEditCommit="#oneditchange2" prefWidth="74.39995574951172" text="Nachname" />
+                        <TableColumn fx:id="telno_col" onEditCommit="#oneditchange3" prefWidth="76.79998779296875" text="Tel No" />
+                        <TableColumn fx:id="add_col" onEditCommit="#oneditchang4" prefWidth="58.4000244140625" text="Adresse" />
+                        <TableColumn fx:id="mail_col" onEditCommit="#oneditchange5" prefWidth="61.59991455078125" text="Email" />
+                        <TableColumn fx:id="schuld_col" prefWidth="56.800048828125" text="Schuld" />
+                        <TableColumn fx:id="krank_col" prefWidth="64.0" text="Krankenheit" />
+                        <TableColumn fx:id="muskel_col" prefWidth="59.200103759765625" text="Muskelverhältnis" />
+                        <TableColumn fx:id="fett_col" prefWidth="91.199951171875" text="Fettrate" />
+                    </columns>
+                  </TableView>
                </children>
             </AnchorPane>
          </items>
@@ -299,9 +313,9 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Button layoutX="105.0" layoutY="443.0" mnemonicParsing="false" onAction="#goaddPerson" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
-                  <Button layoutX="211.0" layoutY="443.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Delete" />
-                  <Button layoutX="156.0" layoutY="443.0" mnemonicParsing="false" onAction="#goeditPerson" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: OLDLACE;" text="Edit" />
+                  <Button layoutX="105.0" layoutY="443.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
+                  <Button layoutX="211.0" layoutY="443.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Delete" />
+                  <Button layoutX="156.0" layoutY="443.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: OLDLACE;" text="Edit" />
                </children>
             </AnchorPane>
             <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" visible="false">
@@ -378,8 +392,8 @@
                               <TableColumn fx:id="persontable" onEditCommit="#oneditchange" prefWidth="174.39998782873153" style="-fx-background-color: WHEAT;" text="PERSON" />
                            </columns>
                         </TableView>
-                        <Button layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddPerson" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
-                        <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditPerson" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: OLDLACE;" text="Edit" />
+                        <Button layoutX="14.0" layoutY="329.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
+                        <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: OLDLACE;" text="Edit" />
                         <Button layoutX="107.0" layoutY="329.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Delete" />
                         <Button layoutX="55.0" layoutY="282.0" mnemonicParsing="false" onAction="#detailsaction" style="-fx-background-color: OLDLACE;" text="Details" />
                         <Line endX="65.19996643066406" layoutX="106.0" layoutY="317.0" startX="-106.79999542236328" stroke="#121212" />
@@ -463,7 +477,7 @@
                                  </children>
                               </GridPane>
                               <Button layoutX="234.0" layoutY="331.0" mnemonicParsing="false" style="-fx-background-color: WHEAT;" text="OK" />
-                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" onAction="#closeedit" style="-fx-background-color: WHEAT;" text="CANCEL" />
+                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false"  style="-fx-background-color: WHEAT;" text="CANCEL" />
                               <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: WHEAT;" text="EDIT PERSON">
                                  <font>
                                     <Font name="Bodoni MT Condensed" size="29.0" />
@@ -509,7 +523,7 @@
                               <Label layoutX="186.0" layoutY="131.0" prefHeight="29.0" prefWidth="72.0" text="Person ID :" />
                               <TextField fx:id="deleteid" layoutX="264.0" layoutY="133.0" />
                               <Button layoutX="222.0" layoutY="200.0" mnemonicParsing="false" text="OK" />
-                              <Button layoutX="282.0" layoutY="200.0" mnemonicParsing="false" onAction="#closedelete" text="Cancel" />
+                              <Button layoutX="282.0" layoutY="200.0" mnemonicParsing="false"  text="Cancel" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="addpersonpane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -543,7 +557,7 @@
                                  </children>
                               </GridPane>
                               <Button fx:id="finishaddtrainer" layoutX="234.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonadd" text="OK" />
-                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" onAction="#closeadd" text="CANCEL" />
+                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false"  text="CANCEL" />
                               <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="ADD NEW PERSON">
                                  <font>
                                     <Font name="Bodoni MT Condensed" size="29.0" />
@@ -570,13 +584,8 @@
                   </AnchorPane>
                </items>
             </SplitPane>
-            <Button layoutX="594.0" layoutY="1.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: white; -fx-border-color: white;" />
-            <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="610.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="C:\Users\ebeyz\Downloads\icons8-close-30.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
+      <Button fx:id="homebtn" layoutX="745.0" layoutY="2.0" mnemonicParsing="false" onAction="#goHomepage" text="Home" />
    </children>
 </AnchorPane>

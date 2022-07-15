@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.Classes.Kurse;
+import com.example.demo.Classes.Person;
 import com.example.demo.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -112,7 +114,29 @@ public class kursController {
         System.out.println(listKurs);
         this.kursetable.setItems(listKurs);
 
+        kursetable.setEditable(true);
+        kursename.setCellFactory(TextFieldTableCell.forTableColumn());
+        //kursepreis.setCellFactory(TextFieldTableCell.forTableColumn());
+        kursetag.setCellFactory(TextFieldTableCell.forTableColumn());
+        kursetrainer.setCellFactory(TextFieldTableCell.forTableColumn());
+        //kursebeginn.setCellFactory(TextFieldTableCell.forTableColumn());
+        //kurseend.setCellFactory(TextFieldTableCell.forTableColumn());
 
+    }
+
+    @FXML
+    void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Kurse kurse = kursetable.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        kurse.setKursename(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateKurs(kurse);
     }
 
 

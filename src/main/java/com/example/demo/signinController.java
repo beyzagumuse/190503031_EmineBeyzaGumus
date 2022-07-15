@@ -13,6 +13,9 @@ public class signinController{
 
 
     @FXML
+    private Button homebtn;
+
+    @FXML
     private TableColumn<benutzer, String> benutzernamecolumn;
 
     @FXML
@@ -46,6 +49,13 @@ public class signinController{
         dbControl.printBenutzerData((benutzername_txt.getText()));
         dbControl.deleteAdmin((benutzername_txt.getText()));
         System.out.println("Patient wurde vom Datenbank geloescht.");
+
+    }
+
+    HelloApplication application;
+    @FXML
+    void goHomr() throws IOException {
+        application.showHomepageScene();
 
     }
 

@@ -114,10 +114,10 @@
             <Button layoutX="255.0" layoutY="79.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="123.0" text="Kurse Informations" />
             <AnchorPane layoutY="37.0" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="646.0" style="-fx-background-color: DIMGRAY;">
                <children>
-                  <Button layoutX="62.0" layoutY="276.0" mnemonicParsing="false" onAction="#goPersonal" prefHeight="50.0" prefWidth="146.0" text="Personal" />
+                  <Button layoutX="62.0" layoutY="276.0" mnemonicParsing="false" onAction="#goPersonal" prefHeight="50.0" prefWidth="146.0" text="Personal" visible="false" />
                   <Button layoutX="62.0" layoutY="134.0" mnemonicParsing="false" onAction="#goSportler" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Sportler" textFill="WHITE" />
                   <Button layoutX="62.0" layoutY="204.0" mnemonicParsing="false" onAction="#goTrainer" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Trainer" textFill="WHITE" />
-                  <Button layoutX="62.0" layoutY="63.0" mnemonicParsing="false" onAction="#goPersona" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Person" textFill="#fcfcfc" />
+                  <Button layoutX="62.0" layoutY="63.0" mnemonicParsing="false" onAction="#goPersona" prefHeight="50.0" prefWidth="146.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Personal" textFill="#fcfcfc" />
                   <ImageView fitHeight="50.0" fitWidth="67.0" layoutX="62.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="D:\demo\photos\icons8-administrator-male-30.png" />

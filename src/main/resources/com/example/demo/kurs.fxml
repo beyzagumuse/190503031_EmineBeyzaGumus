@@ -153,7 +153,7 @@
                   <TableView fx:id="kursetable" layoutX="70.0" layoutY="78.0" prefHeight="370.0" prefWidth="534.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="kurseid" prefWidth="49.5999755859375" text="ID" />
-                      <TableColumn fx:id="kursename" prefWidth="89.59996795654297" text="Name" />
+                      <TableColumn fx:id="kursename" onEditCommit="#oneditchange" prefWidth="89.59996795654297" text="Name" />
                         <TableColumn fx:id="kursepreis" prefWidth="56.79998779296875" text="Preis" />
                         <TableColumn fx:id="kursetag" prefWidth="100.79998779296875" text="Tag" />
                         <TableColumn fx:id="kursetrainer" prefWidth="120.80001831054688" text="Trainer" />

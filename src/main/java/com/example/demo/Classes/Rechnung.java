@@ -56,4 +56,27 @@ public class Rechnung{
         return preis;
     }
 
+    public void setSportlernummer(String sportlernummer) {
+        this.sportlernummer = sportlernummer;
+    }
+
+    public String getRechnungsnummer() {
+        return rechnungsnummer;
+    }
+
+    public String getKursenummer() {
+        return kursenummer;
+    }
+
+    public void setKursenummer(String kursenummer) {
+        this.kursenummer = kursenummer;
+    }
+
+    public String getKurseTage() {
+        return kurseTage;
+    }
+
+    public void setKurseTage(String kurseTage) {
+        this.kurseTage = kurseTage;
+    }
 }

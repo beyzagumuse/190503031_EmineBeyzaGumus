@@ -1,6 +1,12 @@
 package com.example.demo.Classes;
 
-public class Sportler extends Person{
+public class Sportler{
+
+    private String name;
+    private String nachname;
+    private String telno;
+    private String adresse;
+    private String email;
     private String sportlernummer;
     private int schuld;
     private String krankenheit; //arraylist or array
@@ -8,8 +14,16 @@ public class Sportler extends Person{
     private int fettrate;
     //private Kurse[];
 
+    public Sportler(){}
+
     public Sportler(String id, String name, String nachname,String telno,String adresse, String email, int schuld , String krankenheit,int muskel,int fett){
-        super( id, name, nachname, telno,adresse, email);
+        //super( id, name, nachname, telno,adresse, email);
+        sportlernummer = id;
+        this.name = name;
+        this.nachname = nachname;
+        this.telno = telno;
+        this.adresse = adresse;
+        this.email = email;
         this.schuld = schuld;
         this.krankenheit = krankenheit;
         muskelv = muskel;
@@ -89,5 +103,52 @@ public class Sportler extends Person{
 
 
 
+    public String getName() {
+        return name;
+    }
 
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public String getNachname() {
+        return nachname;
+    }
+
+
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
+    }
+
+
+    public String getTelno() {
+        return telno;
+    }
+
+
+    public void setTelno(String telno) {
+        this.telno = telno;
+    }
+
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

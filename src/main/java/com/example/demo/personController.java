@@ -5,10 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
@@ -275,8 +272,12 @@ public class personController {
         System.out.println(data);
         this.allpersonview.setItems(data);
 
-        persontableview.setEditable(true);
-        persontable.setCellFactory(TextFieldTableCell.forTableColumn());
+        allpersonview.setEditable(true);
+        name_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        nachname_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        telno_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        add_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        mail_col.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
     }
@@ -362,12 +363,71 @@ public class personController {
     void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
 
         Person person = allpersonview.getSelectionModel().getSelectedItem();
-        System.out.println(p.getName());
-        person.setId(personStringCellEditEvent.getNewValue());
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
         person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updatePerson(person);
+    }
+
+    @FXML
+    void oneditchange2(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
         person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updatePerson(person);
+    }
+    @FXML
+    void oneditchange3(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
         person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updatePerson(person);
+    }
+
+    @FXML
+    void oneditchang4(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
         person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updatePerson(person);
+    }
+
+    @FXML
+    void oneditchange5(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
         person.setEmail(personStringCellEditEvent.getNewValue());
         //dbControl.editPerson(person);
         dbControl.updatePerson(person);

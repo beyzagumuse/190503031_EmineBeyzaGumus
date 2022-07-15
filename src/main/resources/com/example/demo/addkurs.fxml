@@ -40,7 +40,7 @@
                   </Lighting>
                </effect>
             </Label>
-            <AnchorPane prefHeight="426.0" prefWidth="402.0">
+            <AnchorPane prefHeight="455.0" prefWidth="402.0">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="146.0" text="Kurs Informations">
                      <font>
@@ -83,11 +83,11 @@
                      </children>
                   </GridPane>
                   <Line endX="299.0" endY="1.20001220703125" layoutX="101.0" layoutY="470.0" startX="-100.0" />
-                  <DatePicker fx:id="addTag" layoutX="54.0" layoutY="431.0" prefHeight="26.0" prefWidth="289.0" />
-                  <ComboBox fx:id="addKursTrainer" layoutX="56.0" layoutY="405.0" prefHeight="26.0" prefWidth="289.0" />
+                  <DatePicker fx:id="addTag" layoutX="54.0" layoutY="431.0" prefHeight="26.0" prefWidth="289.0" visible="false" />
+                  <ComboBox fx:id="addKursTrainer" layoutX="56.0" layoutY="405.0" prefHeight="26.0" prefWidth="289.0" visible="false" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="48.0" prefWidth="400.0">
+            <AnchorPane prefHeight="80.0" prefWidth="400.0">
                <children>
                   <Button layoutX="140.0" layoutY="9.0" mnemonicParsing="false" onAction="#addKurse" text="OK" />
                   <Button layoutX="184.0" layoutY="9.0" mnemonicParsing="false" onAction="#goKurspage" text="Cancel" />

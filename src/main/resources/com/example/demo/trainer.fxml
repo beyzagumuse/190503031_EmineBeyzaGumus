@@ -24,7 +24,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.trainerController">
+<AnchorPane fx:id="personpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.trainerController">
    <children>
       <TabPane layoutX="14.0" layoutY="14.0" prefHeight="514.0" prefWidth="621.0" style="-fx-background-color: black;" tabClosingPolicy="UNAVAILABLE" visible="false">
          <tabs>
@@ -67,7 +67,7 @@
             </Tab>
          </tabs>
       </TabPane>
-      <MenuBar prefHeight="26.0" prefWidth="794.0">
+      <MenuBar prefHeight="26.0" prefWidth="796.0">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
@@ -98,7 +98,7 @@
                   <Button layoutX="18.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddTrainer" prefHeight="26.0" text="Add" />
                   <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditTrainer" prefHeight="26.0" prefWidth="50.0" text="Edit" />
                   <Button layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#godeleteTrainer" prefHeight="26.0" text="Delete" />
-                  <Button layoutX="55.0" layoutY="282.0" mnemonicParsing="false" onAction="#godetailsTrainer" text="Details" />
+                  <Button layoutX="55.0" layoutY="282.0" mnemonicParsing="false" onAction="#godetailsTrainer" text="Details" visible="false" />
                   <Line endX="65.19996643066406" layoutX="106.0" layoutY="317.0" startX="-106.79999542236328" stroke="#121212" />
                </children>
             </AnchorPane>
@@ -280,5 +280,6 @@
             </AnchorPane>
          </items>
       </SplitPane>
+      <Button fx:id="homebtn" layoutX="770.0" layoutY="1.0" mnemonicParsing="false" onAction="#goPersonChoice" text="X" />
    </children>
 </AnchorPane>

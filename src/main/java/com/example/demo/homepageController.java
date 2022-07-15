@@ -125,6 +125,12 @@ public class homepageController {
         }
     }
 
+    @FXML
+    private void LogOut() throws IOException {
+        application.showMainView();
+    }
+
+
 /*
     @FXML
     public void loadPersona(){

@@ -1,8 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.Classes.Kurse;
-import com.example.demo.Classes.Person;
-import com.example.demo.Classes.database;
+import com.example.demo.Classes.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -22,6 +20,23 @@ public class dbControl {
     public  static ResultSet rs;
 
     public static Connection conn = database.connect();
+
+    public static void addRechnung(Rechnung r) {
+        String query = "INSERT INTO rechnung(rechnung_id,sportler_id,kurse_id,rechnung_kursetage,rechnung_preis) VALUES (?,?,?,?,?)";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, r.getRechnungsnummer());
+            pstmt.setString(2, r.getSportlernummer());
+            pstmt.setString(3,r.getKursenummer());
+            pstmt.setString(4,r.getKurseTage());
+            pstmt.setInt(5,r.getPreis());
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public static void addKurse(int kurse_id, String kurse_name, int kurse_preis,String kurse_tage, String trainer_id,int kurse_anzahlSportler, int beginn,int end) {
         String query = "INSERT INTO kurse(kurse_id,kurse_name,kurse_preis,kurse_tage,trainer_id,kurse_anzahlSportler,beginn,end) VALUES(?,?,?,?,?,?,?,?)";
@@ -145,10 +160,154 @@ public class dbControl {
         }
     }
 
-    public static void editKurs(String id){
-        String query = "UPDATE kurse SET kurse_id = '"+id+"' WHERE kurse_id = ' " + id + "'";
+    public static void updateKurs(Kurse kurse){
+        //String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
+        String name = "UPDATE kurse SET kurse_name = '" + kurse.getKursename() + "' WHERE kurse_id = '" + kurse.getKursenummer()+"'";
+        //int preis = Integer.parseInt("UPDATE kurse SET kurse_preis = '" + kurse.getPreis() + "' WHERE kurse_id = '" + kurse.getKursenummer()+"'");
+        String tag = "UPDATE kurse SET kurse_tage = '" + kurse.getTage() + "' WHERE kurse_id = '" + kurse.getKursenummer()+"'";
+        String trainer = "UPDATE kurse SET trainer_id = '" + kurse.getTrainer() + "' WHERE kurse_id = '" + kurse.getKursenummer()+"'";
+        //int anzahl = Integer.parseInt("UPDATE kurse SET kurse_anzahlSportler = '" + kurse.getAnzahlSportler() + "' WHERE kurse_id = '" + kurse.getKursenummer()+"'");
+        //int beginn = Integer.parseInt("UPDATE kurse SET kurse_beginn = '" + kurse.getBeginn() + "' WHERE kurse_id = '" + kurse.getKursenummer()+"'");
+        //int end = Integer.parseInt("UPDATE kurse SET kurse_end = '" + kurse.getEnd() + "' WHERE kurse_id = '" + kurse.getKursenummer()+"'");
+
+
+
+        try {
+            Statement stm = conn.createStatement();
+            //stm.execute(id);
+            stm.execute(name);
+            //stm.execute(String.valueOf(preis));
+            stm.execute(tag);
+            stm.execute(trainer);
+            //stm.execute(String.valueOf(anzahl));
+            //stm.execute(String.valueOf(beginn));
+            //stm.execute(String.valueOf(end));
+
+
+
+            //stm.execute(km);
+            //stm.execute(typ);
+            //stm.execute(preis);
+
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
+ // SPORTLER
+
+    public static ObservableList<Sportler> getDatasportler(){
+
+        Connection conn = connect();
+        ObservableList<Sportler> sportlerlist = FXCollections.observableArrayList();
+        try{
+            Statement stmt = conn.createStatement();
+            //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM sportler");
+
+            while(rs.next()){
+                //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
+                //personlist.add(new Person(rs.getString("kurse_name")));
+                Sportler p = new Sportler();
+                p.setSportlernummer(rs.getString("sportler_id"));
+                p.setName(rs.getString("sportler_name"));
+                p.setNachname(rs.getString("sportler_nachname"));
+                p.setTelno(rs.getString("sportler_telno"));
+                p.setAdresse(rs.getString("sportler_adresse"));
+                p.setEmail(rs.getString("sportler_email"));
+                p.setSchuld(rs.getInt("spotler_schuld"));
+                p.setKrankenheit(rs.getString("sportler_schuld"));
+                p.setMuskelv(rs.getInt("sportler_muskelv"));
+                p.setFettrate(rs.getInt("sportler_fettrate"));
+                sportlerlist.add(p);
+
+            }
+        } catch(Exception e){
+
+        }
+        //System.out.println(kurselist);
+        return sportlerlist;
+    }
+
+
+    public static void add_Sportler(Sportler p) {
+
+        String id = p.getSportlernummer();
+        String name = p.getName();
+        String nachname = p.getNachname();
+        String telno = p.getTelno();
+        String adress = p.getAdresse();
+        String email = p.getEmail();
+        int schuld = p.getSchuld();
+
+
+        String query = "INSERT INTO sportler VALUES ?";
+        // person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email)
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1,id);
+            pstmt.setString(2, p.getName());
+            pstmt.setString(3, p.getNachname());
+            pstmt.setString(4,p.getTelno());
+            pstmt.setString(5,p.getAdresse());
+            pstmt.setString(6,p.getEmail());
+            pstmt.setInt(7,schuld);
+            pstmt.setString(8,p.getKrankenheit());
+            pstmt.setInt(9,p.getMuskelv());
+            pstmt.setInt(10,p.getFettrate());
+            //pstmt.setString(2, password);
+
+            pstmt.executeUpdate();
+            pstmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void updateSportler(Sportler p) {
+
+        //String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
+        String name = "UPDATE sportler SET sportler_name = '" + p.getName() + "' WHERE person_id = '" + p.getSportlernummer()+"'";
+        String nachname = "UPDATE sportler SET sportler_nachname =  '"+p.getNachname()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
+        String telno = "UPDATE sportler SET sportler_telno =  '"+p.getTelno()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
+        String adresse = "UPDATE sportler SET sportler_adresse =  '"+p.getAdresse()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
+        String email = "UPDATE sportler SET sportler_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
+        int schuld = Integer.parseInt("UPDATE sportler SET sportler_schuld =  '"+p.getSchuld()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
+        String krank = "UPDATE sportler SET sportler_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
+        int muskel = Integer.parseInt("UPDATE sportler SET sportler_muskelv =  '"+p.getMuskelv()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
+        int fett = Integer.parseInt("UPDATE sportler SET sportler_fettrate =  '"+p.getFettrate()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
+        //String typ = "UPDATE Autos SET Getriebetyp = '" + auto.getGetriebetyp() + "' WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+        //String preis = "UPDATE Autos SET Mietpreise =  '" +  auto.getMietpreise() + "'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+
+
+
+
+        try {
+            Statement stm = conn.createStatement();
+            //stm.execute(id);
+            stm.execute(name);
+            stm.execute(nachname);
+            stm.execute(telno);
+            stm.execute(adresse);
+            stm.execute(email);
+            stm.execute(String.valueOf(schuld));
+            stm.execute(krank);
+            stm.execute(String.valueOf(muskel));
+            stm.execute(String.valueOf(fett));
+
+
+            //stm.execute(km);
+            //stm.execute(typ);
+            //stm.execute(preis);
+
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     //PERSON
 
@@ -230,12 +389,12 @@ public class dbControl {
 
     public static void updatePerson(Person p) {
 
-        String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
+        //String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
         String name = "UPDATE person SET person_name = '" + p.getName() + "' WHERE person_id = '" + p.getId()+"'";
         String nachname = "UPDATE person SET person_nachname =  '"+p.getNachname()+"'  WHERE person_id = '" + p.getId()+"'";
-        String telno = "UPDATE person SET person_nachname =  '"+p.getTelno()+"'  WHERE person_id = '" + p.getId()+"'";
-        String adresse = "UPDATE person SET person_nachname =  '"+p.getAdresse()+"'  WHERE person_id = '" + p.getId()+"'";
-        String email = "UPDATE person SET person_nachname =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getId()+"'";
+        String telno = "UPDATE person SET person_telno =  '"+p.getTelno()+"'  WHERE person_id = '" + p.getId()+"'";
+        String adresse = "UPDATE person SET person_adresse =  '"+p.getAdresse()+"'  WHERE person_id = '" + p.getId()+"'";
+        String email = "UPDATE person SET person_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getId()+"'";
         //String typ = "UPDATE Autos SET Getriebetyp = '" + auto.getGetriebetyp() + "' WHERE Nummernschild = '" + auto.getNummernschild()+"'";
         //String preis = "UPDATE Autos SET Mietpreise =  '" +  auto.getMietpreise() + "'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
 
@@ -244,7 +403,7 @@ public class dbControl {
 
         try {
             Statement stm = conn.createStatement();
-            stm.execute(id);
+            //stm.execute(id);
             stm.execute(name);
             stm.execute(nachname);
             stm.execute(telno);
