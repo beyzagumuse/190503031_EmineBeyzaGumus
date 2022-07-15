@@ -8,8 +8,12 @@ public class Sportler extends Person{
     private int fettrate;
     //private Kurse[];
 
-    public Sportler(String id, String name, String nachname,String telno,String adresse, String email){
+    public Sportler(String id, String name, String nachname,String telno,String adresse, String email, int schuld , String krankenheit,int muskel,int fett){
         super( id, name, nachname, telno,adresse, email);
+        this.schuld = schuld;
+        this.krankenheit = krankenheit;
+        muskelv = muskel;
+        fettrate = fett;
     }
 
     public void addSportler(String sportlernummer, Person a){

@@ -341,9 +341,9 @@ public class dbControl {
         }
     }
 
-
-    public static void addSportler(int personid, String personname, String telno ,String adresse, String email,int muskel, int fettrate,String krank) {
-        String query = "INSERT INTO person(person_id,person_name,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?)";
+/*
+    public static void addSportler(int personid, String personname, String telno ,String adresse, String email,int schuld,String krank,int muskel, int fettrate) {
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?)";
         String query2 = "INSERT INTO sportler(sportler_muskelv,sportler_fettrate,sportler_krankheit) VALUES (?,?,?)";
 
         try {
@@ -357,6 +357,30 @@ public class dbControl {
             pstmt2.setInt(6,muskel);
             pstmt2.setInt(7,fettrate);
             pstmt2.setString(8,krank);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }*/
+
+    public static void addSportler(int personid, String personname,String personnachname, String telno ,String adresse, String email,int schuld,String krank,int muskel, int fettrate) {
+        //String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?,?)";
+        String query2 = "INSERT INTO sportler(sportler_id,sportler_name,sportler_nachname,sportler_telno,sportler_adresse,sportler_email,sportler_schuld,sportler_krank,sportler_muskelv,sportler_fettrate) VALUES (?,?,?,?)";
+
+        try {
+            //pstmt = dbControl.conn.prepareStatement(query);
+            pstmt2 = dbControl.conn.prepareStatement(query2);
+            pstmt2.setInt(1, personid);
+            pstmt2.setString(2, personname);
+            pstmt2.setString(3,personnachname);
+            pstmt2.setString(4, telno);
+            pstmt2.setString(5,adresse);
+            pstmt2.setString(6,email);
+            pstmt2.setInt(7,schuld);
+            pstmt2.setString(8,krank);
+            pstmt2.setInt(9,muskel);
+            pstmt2.setInt(10,fettrate);
+
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

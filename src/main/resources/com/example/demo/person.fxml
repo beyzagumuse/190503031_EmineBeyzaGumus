@@ -134,9 +134,9 @@
                         <TableColumn fx:id="persontable" onEditCommit="#oneditchange" prefWidth="174.39998782873153" style="-fx-background-color: WHEAT;" text="PERSON" />
                      </columns>
                   </TableView>
-                  <Button layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddPerson" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
-                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditPerson" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: OLDLACE;" text="Edit" />
-                  <Button layoutX="107.0" layoutY="329.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Delete" />
+                  <Button layoutX="14.0" layoutY="329.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
+                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: OLDLACE;" text="Edit" />
+                  <Button layoutX="107.0" layoutY="329.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Delete" />
                   <Button layoutX="55.0" layoutY="282.0" mnemonicParsing="false" onAction="#detailsaction" style="-fx-background-color: OLDLACE;" text="Details" />
                   <Line endX="65.19996643066406" layoutX="106.0" layoutY="317.0" startX="-106.79999542236328" stroke="#121212" />
                </children>

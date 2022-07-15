@@ -116,11 +116,12 @@ public class personController {
 
 
     @FXML
-    void goaddPerson() {
-        addpersonpane.setVisible(true);
-        deletepersonpane.setVisible(false);
-        editpersonpane.setVisible(false);
-        detailspane.setVisible(false);
+    void goaddPerson() throws IOException {
+        //addpersonpane.setVisible(true);
+        //deletepersonpane.setVisible(false);
+        //editpersonpane.setVisible(false);
+        //detailspane.setVisible(false);
+        application.showPersonAddScene();
     }
 
     @FXML

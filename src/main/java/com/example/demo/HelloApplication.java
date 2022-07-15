@@ -89,6 +89,14 @@ public class HelloApplication extends Application {
         primaryStage.setScene(scene);
 
     }
+    public static void showPersonAddScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("personadd.fxml"));
+        Scene scene = new Scene(loader.load());
+        primaryStage.setScene(scene);
+
+    }
+
 
     public static void showaddKursScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();

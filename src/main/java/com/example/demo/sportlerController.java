@@ -1,8 +1,10 @@
 package com.example.demo;
 
-import com.example.demo.Classes.database;
+import com.example.demo.Classes.Sportler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -52,6 +54,51 @@ public class sportlerController {
     @FXML
     private TextField addsportlertelno;
 
+    @FXML
+    private TableView<Sportler> allpersonview;
+
+    @FXML
+    private TableColumn<Sportler, Integer> fett_col;
+
+
+    @FXML
+    private TableColumn<Sportler, String> add_col;
+
+    @FXML
+    private TableColumn<Sportler, String> krank_col;
+
+    @FXML
+    private TableColumn<Sportler, String> mail_col;
+
+    @FXML
+    private TableColumn<Sportler, Integer> muskel_col;
+
+    @FXML
+    private TableColumn<Sportler, String> nachname_col;
+
+    @FXML
+    private TableColumn<Sportler, String> name_col;
+    @FXML
+    private TableColumn<Sportler, String> persontable;
+
+    @FXML
+    private TableView<Sportler> persontableview;
+
+    @FXML
+    private TableColumn<Sportler, Integer> schuld_col;
+
+    @FXML
+    private TableColumn<Sportler, String> tc_col;
+
+    @FXML
+    private TableColumn<Sportler, Integer> telno_col;
+
+    @FXML
+    private TextField addsportlernachname;
+
+
+    @FXML
+    private TextField addsportlerschuld;
 
 
     @FXML
@@ -64,8 +111,8 @@ public class sportlerController {
 
     @FXML
     private void addSportler() throws IOException {
-        dbControl.addSportler(Integer.parseInt(addsportlerid.getText()), addsportlername.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()),addsportlerkrank.getText());
-        dbControl.printKurseData(Integer.parseInt(addsportlerid.getText()));
+        dbControl.addSportler(Integer.parseInt(addsportlerid.getText()), addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
+        //dbControl.printSportlerData(Integer.parseInt(addsportlerid.getText()));
 
         System.out.println("Person wurde zum Datenbank addiert.");
 
@@ -104,6 +151,92 @@ public class sportlerController {
     void closePane(AnchorPane pane) {
         pane.setVisible(false);
     }
+/*
+    @FXML
+    void buttonadd() {
+
+        Sportler p = new Sportler(addsportlerid.getText(),addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),addsportlerschuld.getText(),addsportlerkrank.getText(),addsportlermv.getText(),addsportlerfr.getText());
+        persontableview.getItems().add(p);
+        dbControl.add_Person(p);
+
+    }
+    @FXML
+    void detailsaction() {
+        Person person = new Person();
+
+        List<List<String>> arrList = new ArrayList<>();
+
+        for(int i =0; i < persontableview.getItems().size();i++){
+            person = persontableview.getItems().get(i);
+            arrList.add(new ArrayList<>());
+            arrList.get(i).add(person.getName());
+        }
+
+        for(int i =0;i<arrList.size();i++){
+            for(int j =0; j< arrList.get(i).size();j++){
+                System.out.println(arrList.get(i).get(j));
+            }
+        }
+
+    }
+
+    public void personList(){
+
+    }*/
+/*
+    @FXML
+    void deleteaction() {
+        ObservableList<Person> allPerson, SinglePerson;
+        allPerson = persontableview.getItems();
+        SinglePerson = persontableview.getSelectionModel().getSelectedItems();
+
+        Person person = persontableview.getSelectionModel().getSelectedItem();
+        System.out.println(person.getId());
+
+        String a = person.getId();
+        SinglePerson.forEach(allPerson::remove);
+        dbControl.delete_Person((a));
+    }*/
+/*
+    @FXML
+    void deleteaction() {
+        ObservableList<Person> allPerson, SinglePerson;
+        allPerson = allpersonview.getItems();
+        SinglePerson = allpersonview.getSelectionModel().getSelectedItems();
+
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        System.out.println(person.getId());
+
+        String a = person.getId();
+        SinglePerson.forEach(allPerson::remove);
+        dbControl.delete_Person((a));
+    }
+
+    @FXML
+    void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        System.out.println(p.getName());
+        person.setId(personStringCellEditEvent.getNewValue());
+        person.setName(personStringCellEditEvent.getNewValue());
+        person.setNachname(personStringCellEditEvent.getNewValue());
+        person.setTelno(personStringCellEditEvent.getNewValue());
+        person.setAdresse(personStringCellEditEvent.getNewValue());
+        person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updatePerson(person);
+    }./
+
+/*
+    @FXML
+    void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Person person = persontableview.getSelectionModel().getSelectedItem();
+        person.setName(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updatePerson(person);
+    }*/
+
 
 
 }
