@@ -477,7 +477,7 @@
                                  </children>
                               </GridPane>
                               <Button layoutX="234.0" layoutY="331.0" mnemonicParsing="false" style="-fx-background-color: WHEAT;" text="OK" />
-                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false"  style="-fx-background-color: WHEAT;" text="CANCEL" />
+                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" style="-fx-background-color: WHEAT;" text="CANCEL" />
                               <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: WHEAT;" text="EDIT PERSON">
                                  <font>
                                     <Font name="Bodoni MT Condensed" size="29.0" />
@@ -523,7 +523,7 @@
                               <Label layoutX="186.0" layoutY="131.0" prefHeight="29.0" prefWidth="72.0" text="Person ID :" />
                               <TextField fx:id="deleteid" layoutX="264.0" layoutY="133.0" />
                               <Button layoutX="222.0" layoutY="200.0" mnemonicParsing="false" text="OK" />
-                              <Button layoutX="282.0" layoutY="200.0" mnemonicParsing="false"  text="Cancel" />
+                              <Button layoutX="282.0" layoutY="200.0" mnemonicParsing="false" text="Cancel" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="addpersonpane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -557,7 +557,7 @@
                                  </children>
                               </GridPane>
                               <Button fx:id="finishaddtrainer" layoutX="234.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonadd" text="OK" />
-                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false"  text="CANCEL" />
+                              <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" text="CANCEL" />
                               <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="ADD NEW PERSON">
                                  <font>
                                     <Font name="Bodoni MT Condensed" size="29.0" />

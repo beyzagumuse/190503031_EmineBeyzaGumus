@@ -51,7 +51,7 @@
                   </ImageView>
                   <Button fx:id="person_btn" mnemonicParsing="false" onAction="#loadPerson" prefHeight="50.0" prefWidth="182.0" style="-fx-border-color: white; -fx-background-color: transparent;" text="Person" textFill="#fcfafa" />
                   <Button fx:id="kurse_btn" layoutY="50.0" mnemonicParsing="false" onAction="#goKurse" prefHeight="50.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Kurse" textFill="#faf9f9" />
-                  <Button layoutX="1.0" layoutY="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Schedule" textFill="WHITE" visible="false" />
+                  <Button layoutX="1.0" layoutY="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="List" textFill="WHITE" />
                   <Button fx:id="rechnung_btn" layoutY="100.0" mnemonicParsing="false" onAction="#goRechnung" prefHeight="50.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Rechnung" textFill="#fcfcfc" />
                   <Button layoutX="65.0" layoutY="256.0" mnemonicParsing="false" onAction="#goSignIn" style="-fx-background-color: black; -fx-border-color: white;" text="Sign In" textFill="WHITE" />
                   <Button layoutX="62.0" layoutY="349.0" mnemonicParsing="false" onAction="#LogOut" style="-fx-background-color: black; -fx-border-color: white;" text="Log Out" textFill="WHITE" />
