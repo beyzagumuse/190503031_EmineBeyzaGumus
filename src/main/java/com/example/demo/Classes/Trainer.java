@@ -2,8 +2,10 @@ package com.example.demo.Classes;
 
 public class Trainer extends Person{
 
+
     public Trainer(String id, String name, String nachname,String telno,String adresse, String email){
         super( id, name, nachname, telno,adresse, email);
+        this.trainernummer = id;
     }
     private String trainernummer;
     //private Kurse[];

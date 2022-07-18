@@ -304,7 +304,7 @@ public class personController {
 
         Person p = new Person(addid.getText(),addname.getText(),addnachname.getText(),addtel.getText(),addadresse.getText(),addmail.getText());
         persontableview.getItems().add(p);
-        dbControl.add_Person(p);
+        dbControl.add_Personal(p);
 
     }
     @FXML

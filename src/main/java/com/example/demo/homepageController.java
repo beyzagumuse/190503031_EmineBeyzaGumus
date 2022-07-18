@@ -131,6 +131,12 @@ public class homepageController {
     }
 
 
+    @FXML
+    private void Listen(){
+        dbControl.getTrainer();
+    }
+
+
 /*
     @FXML
     public void loadPersona(){

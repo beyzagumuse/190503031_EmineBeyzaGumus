@@ -6,6 +6,7 @@ public class Personal extends Person{
 
     public Personal(String id, String name, String nachname,String telno,String adresse, String email){
         super( id, name, nachname, telno,adresse, email);
+        personalnummer = id;
     }
     public void addPersonal(String personalnummer, Person a){
         this.personalnummer = personalnummer;

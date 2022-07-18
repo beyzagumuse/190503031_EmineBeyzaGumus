@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -387,6 +388,42 @@ public class dbControl {
     }
 
 
+    public static void add_Personal(Person p) {
+
+        String id = p.getId();
+        String name = p.getName();
+        String nachname = p.getNachname();
+        String telno = p.getTelno();
+        String adress = p.getAdresse();
+        String email = p.getEmail();
+
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES (?,?,?,?,?,?)";
+        String query2 = "INSERT INTO personall(personal_id) VALUES(?)";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1,id);
+            pstmt.setString(2, p.getName());
+            pstmt.setString(3, p.getNachname());
+            pstmt.setString(4,p.getTelno());
+            pstmt.setString(5,p.getAdresse());
+            pstmt.setString(6,p.getAdresse());
+            //pstmt.setString(2, password);
+
+            pstmt.executeUpdate();
+            pstmt.close();
+            //conn.close();
+
+            pstmt2 = dbControl.conn.prepareStatement(query2);
+            pstmt2.setString(1,id);
+
+            pstmt2.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public static void updatePerson(Person p) {
 
         //String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
@@ -601,6 +638,105 @@ public class dbControl {
             e.printStackTrace();
         }
     }
+
+
+    public static ArrayList<Trainer> getTrainer() {
+        ArrayList<Trainer> mitarbeiters = new ArrayList<>();
+        //SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Statement stmt = database.conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM person,trainer WHERE person_id = trainer_id");
+            while (rs.next()) {
+
+
+
+
+                String id = rs.getString("person_id");
+                String name = rs.getString("person_name");
+                String nachname = rs.getString("person_nachname");
+                String telno = rs.getString("person_telno");
+                //Date geburtsdatum = (Date) dformat.parse(sgeburtsdatum);
+                String adresse = rs.getString("person_adresse");
+                String email = rs.getString("person_email");
+                String trainernummer = rs.getString("trainer_id");
+
+
+
+
+                mitarbeiters.add(new Trainer(id, name, nachname,telno,adresse,email));
+                System.out.println(mitarbeiters.get(0).getName());
+            }
+
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return mitarbeiters;
+    }
+
+    public static void add_Trainer(Trainer p) {
+
+        String id = p.getId();
+        String name = p.getName();
+        String nachname = p.getNachname();
+        String telno = p.getTelno();
+        String adress = p.getAdresse();
+        String email = p.getEmail();
+
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES (?,?,?,?,?,?)";
+        String query2 = "INSERT INTO trainer(trainer_id) VALUES (?)" ;
+
+        //String query = INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) OUTPUT person.person_id INTO trainer VALUES()  GO
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            //pstmt2 = dbControl.conn.prepareStatement(query2);
+            pstmt.setString(1,id);
+            pstmt.setString(2, p.getName());
+            pstmt.setString(3, p.getNachname());
+            pstmt.setString(4,p.getTelno());
+            pstmt.setString(5,p.getAdresse());
+            pstmt.setString(6,p.getAdresse());
+            //pstmt2.setString(7,id);
+            //pstmt.setString(2, password);
+
+            pstmt.executeUpdate();
+            pstmt.close();
+            //conn.close();
+
+            pstmt2 = dbControl.conn.prepareStatement(query2);
+
+            pstmt2.setString(1,id);
+
+            pstmt2.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void deleteTrainer(String id) {
+        String query = "DELETE FROM person WHERE person_id = ?" ;
+        String query2 = "DELETE FROM trainer WHERE trainer_id = ?";
+
+        try {
+            pstmt = database.conn.prepareStatement(query);
+            pstmt.setString(1, id);
+            pstmt.executeUpdate();
+
+            pstmt2 = database.conn.prepareStatement(query2);
+
+            pstmt2.setString(1, id);
+
+            pstmt2.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 
 
 }
