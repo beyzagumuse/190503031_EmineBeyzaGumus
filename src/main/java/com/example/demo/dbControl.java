@@ -471,14 +471,48 @@ public class dbControl {
     }
 
 
-    public static void initPerson(){
-        ObservableList<Person> data = FXCollections.observableArrayList();
+    public static ObservableList<Personal> listPersonal(){
+        ObservableList<Personal> arr = FXCollections.observableArrayList();
+
         try {
             Connection conn = database.connect();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
-
+            //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email FROM person,personall WHERE person.person_id == personall.personal_id");
+            System.out.println(rs);
             while (rs.next()) {
-                data.add(new Person(rs.getString("person_id"),rs.getString("person_name"),rs.getString("person_nachname"),rs.getString("person_telno"),rs.getString("person_adresse"),rs.getString("person_email")));
+
+                String s = rs.getString("person_id");
+                String s2 = rs.getString("person_name");
+                String s3 = rs.getString("person_nachname");
+                String s4 = rs.getString("person_telno");
+                String s5 = rs.getString("person_adresse");
+                String s6 = rs.getString("person_email");
+                arr.add(new Personal(s,s2,s3,s4,s5,s6));
+
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return arr;
+    }
+
+    public static void initPerson(){
+        ObservableList<Personal> data = FXCollections.observableArrayList();
+        try {
+            Connection conn = database.connect();
+            //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email FROM person,personall WHERE person.person_id == personall.personal_id");
+            System.out.println(rs);
+            while (rs.next()) {
+
+                String s = rs.getString("person_id");
+                String s2 = rs.getString("person_name");
+                String s3 = rs.getString("person_nachname");
+                String s4 = rs.getString("person_telno");
+                String s5 = rs.getString("person_adresse");
+                String s6 = rs.getString("person_email");
+                data.add(new Personal(s,s2,s3,s4,s5,s6));
+                //data.add(new Person(rs.getString("person_id"),rs.getString("person_name"),rs.getString("person_nachname"),rs.getString("person_telno"),rs.getString("person_adresse"),rs.getString("person_email")));
             }
         } catch (SQLException e) {
             Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);

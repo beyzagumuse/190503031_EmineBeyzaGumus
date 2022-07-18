@@ -243,7 +243,7 @@ public class personController {
     */
 
     @FXML
-    public void initialize() {
+    public void initializee() {
 
 
         /*
@@ -280,6 +280,24 @@ public class personController {
         mail_col.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
+    }
+
+
+    public void initialize(){
+
+        tc_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+        name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nachname_col.setCellValueFactory(new PropertyValueFactory<>("nachname"));
+        telno_col.setCellValueFactory(new PropertyValueFactory<>("telno"));
+        add_col.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+        mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
+        allpersonview.setItems(ListPersonal());
+    }
+
+    @FXML
+    public ObservableList ListPersonal(){
+        ObservableList arr = dbControl.listPersonal();
+        return arr;
     }
 
 
