@@ -43,7 +43,7 @@ public class kursController {
     private TableColumn<Kurse, Integer> kursepreis;
 
     @FXML
-    private TableColumn<Kurse, String> kursetag;
+    private TableColumn<Kurse, Date> kursetag;
 
     @FXML
     private TableColumn<Kurse, String> kursetrainer;
@@ -117,10 +117,10 @@ public class kursController {
 
         try {
             Connection conn = database.connect();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM kurse");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM kursee");
 
             while (rs.next()) {
-                this.listKurs.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
+                this.listKurs.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getDate("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahl"),rs.getInt("kurse_beginn"),rs.getInt("kurse_end")));
             }
         } catch (SQLException e) {
             Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
@@ -128,7 +128,7 @@ public class kursController {
         this.kurseid.setCellValueFactory(new PropertyValueFactory<>("kursenummer"));
         this.kursename.setCellValueFactory(new PropertyValueFactory<>("kursename"));
         this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
-        this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tage"));
+        this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tagg"));
         this.kursetrainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
         this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
         this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));
@@ -142,7 +142,7 @@ public class kursController {
         kursetable.setEditable(true);
         kursename.setCellFactory(TextFieldTableCell.forTableColumn());
         //kursepreis.setCellFactory(TextFieldTableCell.forTableColumn());
-        kursetag.setCellFactory(TextFieldTableCell.forTableColumn());
+        //kursetag.setCellFactory(TextFieldTableCell.forTableColumn());
         kursetrainer.setCellFactory(TextFieldTableCell.forTableColumn());
         //kursebeginn.setCellFactory(TextFieldTableCell.forTableColumn());
         //kurseend.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -175,6 +175,20 @@ public class kursController {
         System.out.println("Person wurde zum Datenbank addiert.");
 
 
+    }
+
+    @FXML
+    void deleteaction() {
+        ObservableList<Kurse> allPerson, SinglePerson;
+        allPerson = kursetable.getItems();
+        SinglePerson = kursetable.getSelectionModel().getSelectedItems();
+
+        Kurse person = kursetable.getSelectionModel().getSelectedItem();
+        System.out.println(person.getKursenummer());
+
+        String a = person.getKursenummer();
+        SinglePerson.forEach(allPerson::remove);
+        dbControl.delete_Kurse((a));
     }
 
 

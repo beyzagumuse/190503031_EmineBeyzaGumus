@@ -139,7 +139,7 @@ public class dbControl {
         }
     }
 
-
+/*
     public static void addKurse(int kurse_id, String kurse_name, int kurse_preis,String kurse_tage, String trainer_id,int kurse_anzahlSportler, int beginn,int end) {
         String query = "INSERT INTO kurse(kurse_id,kurse_name,kurse_preis,kurse_tage,trainer_id,kurse_anzahlSportler,beginn,end) VALUES(?,?,?,?,?,?,?,?)";
 
@@ -157,7 +157,7 @@ public class dbControl {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    }
+    }*/
 
     public static void printKurseData(int kurse_id) {
         String query = "SELECT * FROM kurse WHERE kurse_id = ?";
@@ -182,11 +182,11 @@ public class dbControl {
         try{
             Statement stmt = conn.createStatement();
             //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
-            ResultSet rs = stmt.executeQuery("SELECT * FROM kurse");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM kursee");
 
             while(rs.next()){
                 //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
-                kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahlSportler"),rs.getInt("beginn"),rs.getInt("end")));
+                kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getDate("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahl"),rs.getInt("kurse_beginn"),rs.getInt("kurse_end")));
             }
         } catch(Exception e){
 
@@ -213,6 +213,18 @@ public class dbControl {
         try {
             pstmt = dbControl.conn.prepareStatement(query);
             //pstmt.setInt(1, kurse_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void delete_Kurse(String person_id) {
+        String query = "DELETE FROM kursee WHERE kurse_id = ? ";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, person_id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

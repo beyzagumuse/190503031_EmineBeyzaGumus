@@ -109,6 +109,6 @@
          </children>
       </GridPane>
       <Button layoutX="263.0" layoutY="458.0" mnemonicParsing="false" onAction="#addKursee" style="-fx-background-color: oldlace;" text="ADD" />
-      <Button layoutX="324.0" layoutY="458.0" mnemonicParsing="false" style="-fx-background-color: oldlace;" text="DELETE" />
+      <Button layoutX="324.0" layoutY="458.0" mnemonicParsing="false" onAction="#deleteaction" style="-fx-background-color: oldlace;" text="DELETE" />
    </children>
 </AnchorPane>

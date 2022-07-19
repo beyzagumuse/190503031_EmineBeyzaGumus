@@ -125,6 +125,42 @@ public class homepageController {
         }
     }
 
+
+    @FXML
+    private void loadKurse(){
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("kurs.fxml"));
+            generalpane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void loadRechnung(){
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("rechnung.fxml"));
+            generalpane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void loadList(){
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("list.fxml"));
+            generalpane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
     @FXML
     private void LogOut() throws IOException {
         application.showMainView();
