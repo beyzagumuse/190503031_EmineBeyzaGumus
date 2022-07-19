@@ -571,28 +571,34 @@ public class dbControl {
         }
     }
 
-/*
-    public static void addSportler(int personid, String personname, String telno ,String adresse, String email,int schuld,String krank,int muskel, int fettrate) {
-        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?)";
-        String query2 = "INSERT INTO sportler(sportler_muskelv,sportler_fettrate,sportler_krankheit) VALUES (?,?,?)";
+
+    public static void addSportler(String personid, String personname, String personnachname, String telno ,String adresse, String email,int schuld,String krank,int muskel, int fettrate) {
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?,?)";
+        String query2 = "INSERT INTO sportlerr(sportler_id,schuld,krankheit,muskelv,fettrate) VALUES (?,?,?,?,?)";
 
         try {
             pstmt = dbControl.conn.prepareStatement(query);
             pstmt2 = dbControl.conn.prepareStatement(query2);
-            pstmt.setInt(1, personid);
+            pstmt.setString(1, personid);
             pstmt.setString(2, personname);
-            pstmt.setString(3, telno);
-            pstmt.setString(4,adresse);
-            pstmt.setString(5,email);
-            pstmt2.setInt(6,muskel);
-            pstmt2.setInt(7,fettrate);
-            pstmt2.setString(8,krank);
+            pstmt.setString(3,personnachname);
+            pstmt.setString(4, telno);
+            pstmt.setString(5,adresse);
+            pstmt.setString(6,email);
             pstmt.executeUpdate();
+
+            pstmt2.setString(1, String.valueOf(personid));
+            pstmt2.setInt(2,schuld);
+            pstmt2.setString(3,krank);
+            pstmt2.setInt(4,muskel);
+            pstmt2.setInt(5,fettrate);
+            pstmt2.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    }*/
-
+    }
+/*
     public static void addSportler(int personid, String personname,String personnachname, String telno ,String adresse, String email,int schuld,String krank,int muskel, int fettrate) {
         //String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES(?,?,?,?,?,?)";
         String query2 = "INSERT INTO sportler(sportler_id,sportler_name,sportler_nachname,sportler_telno,sportler_adresse,sportler_email,sportler_schuld,sportler_krank,sportler_muskelv,sportler_fettrate) VALUES (?,?,?,?)";
@@ -616,7 +622,7 @@ public class dbControl {
             System.out.println(e.getMessage());
         }
     }
-
+*/
 
 
 

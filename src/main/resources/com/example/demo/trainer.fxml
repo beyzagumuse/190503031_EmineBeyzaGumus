@@ -2,324 +2,102 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Light.Distant?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="personpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.trainerController">
+<AnchorPane fx:id="personpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.trainerController">
    <children>
-      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="514.0" prefWidth="621.0" style="-fx-background-color: black;" tabClosingPolicy="UNAVAILABLE" visible="false">
-         <tabs>
-            <Tab text="Yeni Eğitmen Ekleme">
-               <content>
-                  <AnchorPane prefHeight="431.0" prefWidth="590.0" style="-fx-background-color: FB9939;">
-                     <children>
-                        <Label alignment="CENTER" layoutX="22.0" layoutY="184.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin çalışabileceği tarihleri seçiniz." />
-                        <DatePicker layoutX="255.0" layoutY="184.0" />
-                        <Label alignment="CENTER" layoutX="22.0" layoutY="241.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin verebileceği kursu seçiniz." />
-                        <Label alignment="CENTER" layoutX="22.0" layoutY="299.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin soyadını giriniz." />
-                        <ComboBox layoutX="254.0" layoutY="242.0" prefHeight="26.0" prefWidth="175.0" />
-                        <TextField layoutX="254.0" layoutY="299.0" prefHeight="26.0" prefWidth="175.0" />
-                        <Label alignment="CENTER" layoutX="143.0" layoutY="22.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="YENİ EĞİTMEN EKLEME" />
-                        <Label alignment="CENTER" layoutX="22.0" layoutY="356.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin kişisel bilgilerini giriniz. (Person.fxml)" />
-                        <TextField layoutX="254.0" layoutY="356.0" prefHeight="26.0" prefWidth="175.0" />
-                        <Label alignment="CENTER" layoutX="22.0" layoutY="89.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin adını giriniz." />
-                        <Label alignment="CENTER" layoutX="22.0" layoutY="138.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: white;" text="Eğitmenin kodunu giriniz." />
-                        <TextField layoutX="255.0" layoutY="89.0" prefHeight="26.0" prefWidth="175.0" />
-                        <TextField layoutX="255.0" layoutY="138.0" prefHeight="26.0" prefWidth="175.0" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Eğitmen Bilgilerini Güncelleme - Silme">
-               <content>
-                  <AnchorPane prefHeight="426.0" prefWidth="967.0" style="-fx-background-color: black;">
-                     <children>
-                        <Label alignment="CENTER" layoutX="43.0" layoutY="51.0" prefHeight="42.0" prefWidth="224.0" style="-fx-background-color: white;" text="Eğitmen kodunu giriniz." />
-                        <Label alignment="CENTER" layoutX="43.0" layoutY="112.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Değiştirmek istediğiniz bilgiyi seçiniz" />
-                        <Label alignment="CENTER" layoutX="43.0" layoutY="178.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Değiştirilecek bilgiyi giriniz." />
-                        <Label alignment="CENTER" layoutX="43.0" layoutY="247.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: white;" text="Silicenek eğitmenin kodunu giriniz." />
-                        <TextField layoutX="304.0" layoutY="54.0" prefHeight="35.0" prefWidth="197.0" />
-                        <TextField layoutX="304.0" layoutY="178.0" prefHeight="35.0" prefWidth="197.0" />
-                        <TextField layoutX="304.0" layoutY="247.0" prefHeight="35.0" prefWidth="197.0" />
-                        <ComboBox layoutX="304.0" layoutY="116.0" prefHeight="32.0" prefWidth="197.0" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-         </tabs>
-      </TabPane>
-      <MenuBar prefHeight="26.0" prefWidth="796.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Delete" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <SplitPane dividerPositions="0.2197275479313824" layoutX="1.0" layoutY="26.0" prefHeight="498.0" prefWidth="866.0">
-         <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="373.0" prefWidth="211.0">
-               <children>
-                  <TableView layoutY="35.0" prefHeight="270.0" prefWidth="171.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <columns>
-                        <TableColumn prefWidth="174.39998782873153" text="TRAINER" />
-                     </columns>
-                  </TableView>
-                  <Button layoutX="18.0" layoutY="329.0" mnemonicParsing="false" onAction="#goaddTrainer" prefHeight="26.0" text="Add" />
-                  <Button layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#goeditTrainer" prefHeight="26.0" prefWidth="50.0" text="Edit" />
-                  <Button layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#deleteTrainer" prefHeight="26.0" text="Delete" />
-                  <Button layoutX="55.0" layoutY="282.0" mnemonicParsing="false" onAction="#godetailsTrainer" text="Details" visible="false" />
-                  <Line endX="65.19996643066406" layoutX="106.0" layoutY="317.0" startX="-106.79999542236328" stroke="#121212" />
-                  <TextField fx:id="deletefield" layoutX="19.0" layoutY="418.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="644.0">
-               <children>
-                  <AnchorPane fx:id="detailspane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label layoutX="38.0" layoutY="14.0" prefHeight="20.0" prefWidth="142.0" text="Information Details">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <GridPane layoutX="8.0" layoutY="56.0" prefHeight="256.0" prefWidth="533.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="262.0" text="  Sportler ID:" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Sportler Name:" GridPane.rowIndex="1" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="310.0" text=" Sportler Tel No:" GridPane.rowIndex="2" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Sportler Adresse:" GridPane.rowIndex="3" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="316.0" text=" E-Mail:" GridPane.rowIndex="4" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Muskelverhältnis:" GridPane.rowIndex="5" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Fettrate:" GridPane.rowIndex="6" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="309.0" text=" Krankenheiten:" GridPane.rowIndex="7" />
-                              <TextField GridPane.columnIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                           </children>
-                        </GridPane>
-                        <Line endX="478.0" endY="7.62939453125E-6" layoutX="138.0" layoutY="34.0" startX="-138.0" startY="7.62939453125E-6" />
-                        <Button fx:id="detailsclose" layoutX="249.0" layoutY="331.0" mnemonicParsing="false" onAction="#closedetails" text="Close" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="edittrainerpane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false">
-                     <children>
-                        <GridPane layoutX="64.0" layoutY="63.0" prefHeight="256.0" prefWidth="570.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="63.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="306.0" text="  Trainer ID:" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Trainer Name:" GridPane.rowIndex="1" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="310.0" text=" Trainer Tel No:" GridPane.rowIndex="2" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Trainer Adresse:" GridPane.rowIndex="3" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="316.0" text=" E-Mail:" GridPane.rowIndex="4" />
-                              <TextField GridPane.columnIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                           </children>
-                        </GridPane>
-                        <Button layoutX="234.0" layoutY="331.0" mnemonicParsing="false" text="OK" />
-                        <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" text="CANCEL" />
-                        <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="EDIT TRAINER">
-                           <font>
-                              <Font name="Bodoni MT Condensed" size="29.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow>
-                                       <color>
-                                          <Color opacity="0.5805470943450928" />
-                                       </color>
-                                    </Shadow>
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="deletetrainerpane" prefHeight="370.4" prefWidth="616.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="DELETE TRAINER">
-                           <font>
-                              <Font name="Bodoni MT Condensed" size="29.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow>
-                                       <color>
-                                          <Color opacity="0.5805470943450928" />
-                                       </color>
-                                    </Shadow>
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Label>
-                        <Label layoutX="186.0" layoutY="131.0" prefHeight="29.0" prefWidth="72.0" text="Trainer ID :" />
-                        <TextField layoutX="264.0" layoutY="133.0" />
-                        <Button layoutX="222.0" layoutY="200.0" mnemonicParsing="false" text="OK" />
-                        <Button layoutX="282.0" layoutY="200.0" mnemonicParsing="false" text="Cancel" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="addtrainerpane" prefHeight="370.4" prefWidth="616.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <GridPane layoutX="64.0" layoutY="63.0" prefHeight="256.0" prefWidth="570.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="63.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="306.0" text="  Trainer ID:" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Trainer Name:" GridPane.rowIndex="1" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="310.0" text=" Trainer Tel No:" GridPane.rowIndex="2" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Trainer Adresse:" GridPane.rowIndex="3" />
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="316.0" text=" E-Mail:" GridPane.rowIndex="4" />
-                              <TextField fx:id="addid" GridPane.columnIndex="1" />
-                              <TextField fx:id="addname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="addtel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField fx:id="addadresse" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField fx:id="addmail" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                           </children>
-                        </GridPane>
-                        <Button fx:id="finishaddtrainer" layoutX="234.0" layoutY="331.0" mnemonicParsing="false" text="OK" />
-                        <Button layoutX="294.0" layoutY="331.0" mnemonicParsing="false" text="CANCEL" />
-                        <Label alignment="CENTER" prefHeight="48.0" prefWidth="616.0" style="-fx-background-color: DARKGREY;" text="ADD NEW TRAINER">
-                           <font>
-                              <Font name="Bodoni MT Condensed" size="29.0" />
-                           </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow>
-                                       <color>
-                                          <Color opacity="0.5805470943450928" />
-                                       </color>
-                                    </Shadow>
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <TableView fx:id="trainerview" layoutX="53.0" prefHeight="229.0" prefWidth="509.0">
-                    <columns>
-                      <TableColumn fx:id="idcol" prefWidth="75.0" text="ID" />
-                      <TableColumn fx:id="namecol" prefWidth="75.0" text="Name" />
-                        <TableColumn fx:id="nnamecol" prefWidth="75.0" text="Nachname" />
-                        <TableColumn fx:id="telcol" prefWidth="75.0" text="Tel No" />
-                        <TableColumn fx:id="addcol" prefWidth="75.0" text="Adresse" />
-                        <TableColumn fx:id="mailcol" prefWidth="75.0" text="Email" />
-                    </columns>
-                  </TableView>
-                  <GridPane layoutY="235.0" prefHeight="210.0" prefWidth="570.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="306.0" text="  Trainer ID:" />
-                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Trainer Name:" GridPane.rowIndex="1" />
-                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="310.0" text=" Trainer Tel No:" GridPane.rowIndex="3" />
-                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Trainer Adresse:" GridPane.rowIndex="4" />
-                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="316.0" text=" E-Mail:" GridPane.rowIndex="5" />
-                        <TextField fx:id="addid1" GridPane.columnIndex="1" />
-                        <TextField fx:id="addname1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="addtel1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="addadresse1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="addmail1" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label prefHeight="18.0" prefWidth="286.0" text="                              Trainer Nachname:" GridPane.rowIndex="2" />
-                        <TextField fx:id="addnachname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                     </children>
-                  </GridPane>
-                  <Button fx:id="finishaddtrainer1" layoutX="252.0" layoutY="457.0" mnemonicParsing="false" onAction="#buttonadd" text="OK" />
-               </children>
-            </AnchorPane>
-         </items>
-      </SplitPane>
-      <Button fx:id="homebtn" layoutX="770.0" layoutY="1.0" mnemonicParsing="false" onAction="#goPersonChoice" text="X" />
+      <ImageView fitHeight="394.0" fitWidth="646.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="D:\demo\photos\justfit-personal-training.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="384.0" fitWidth="657.0" layoutX="-5.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="D:\demo\photos\justfit-personal-training.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="homebtn" layoutX="588.0" layoutY="1.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="55.0" style="-fx-background-color: black; -fx-border-color: white;" text="X" textFill="WHITE" />
+      <TableView fx:id="trainerview" layoutX="18.0" layoutY="51.0" prefHeight="165.0" prefWidth="610.0">
+         <columns>
+            <TableColumn fx:id="idcol" prefWidth="52.79995346069336" style="-fx-background-color: tan;" text="ID" />
+            <TableColumn fx:id="namecol" prefWidth="83.199951171875" style="-fx-background-color: darksalmon;" text="Name" />
+            <TableColumn fx:id="nnamecol" prefWidth="93.60003662109375" style="-fx-background-color: tan;" text="Nachname" />
+            <TableColumn fx:id="telcol" prefWidth="84.00001525878906" style="-fx-background-color: darksalmon;" text="Tel No" />
+            <TableColumn fx:id="addcol" prefWidth="92.79998779296875" style="-fx-background-color: tan;" text="Adresse" />
+            <TableColumn fx:id="mailcol" minWidth="0.0" prefWidth="85.5999755859375" style="-fx-background-color: darksalmon;" text="Email" />
+            <TableColumn prefWidth="116.0" style="-fx-background-color: tan;" text="Kurse" />
+         </columns>
+      </TableView>
+      <GridPane layoutX="-1.0" layoutY="230.0" prefHeight="187.0" prefWidth="628.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="306.0" text="  Trainer ID:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Trainer Name:" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="310.0" text=" Trainer Tel No:" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="308.0" text=" Trainer Adresse:" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="316.0" text=" E-Mail:" textFill="WHITE" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addid1" GridPane.columnIndex="1" />
+            <TextField fx:id="addname1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="addtel1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="addadresse1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="addmail1" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label prefHeight="18.0" prefWidth="286.0" text="                              Trainer Nachname:" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addnachname" prefHeight="26.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label prefHeight="18.0" prefWidth="323.0" text="                                          Kurse:" textFill="WHITE" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox prefHeight="26.0" prefWidth="326.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <Button fx:id="finishaddtrainer1" layoutX="269.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonadd" style="-fx-background-color: OLDLACE;" text="ADD" />
+      <Button layoutX="333.0" layoutY="458.0" mnemonicParsing="false" style="-fx-background-color: OLDLACE;" text="DELETE" />
    </children>
 </AnchorPane>

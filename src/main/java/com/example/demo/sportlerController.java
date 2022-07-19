@@ -206,6 +206,17 @@ public class sportlerController {
     }
 
 
+    @FXML
+    private void goBackk() throws IOException{
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("personchoice.fxml"));
+            personpane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 
     @FXML
@@ -218,10 +229,10 @@ public class sportlerController {
 
     @FXML
     private void addSportler() throws IOException {
-        dbControl.addSportler(Integer.parseInt(addsportlerid.getText()), addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
+        dbControl.addSportler((addsportlerid.getText()), addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
         //dbControl.printSportlerData(Integer.parseInt(addsportlerid.getText()));
 
-        System.out.println("Person wurde zum Datenbank addiert.");
+        System.out.println("Sportler wurde zum Datenbank addiert.");
 
     }
 

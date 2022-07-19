@@ -53,6 +53,30 @@ public class personchoice {
         }
     }
 
+    @FXML
+    private void goTrainerr() throws IOException{
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("trainer.fxml"));
+            personchoicepane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void goSportlerr() throws IOException{
+        try {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("sportler.fxml"));
+            personchoicepane.getChildren().setAll(pane);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 
     @FXML

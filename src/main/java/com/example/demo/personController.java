@@ -201,7 +201,6 @@ public class personController {
     @FXML
     private void goBack() throws IOException{
         try {
-
             AnchorPane pane = FXMLLoader.load(getClass().getResource("personchoice.fxml"));
            personpane.getChildren().setAll(pane);
         }
@@ -292,6 +291,9 @@ public class personController {
         add_col.setCellValueFactory(new PropertyValueFactory<>("adresse"));
         mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
         allpersonview.setItems(ListPersonal());
+
+
+
     }
 
     @FXML

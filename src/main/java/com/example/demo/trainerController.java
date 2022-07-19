@@ -96,9 +96,10 @@ public class trainerController {
     private void deleteTrainer() throws IOException {
         //dbControl.printKurseData(Integer.parseInt(id_deletekurs.getText()));
         dbControl.deleteTrainer((deletefield.getText()));
-        System.out.println("Patient wurde vom Datenbank geloescht.");
+        System.out.println("Trainer wurde vom Datenbank geloescht.");
         //goKurspage();
     }
+
 
 
     @FXML
@@ -109,6 +110,7 @@ public class trainerController {
     @FXML
     private void goBack() throws IOException{
         try {
+
 
             AnchorPane pane = FXMLLoader.load(getClass().getResource("personchoice.fxml"));
             personpane.getChildren().setAll(pane);
