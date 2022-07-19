@@ -6,6 +6,7 @@ import com.example.demo.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -13,10 +14,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -54,6 +54,31 @@ public class kursController {
     public TableView<Kurse> getKursetable() {
         return kursetable;
     }
+
+
+    @FXML
+    private TextField kursid;
+
+    @FXML
+    private TextField kursname;
+
+    @FXML
+    private TextField kurspreis;
+
+    @FXML
+    private DatePicker kurstag;
+
+    @FXML
+    private TextField kursend;
+
+    @FXML
+    private TextField kursanzahl;
+
+    @FXML
+    private TextField kursbeginn;
+
+    @FXML
+    private TextField trainerid;
 
     @FXML
     private TextField editcheck;
@@ -137,6 +162,19 @@ public class kursController {
         //person.setEmail(personStringCellEditEvent.getNewValue());
         //dbControl.editPerson(person);
         dbControl.updateKurs(kurse);
+    }
+
+
+    @FXML
+    private void addKursee() throws IOException, ParseException {
+
+        LocalDate mydate = kurstag.getValue();
+        dbControl.addKursee(kursid.getText(),kursname.getText(),Integer.parseInt(kurspreis.getText()), Date.valueOf(mydate),trainerid.getText(),Integer.parseInt(kursanzahl.getText()),Integer.parseInt(kursbeginn.getText()),Integer.parseInt(kursend.getText()));
+        //dbControl.printKurseData(Integer.parseInt(addKursId.getText()));
+
+        System.out.println("Person wurde zum Datenbank addiert.");
+
+
     }
 
 

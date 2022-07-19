@@ -1,9 +1,13 @@
 package com.example.demo.Classes;
 
+import java.util.Date;
+
 public class  Kurse{
     private String kursenummer;
     private int preis;
     private String tage;
+
+    private Date tagg;
     private String kursename;
     private int anzahlSportler;
 
@@ -19,6 +23,18 @@ public class  Kurse{
         kursename = kurse_name;
         preis = kurse_preis;
         tage = kurse_tage;
+        anzahlSportler = kurse_anzahlSportler;
+        this.trainer = trainer;
+        beginn = kurse_beginn;
+        end = kurse_end;
+    }
+
+    public Kurse(String kurse_id, String kurse_name, int kurse_preis, Date kurse_tage, String trainer, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
+        super();
+        kursenummer = kurse_id;
+        kursename = kurse_name;
+        preis = kurse_preis;
+        tagg = kurse_tage;
         anzahlSportler = kurse_anzahlSportler;
         this.trainer = trainer;
         beginn = kurse_beginn;

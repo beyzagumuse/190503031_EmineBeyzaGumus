@@ -101,54 +101,12 @@ public class sportlerController {
     @FXML
     private TableColumn<Sportler, String> telno_col;
 
-    @FXML
-    private TextField addsportlernachname;
 
-
-    @FXML
-    private TextField addsportlerschuld;
-
-
-    @FXML
-    private TextField addadresse;
-
-    @FXML
-    private TextField addid;
-
-    @FXML
-    private TextField addmail;
-
-    @FXML
-    private TextField addnachname;
-
-    @FXML
-    private TextField addname;
-
-    @FXML
-    private AnchorPane addpersonpane;
-
-
-
-
-    @FXML
-    private TextField addtel;
 
 
 
     @FXML
     private TextField deleteid;
-
-    @FXML
-    private AnchorPane deletepersonpane;
-
-
-
-    @FXML
-    private Button detailsclose1;
-
-
-    @FXML
-    private AnchorPane detailspane1;
 
 
 

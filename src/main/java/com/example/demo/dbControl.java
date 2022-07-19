@@ -5,6 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -83,6 +85,59 @@ public class dbControl {
 
 
     //KURSE
+
+
+    public static ArrayList<Kurse> getKurse() {
+        ArrayList<Kurse> kurse = new ArrayList<>();
+        SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            Statement stmt = dbControl.conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM kursee");
+            while (rs.next()) {
+                String id = rs.getString("kurse_id");
+                String name = rs.getString("kurse_name");
+                int preis = rs.getInt("kurse_preis");
+                String kurse_tage = rs.getString("kurse_tage");
+                Date tag = (Date) dformat.parse(kurse_tage);
+                String trainer = rs.getString("trainer_id");
+                int anzahl = rs.getInt("kurse_anzahl");
+                int beginn = rs.getInt("kurse_beginn");
+                int end = rs.getInt("kurse_end");
+
+
+
+                kurse.add(new Kurse(id, name, preis,tag,trainer,anzahl,beginn,end));
+            }
+
+        }catch(SQLException | ParseException e) {
+            e.printStackTrace();
+        }
+        return kurse;
+    }
+
+
+    public static void addKursee(String kurse_id, String kurse_name, int kurse_preis,Date kurse_tage, String trainer_id,int kurse_anzahlSportler, int beginn,int end) throws ParseException {
+        String query = "INSERT INTO kursee(kurse_id,kurse_name,kurse_preis,kurse_tage,trainer_id,kurse_anzahl,kurse_beginn,kurse_end) VALUES(?,?,?,?,?,?,?,?)";
+
+        SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+
+
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, kurse_id);
+            pstmt.setString(2, kurse_name);
+            pstmt.setInt(3, kurse_preis);
+            pstmt.setString(4, dformat.format(kurse_tage));
+            pstmt.setString(5,trainer_id);
+            pstmt.setInt(6,kurse_anzahlSportler);
+            pstmt.setInt(7,beginn);
+            pstmt.setInt(8,end);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
     public static void addKurse(int kurse_id, String kurse_name, int kurse_preis,String kurse_tage, String trainer_id,int kurse_anzahlSportler, int beginn,int end) {
