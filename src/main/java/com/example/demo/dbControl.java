@@ -234,35 +234,41 @@ public class dbControl {
 
     public static void add_Sportler(Sportler p) {
 
-        String id = p.getSportlernummer();
+        String id = p.getId();
         String name = p.getName();
         String nachname = p.getNachname();
         String telno = p.getTelno();
         String adress = p.getAdresse();
         String email = p.getEmail();
         int schuld = p.getSchuld();
+        String krank =p.getKrankenheit();
+        int muskel = p.getMuskelv();
+        int fett = p.getFettrate();
 
 
-        String query = "INSERT INTO sportler VALUES ?";
-        // person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email)
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES (?,?,?,?,?,?)";
+        String query2 = "INSERT INTO sportlerr(sportler_id,schuld,krankheit,muskelv,fettrate) VALUES (?,?,?,?,?)";
 
         try {
             pstmt = dbControl.conn.prepareStatement(query);
-            pstmt.setString(1,id);
-            pstmt.setString(2, p.getName());
-            pstmt.setString(3, p.getNachname());
-            pstmt.setString(4,p.getTelno());
-            pstmt.setString(5,p.getAdresse());
-            pstmt.setString(6,p.getEmail());
-            pstmt.setInt(7,schuld);
-            pstmt.setString(8,p.getKrankenheit());
-            pstmt.setInt(9,p.getMuskelv());
-            pstmt.setInt(10,p.getFettrate());
-            //pstmt.setString(2, password);
 
+            pstmt.setString(1, id);
+            pstmt.setString(2, name);
+            pstmt.setString(3,nachname);
+            pstmt.setString(4, telno);
+            pstmt.setString(5,adress);
+            pstmt.setString(6,email);
             pstmt.executeUpdate();
             pstmt.close();
-            conn.close();
+
+            pstmt2 = dbControl.conn.prepareStatement(query2);
+            pstmt2.setString(1, id);
+            pstmt2.setInt(2,schuld);
+            pstmt2.setString(3,krank);
+            pstmt2.setInt(4,muskel);
+            pstmt2.setInt(5,fett);
+            pstmt2.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -578,7 +584,7 @@ public class dbControl {
 
         try {
             pstmt = dbControl.conn.prepareStatement(query);
-            pstmt2 = dbControl.conn.prepareStatement(query2);
+
             pstmt.setString(1, personid);
             pstmt.setString(2, personname);
             pstmt.setString(3,personnachname);
@@ -586,7 +592,9 @@ public class dbControl {
             pstmt.setString(5,adresse);
             pstmt.setString(6,email);
             pstmt.executeUpdate();
+            pstmt.close();
 
+            pstmt2 = dbControl.conn.prepareStatement(query2);
             pstmt2.setString(1, String.valueOf(personid));
             pstmt2.setInt(2,schuld);
             pstmt2.setString(3,krank);
@@ -679,6 +687,7 @@ public class dbControl {
         }
     }
 
+//TRAINER
 
     public static ArrayList<Trainer> getTrainer() {
         ArrayList<Trainer> mitarbeiters = new ArrayList<>();

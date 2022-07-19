@@ -112,48 +112,12 @@ public class personController {
     private Person p;
 
 
-    @FXML
-    void goaddPerson() throws IOException {
-        //addpersonpane.setVisible(true);
-        //deletepersonpane.setVisible(false);
-        //editpersonpane.setVisible(false);
-        //detailspane.setVisible(false);
-        application.showPersonAddScene();
-    }
-
-    @FXML
-    private void addPerson() throws IOException {
-        dbControl.addPerson(((addid.getText())), addname.getText(),addnachname.getText(),addtel.getText(),addadresse.getText(),addmail.getText());
-        //dbControl.printKurseData((addid.getText()));
-
-        System.out.println("Person wurde zum Datenbank addiert.");
-
-    }
 
 
-    @FXML
-    void godeletePerson() {
-        addpersonpane.setVisible(false);
-        deletepersonpane.setVisible(true);
-        editpersonpane.setVisible(false);
-        detailspane.setVisible(false);
-    }
 
-    @FXML
-    void goeditPerson() {
-        addpersonpane.setVisible(false);
-        deletepersonpane.setVisible(false);
-        editpersonpane.setVisible(true);
-        detailspane.setVisible(false);
-    }
 
-    @FXML
-    void godetailsPerson() {
-        addpersonpane.setVisible(false);
-        deletepersonpane.setVisible(false);
-        editpersonpane.setVisible(false);
-        detailspane.setVisible(true);
-    }
+
+
 
     @FXML
     void closedetails(){
@@ -184,10 +148,7 @@ public class personController {
 
 
     private HelloApplication application;
-    @FXML
-    private void returnPersonchoice() throws IOException{
-        application.showPersonChoiceScene();
-    }
+
 
     @FXML
     private void goHomepage() throws IOException {
@@ -212,34 +173,7 @@ public class personController {
 
     ObservableList<Person> data = FXCollections.observableArrayList();
 
-    /*
-    @FXML
-    public void initialize() {
 
-        try {
-            Connection conn = database.connect();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT person_name FROM person");
-
-            while (rs.next()) {
-                this.data.add(new Person(rs.getString("person_name")));
-            }
-        } catch (SQLException e) {
-            Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
-        }
-        persontable.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-
-
-        data = dbControl.getDataperson();
-        System.out.println(data);
-        this.persontableview.setItems(data);
-
-        persontableview.setEditable(true);
-        persontable.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
-    }
-    */
 
     @FXML
     public void initializee() {
@@ -307,17 +241,7 @@ public class personController {
     @FXML
     private TextField textfieldname;
 
-/*
-    @FXML
-    void buttonadd() {
 
-        Person p = new Person(textfieldname.getText());
-        persontableview.getItems().add(p);
-        dbControl.add_Person(p);
-
-    }
-
-*/
 
     @FXML
     void buttonadd() {

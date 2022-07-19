@@ -152,27 +152,7 @@ public class sportlerController {
     @FXML
     private AnchorPane detailspane1;
 
-    @FXML
-    private TextField editadresse;
 
-    @FXML
-    private TextField editid;
-
-    @FXML
-    private TextField editmail;
-
-    @FXML
-    private TextField editnachname;
-
-    @FXML
-    private TextField editname;
-
-    @FXML
-    private AnchorPane editpersonpane;
-
-
-    @FXML
-    private TextField edittel;
 
     @FXML
     private TableColumn<Sportler, String> email_col;
@@ -219,20 +199,22 @@ public class sportlerController {
 
 
 
-    @FXML
-    void goaddSportler() {
-        addSportlerpane.setVisible(true);
-        deleteSportlerpane.setVisible(false);
-        editsportlerpane.setVisible(false);
-        detailspane.setVisible(false);
-    }
 
     @FXML
     private void addSportler() throws IOException {
-        dbControl.addSportler((addsportlerid.getText()), addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
+        dbControl.addSportler(addsportlerid.getText(), addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
         //dbControl.printSportlerData(Integer.parseInt(addsportlerid.getText()));
 
         System.out.println("Sportler wurde zum Datenbank addiert.");
+
+    }
+
+    @FXML
+    void buttonadd() {
+
+        Sportler p = new Sportler(addsportlerid.getText(),addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
+        allpersonview.getItems().add(p);
+        dbControl.add_Sportler(p);
 
     }
 
@@ -373,14 +355,7 @@ public class sportlerController {
 
 */
 
-    @FXML
-    void buttonadd() {
 
-        Sportler p = new Sportler(addsportlerid.getText(),addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
-        persontableview.getItems().add(p);
-        dbControl.add_Sportler(p);
-
-    }
     @FXML
     void detailsaction() {
         Sportler person = new Sportler();
