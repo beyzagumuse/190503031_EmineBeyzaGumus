@@ -10,8 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -175,6 +173,36 @@ public class sportlerController {
     @FXML
     private TextField textfieldname;
 
+    @FXML
+    private TextField sportleradd;
+
+    @FXML
+    private TextField sportlerfr;
+
+    @FXML
+    private TextField sportlerid;
+
+    @FXML
+    private TextField sportlerkrank;
+
+    @FXML
+    private TextField sportlermail;
+
+    @FXML
+    private TextField sportlermv;
+
+    @FXML
+    private TextField sportlername;
+
+    @FXML
+    private TextField sportlernname;
+
+    @FXML
+    private TextField sportlerschuld;
+
+    @FXML
+    private TextField sportlertelno;
+
 
     @FXML
     private Button homebtn;
@@ -201,71 +229,19 @@ public class sportlerController {
 
 
     @FXML
-    private void addSportler() throws IOException {
-        dbControl.addSportler(addsportlerid.getText(), addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
-        //dbControl.printSportlerData(Integer.parseInt(addsportlerid.getText()));
+    void buttonadd() {
+
+        Sportler p = new Sportler(sportlerid.getText(),sportlername.getText(),sportlernname.getText(),sportlertelno.getText(),sportleradd.getText(),sportlermail.getText(),Integer.parseInt(sportlerschuld.getText()),sportlerkrank.getText(),Integer.parseInt(sportlermv.getText()),Integer.parseInt(sportlerfr.getText()));
+        allpersonview.getItems().add(p);
+        dbControl.add_Sportler(p);
 
         System.out.println("Sportler wurde zum Datenbank addiert.");
 
     }
 
-    @FXML
-    void buttonadd() {
-
-        Sportler p = new Sportler(addsportlerid.getText(),addsportlername.getText(),addsportlernachname.getText(),addsportlertelno.getText(),addsportleradresse.getText(),addsportlermail.getText(),Integer.parseInt(addsportlerschuld.getText()),addsportlerkrank.getText(),Integer.parseInt(addsportlermv.getText()),Integer.parseInt(addsportlerfr.getText()));
-        allpersonview.getItems().add(p);
-        dbControl.add_Sportler(p);
-
-    }
-
-    @FXML
-    void godeleteSportler() {
-        addSportlerpane.setVisible(false);
-        deleteSportlerpane.setVisible(true);
-        editsportlerpane.setVisible(false);
-        detailspane.setVisible(false);
-    }
-
-    @FXML
-    void goeditSportler() {
-        addSportlerpane.setVisible(false);
-        deleteSportlerpane.setVisible(false);
-        editsportlerpane.setVisible(true);
-        detailspane.setVisible(false);
-    }
-
-    @FXML
-    void godetailsSportler() {
-        addSportlerpane.setVisible(false);
-        deleteSportlerpane.setVisible(false);
-        editsportlerpane.setVisible(false);
-        detailspane.setVisible(true);
-    }
-
-    @FXML
-    void closedetails(){
-        closePane(detailspane);
-    }
-
-    @FXML
-    void closePane(AnchorPane pane) {
-        pane.setVisible(false);
-    }
 
 
 
-
-    @FXML
-    private void goBack() throws IOException{
-        try {
-
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("personchoice.fxml"));
-            personpane.getChildren().setAll(pane);
-        }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
 
 
     ObservableList<Sportler> data = FXCollections.observableArrayList();
@@ -298,7 +274,7 @@ public class sportlerController {
 
     }
     */
-
+/*
     @FXML
     public void initialize() {
 
@@ -313,7 +289,7 @@ public class sportlerController {
             }
         } catch (SQLException e) {
             Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
-        }*/
+        }*/ /*
         dbControl.initPerson();
 
         tc_col.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -337,23 +313,12 @@ public class sportlerController {
         mail_col.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
-    }
+    }*/
 
 
 
 
 
-/*
-    @FXML
-    void buttonadd() {
-
-        Person p = new Person(textfieldname.getText());
-        persontableview.getItems().add(p);
-        dbControl.add_Person(p);
-
-    }
-
-*/
 
 
     @FXML
@@ -379,20 +344,7 @@ public class sportlerController {
     public void personList(){
 
     }
-/*
-    @FXML
-    void deleteaction() {
-        ObservableList<Person> allPerson, SinglePerson;
-        allPerson = persontableview.getItems();
-        SinglePerson = persontableview.getSelectionModel().getSelectedItems();
 
-        Person person = persontableview.getSelectionModel().getSelectedItem();
-        System.out.println(person.getId());
-
-        String a = person.getId();
-        SinglePerson.forEach(allPerson::remove);
-        dbControl.delete_Person((a));
-    }*/
 
     @FXML
     void deleteaction() {

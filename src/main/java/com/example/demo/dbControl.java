@@ -39,39 +39,6 @@ public class dbControl {
         }
     }
 
-    public static void addKurse(int kurse_id, String kurse_name, int kurse_preis,String kurse_tage, String trainer_id,int kurse_anzahlSportler, int beginn,int end) {
-        String query = "INSERT INTO kurse(kurse_id,kurse_name,kurse_preis,kurse_tage,trainer_id,kurse_anzahlSportler,beginn,end) VALUES(?,?,?,?,?,?,?,?)";
-
-        try {
-            pstmt = dbControl.conn.prepareStatement(query);
-            pstmt.setInt(1, kurse_id);
-            pstmt.setString(2, kurse_name);
-            pstmt.setInt(3, kurse_preis);
-            pstmt.setString(4,kurse_tage);
-            pstmt.setString(5,trainer_id);
-            pstmt.setInt(6,kurse_anzahlSportler);
-            pstmt.setInt(7,beginn);
-            pstmt.setInt(8,end);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static void printKurseData(int kurse_id) {
-        String query = "SELECT * FROM kurse WHERE kurse_id = ?";
-
-        try {
-            pstmt = dbControl.conn.prepareStatement(query);
-            pstmt.setInt(1, kurse_id);
-            rs = pstmt.executeQuery();
-            while (rs.next()) {
-                System.out.println("kurse_id:" + rs.getInt("kurse_id") + "|" + "Kursename:" + rs.getString("kurse_name") + "|" + "Preis:" + rs.getInt("kurse_preis"));
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
 
     public static Boolean containBenutzer(String userName, String pass){
@@ -116,6 +83,42 @@ public class dbControl {
 
 
     //KURSE
+
+
+    public static void addKurse(int kurse_id, String kurse_name, int kurse_preis,String kurse_tage, String trainer_id,int kurse_anzahlSportler, int beginn,int end) {
+        String query = "INSERT INTO kurse(kurse_id,kurse_name,kurse_preis,kurse_tage,trainer_id,kurse_anzahlSportler,beginn,end) VALUES(?,?,?,?,?,?,?,?)";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setInt(1, kurse_id);
+            pstmt.setString(2, kurse_name);
+            pstmt.setInt(3, kurse_preis);
+            pstmt.setString(4,kurse_tage);
+            pstmt.setString(5,trainer_id);
+            pstmt.setInt(6,kurse_anzahlSportler);
+            pstmt.setInt(7,beginn);
+            pstmt.setInt(8,end);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void printKurseData(int kurse_id) {
+        String query = "SELECT * FROM kurse WHERE kurse_id = ?";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setInt(1, kurse_id);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                System.out.println("kurse_id:" + rs.getInt("kurse_id") + "|" + "Kursename:" + rs.getString("kurse_name") + "|" + "Preis:" + rs.getInt("kurse_preis"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     public static ObservableList<Kurse> getDatakurse(){
 
@@ -231,6 +234,46 @@ public class dbControl {
         return sportlerlist;
     }
 
+/*
+    public static void add_Sportler(Sportler p) {
+
+        String id = p.getId();
+        String name = p.getName();
+        String nachname = p.getNachname();
+        String telno = p.getTelno();
+        String adress = p.getAdresse();
+        String email = p.getEmail();
+
+        String query = "INSERT INTO person(person_id,person_name,person_nachname,person_telno,person_adresse,person_email) VALUES (?,?,?,?,?,?)";
+        String query2 = "INSERT INTO sportlerr(sportler_id,schuld,krankheit,muskelv,fettrate) VALUES(?,?,?,?,?)";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1,id);
+            pstmt.setString(2, p.getName());
+            pstmt.setString(3, p.getNachname());
+            pstmt.setString(4,p.getTelno());
+            pstmt.setString(5,p.getAdresse());
+            pstmt.setString(6,p.getAdresse());
+            //pstmt.setString(2, password);
+
+            pstmt.executeUpdate();
+            pstmt.close();
+            //conn.close();
+
+            pstmt2 = dbControl.conn.prepareStatement(query2);
+            pstmt2.setString(1,id);
+            pstmt2.setInt(2,p.getSchuld());
+            pstmt2.setString(3,p.getKrankenheit());
+            pstmt2.setInt(4,p.getMuskelv());
+            pstmt2.setInt(5,p.getFettrate());
+
+            pstmt2.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+*/
 
     public static void add_Sportler(Sportler p) {
 
@@ -259,20 +302,29 @@ public class dbControl {
             pstmt.setString(5,adress);
             pstmt.setString(6,email);
             pstmt.executeUpdate();
+            //pstmt.executeUpdate(query2);
             pstmt.close();
+            //conn.close();
+
 
             pstmt2 = dbControl.conn.prepareStatement(query2);
-            pstmt2.setString(1, id);
+
+            pstmt2.setString(1,id);
             pstmt2.setInt(2,schuld);
             pstmt2.setString(3,krank);
             pstmt2.setInt(4,muskel);
             pstmt2.setInt(5,fett);
+
             pstmt2.executeUpdate();
+            pstmt2.close();
+
+            //conn.close();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+
 
     public static void updateSportler(Sportler p) {
 

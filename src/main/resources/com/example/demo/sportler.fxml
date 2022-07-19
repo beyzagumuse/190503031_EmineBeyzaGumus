@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.sportlerController">
+<AnchorPane fx:id="personpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.sportlerController">
    <children>
       <MenuBar prefHeight="26.0" prefWidth="794.0" visible="false">
          <menus>
@@ -108,17 +108,17 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="addsportlerid" GridPane.columnIndex="1" />
-            <TextField fx:id="addsportlername" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="addsportlertelno" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="addsportleradresse" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="addsportlermail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="sportlerid" GridPane.columnIndex="1" />
+            <TextField fx:id="sportlername" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="sportlertelno" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="sportleradd" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="sportlermail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label alignment="CENTER" prefHeight="18.0" prefWidth="318.0" text=" Sportler Nachname:" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="addsportlernachname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="sportlernname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label prefHeight="18.0" prefWidth="326.0" text="                                        Schuld:" textFill="WHITE" GridPane.rowIndex="6">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -139,10 +139,10 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="addsportlerschuld" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="addsportlerkrank" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField fx:id="addsportlermv" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <TextField fx:id="addsportlerfr" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="sportlerschuld" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="sportlerkrank" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="sportlermv" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="sportlerfr" GridPane.columnIndex="1" GridPane.rowIndex="9" />
          </children>
       </GridPane>
       <Button layoutX="257.0" layoutY="459.0" mnemonicParsing="false" onAction="#buttonadd" style="-fx-background-color: OLDLACE;" text="ADD" />

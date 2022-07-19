@@ -13,6 +13,9 @@ public class Sportler extends Person {
     public Sportler() {
     }
 
+    public Sportler(String id, String name, String nachname, String telno,String adresse,String email){
+        super(id,name,nachname,telno,adresse,email);
+    }
     public Sportler(String id, String name, String nachname, String telno, String adresse, String email, int schuld, String krankenheit, int muskel, int fett) {
         super(id, name, nachname, telno, adresse, email);
         this.sportlernummer = id;
