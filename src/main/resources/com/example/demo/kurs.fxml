@@ -30,7 +30,7 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <TableView fx:id="kursetable" layoutX="11.0" layoutY="45.0" prefHeight="150.0" prefWidth="619.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0">
+      <TableView fx:id="kurse_table" layoutX="11.0" layoutY="45.0" prefHeight="150.0" prefWidth="619.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0">
          <columns>
             <TableColumn fx:id="kurseid" prefWidth="49.5999755859375" style="-fx-background-color: tan;" text="ID" />
             <TableColumn fx:id="kursename" onEditCommit="#oneditchange" prefWidth="89.59996795654297" style="-fx-background-color: darksalmon;" text="Name" />

@@ -51,7 +51,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <TableView fx:id="allpersonview" layoutX="-1.0" layoutY="40.0" prefHeight="176.0" prefWidth="647.0">
+      <TableView fx:id="allpersonview" layoutX="-1.0" layoutY="40.0" prefHeight="176.0" prefWidth="350.0">
          <columns>
             <TableColumn fx:id="tc_col" prefWidth="42.39996415376663" style="-fx-background-color: TAN;" text="TC" />
             <TableColumn fx:id="name_col" minWidth="0.0" prefWidth="64.79995727539062" style="-fx-background-color: darksalmon;" text="Name" />
@@ -59,10 +59,6 @@
             <TableColumn fx:id="telno_col" prefWidth="56.0" style="-fx-background-color: darksalmon;" text="Tel No" />
             <TableColumn fx:id="add_col" minWidth="0.0" prefWidth="59.20001220703125" style="-fx-background-color: tan;" text="Adresse" />
             <TableColumn fx:id="mail_col" prefWidth="48.0" style="-fx-background-color: darksalmon;" text="Email" />
-            <TableColumn fx:id="schuld_col" prefWidth="57.60003662109375" style="-fx-background-color: tan;" text="Schuld" />
-            <TableColumn fx:id="krank_col" minWidth="0.0" prefWidth="85.59991455078125" style="-fx-background-color: darksalmon;" text="Krankenheit" />
-            <TableColumn fx:id="muskel_col" minWidth="1.5999755859375" prefWidth="91.199951171875" style="-fx-background-color: tan;" text="Muskel" />
-            <TableColumn fx:id="fett_col" prefWidth="66.4000244140625" style="-fx-background-color: darksalmon;" text="Fettrate" />
          </columns>
       </TableView>
       <GridPane layoutY="226.0" prefHeight="214.0" prefWidth="616.0">
@@ -147,5 +143,13 @@
       </GridPane>
       <Button layoutX="257.0" layoutY="459.0" mnemonicParsing="false" onAction="#buttonadd" style="-fx-background-color: OLDLACE;" text="ADD" />
       <Button layoutX="323.0" layoutY="459.0" mnemonicParsing="false" style="-fx-background-color: OLDLACE;" text="DELETE" />
+      <TableView fx:id="allpersonview2" layoutX="348.0" layoutY="40.0" prefHeight="176.0" prefWidth="300.0">
+        <columns>
+            <TableColumn fx:id="schuld_col" prefWidth="57.60003662109375" style="-fx-background-color: tan;" text="Schuld" />
+            <TableColumn fx:id="krank_col" minWidth="0.0" prefWidth="85.59991455078125" style="-fx-background-color: darksalmon;" text="Krankenheit" />
+            <TableColumn fx:id="muskel_col" minWidth="1.5999755859375" prefWidth="91.199951171875" style="-fx-background-color: tan;" text="Muskel" />
+            <TableColumn fx:id="fett_col" prefWidth="66.4000244140625" style="-fx-background-color: darksalmon;" text="Fettrate" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

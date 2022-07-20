@@ -12,7 +12,14 @@ public class Sportler extends Person {
     private String kurse_id;
     //private Kurse[];
 
-    public Sportler() {
+
+    public Sportler(){}
+
+    public Sportler(int schuld, String krank, int muskelv, int fett) {
+        this.schuld=schuld;
+        krankenheit = krank;
+        this.muskelv = muskelv;
+        fettrate = fett;
     }
 
     public Sportler(String id,String name,String nachname){

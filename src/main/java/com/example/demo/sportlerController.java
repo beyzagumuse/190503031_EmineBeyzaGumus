@@ -14,8 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class sportlerController {
 
@@ -64,47 +62,45 @@ public class sportlerController {
     private TextField addsportlertelno;
 
     @FXML
-    private TableView<Sportler> allpersonview;
+    private TableView<Person> allpersonview;
 
     @FXML
     private TableColumn<Sportler, Integer> fett_col;
 
 
     @FXML
-    private TableColumn<Sportler, String> add_col;
+    private TableColumn<Person, String> add_col;
 
     @FXML
     private TableColumn<Sportler, String> krank_col;
 
     @FXML
-    private TableColumn<Sportler, String> mail_col;
+    private TableColumn<Person, String> mail_col;
 
     @FXML
     private TableColumn<Sportler, Integer> muskel_col;
 
     @FXML
-    private TableColumn<Sportler, String> nachname_col;
+    private TableColumn<Person, String> nachname_col;
 
     @FXML
-    private TableColumn<Sportler, String> name_col;
-    @FXML
-    private TableColumn<Sportler, String> persontable;
+    private TableColumn<Person, String> name_col;
 
-    @FXML
-    private TableView<Sportler> persontableview;
 
     @FXML
     private TableColumn<Sportler, Integer> schuld_col;
 
     @FXML
-    private TableColumn<Sportler, String> tc_col;
+    private TableColumn<Person, String> tc_col;
 
     @FXML
-    private TableColumn<Sportler, String> telno_col;
+    private TableColumn<Person, String> telno_col;
 
 
 
 
+    @FXML
+    private TableView<Sportler> allpersonview2;
 
     @FXML
     private TextField deleteid;
@@ -112,7 +108,7 @@ public class sportlerController {
 
 
     @FXML
-    private TableColumn<Sportler, String> email_col;
+    private TableColumn<Person, String> email_col;
 
 
     @FXML
@@ -274,6 +270,7 @@ public class sportlerController {
 
     }*/
 
+
     @FXML
     public void initialize(){
         Sportler p = new Sportler();
@@ -284,21 +281,28 @@ public class sportlerController {
         telno_col.setCellValueFactory(new PropertyValueFactory<>("telno"));
         add_col.setCellValueFactory(new PropertyValueFactory<>("adresse"));
         mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+
+
+        //this.allpersonview.setItems(ListSportler());
+
+
+        //initialize2(p);
+
+
+
+    }
+
+    public void initialize2(Sportler p){
+
         String schuld = String.valueOf(p.getSchuld());
-        schuld_col.setCellValueFactory(new PropertyValueFactory<>(schuld));
+        //schuld_col.setCellValueFactory(new PropertyValueFactory<>("schuld"));
         krank_col.setCellValueFactory(new PropertyValueFactory<>("krankheit"));
         String m = String.valueOf(p.getMuskelv());
-        muskel_col.setCellValueFactory(new PropertyValueFactory<>(m));
+        //muskel_col.setCellValueFactory(new PropertyValueFactory<>("muskelv"));
         String s = String.valueOf(p.getFettrate());
-        fett_col.setCellValueFactory(new PropertyValueFactory<>(s));
-
-        data = ListSportler();
-        System.out.println(data);
-        this.allpersonview.setItems(data);
-
-
-
-
+        //fett_col.setCellValueFactory(new PropertyValueFactory<>("fettrate"));
+        allpersonview2.setItems(dbControl.listSportler());
     }
 
 
@@ -317,7 +321,7 @@ public class sportlerController {
 
 
 
-
+/*
     @FXML
     void detailsaction() {
         Sportler person = new Sportler();
@@ -430,7 +434,7 @@ public class sportlerController {
         //dbControl.editPerson(person);
         dbControl.updateSportler(person);
     }
-
+*/
 
 }
 

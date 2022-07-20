@@ -25,7 +25,7 @@ public class listController {
     private ComboBox<String> kursecombo;
 
     @FXML
-    private TableColumn<Kurse, Integer> kursefreie_col;
+    private TableColumn<Sportler, Integer> kursefreie_col;
 
     @FXML
     private TableColumn<Kurse, String> kursekurseid_col;
@@ -80,6 +80,12 @@ public class listController {
 
     @FXML
     private ComboBox<String> trainercombo;
+
+    @FXML
+    private TableView<Kurse> kursename_col;
+
+    @FXML
+    private TableColumn<Kurse, String> kursenameview;
 
     @FXML
     private TableColumn<Trainer, String> trainerid_col;
@@ -150,8 +156,15 @@ public class listController {
 
     @FXML
     private void inKurse(){
+
+        Kurse k = new Kurse();
+
+        kursekurseid_col.setCellValueFactory(new PropertyValueFactory<>("kursenummer"));
+        kursekursename_col.setCellValueFactory(new PropertyValueFactory<>("kursename"));
+        kursefreie_col.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
         kurseportlerid_col.setCellValueFactory(new PropertyValueFactory<>("sportlernummer"));
         kurseshuld_col.setCellValueFactory(new PropertyValueFactory<>("schuld"));
+        kurseview.setItems(dbControl.listKurseList(kursecombo.getValue()));
         kurseview2.setItems(dbControl.listKurseList2(kursecombo.getValue()));
 
     }
@@ -176,7 +189,9 @@ public class listController {
         sportlersportlernachname_col.setCellValueFactory(new PropertyValueFactory<>("nachname"));
         sportlerkurse_col.setCellValueFactory(new PropertyValueFactory<>("kurse_id"));
         sportlerschuld_col.setCellValueFactory(new PropertyValueFactory<>("schuld"));
+        kursenameview.setCellValueFactory(new PropertyValueFactory<>("kursename"));
         sportlerview.setItems(dbControl.listSportlerList(sportlercombo.getValue()));
+        kursename_col.setItems(dbControl.listSportlerKurse(sportlercombo.getValue()));
 
     }
 

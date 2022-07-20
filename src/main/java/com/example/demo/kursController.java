@@ -48,10 +48,10 @@ public class kursController {
     private TableColumn<Kurse, String> kursetrainer;
 
     @FXML
-    private TableView<Kurse> kursetable;
+    private TableView<Kurse> kurse_table;
 
     public TableView<Kurse> getKursetable() {
-        return kursetable;
+        return kurse_table;
     }
 
 
@@ -138,9 +138,9 @@ public class kursController {
 
         listKurs = dbControl.getDatakurse();
         System.out.println(listKurs);
-        this.kursetable.setItems(listKurs);
+        this.kurse_table.setItems(listKurs);
 
-        kursetable.setEditable(true);
+        kurse_table.setEditable(true);
         kursename.setCellFactory(TextFieldTableCell.forTableColumn());
         //kursepreis.setCellFactory(TextFieldTableCell.forTableColumn());
         //kursetag.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -151,6 +151,7 @@ public class kursController {
     }
     */
 
+
     public void initialize(){
 
         this.kurseid.setCellValueFactory(new PropertyValueFactory<>("kursenummer"));
@@ -158,10 +159,10 @@ public class kursController {
         this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
         //this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tage"));
         this.kursetrainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
-        this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
-        this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));
-        this.kurseend.setCellValueFactory(new PropertyValueFactory<>("end"));
-        kursetable.setItems(ListKurse());
+        //this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
+        //this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));
+        //this.kurseend.setCellValueFactory(new PropertyValueFactory<>("end"));
+        kurse_table.setItems(ListKurse());
 
 
 
@@ -176,7 +177,7 @@ public class kursController {
     @FXML
     void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
 
-        Kurse kurse = kursetable.getSelectionModel().getSelectedItem();
+        Kurse kurse = kurse_table.getSelectionModel().getSelectedItem();
         //System.out.println(p.getName());
         //person.setId(personStringCellEditEvent.getNewValue());
         kurse.setKursename(personStringCellEditEvent.getNewValue());
@@ -204,10 +205,10 @@ public class kursController {
     @FXML
     void deleteaction() {
         ObservableList<Kurse> allPerson, SinglePerson;
-        allPerson = kursetable.getItems();
-        SinglePerson = kursetable.getSelectionModel().getSelectedItems();
+        allPerson = kurse_table.getItems();
+        SinglePerson = kurse_table.getSelectionModel().getSelectedItems();
 
-        Kurse person = kursetable.getSelectionModel().getSelectedItem();
+        Kurse person = kurse_table.getSelectionModel().getSelectedItem();
         System.out.println(person.getKursenummer());
 
         String a = person.getKursenummer();

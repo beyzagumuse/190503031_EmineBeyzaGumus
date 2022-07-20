@@ -84,21 +84,25 @@
                               <TableColumn fx:id="sportlerschuld_col" prefWidth="69.5999755859375" text="Schuld" />
                           </columns>
                         </TableView>
-                        <Label layoutX="484.0" layoutY="41.0" text="Ödenen Taksit:" />
-                        <TextField fx:id="payfield" layoutX="484.0" layoutY="66.0" />
-                        <Button layoutX="524.0" layoutY="113.0" mnemonicParsing="false" text="Pay" />
-                        <Button layoutX="516.0" layoutY="155.0" mnemonicParsing="false" text="Refresh" />
+                        <Label layoutX="484.0" layoutY="41.0" text="Ödenen Taksit:" visible="false" />
+                        <TextField fx:id="payfield" layoutX="484.0" layoutY="66.0" visible="false" />
+                        <Button layoutX="524.0" layoutY="113.0" mnemonicParsing="false" text="Pay" visible="false" />
+                        <Button layoutX="516.0" layoutY="155.0" mnemonicParsing="false" text="Refresh" visible="false" />
                         <Button layoutX="589.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeall" prefHeight="26.0" prefWidth="54.0" text="X" />
+                        <TableView fx:id="kursename_col" layoutX="457.0" layoutY="26.0" prefHeight="200.0" prefWidth="87.0">
+                          <columns>
+                            <TableColumn fx:id="kursenameview" prefWidth="87.20001220703125" text="Kurse Name" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="kurselist" layoutX="7.0" prefHeight="250.0" prefWidth="639.0" visible="false">
                      <children>
-                        <TableView fx:id="kurseview" layoutX="53.0" layoutY="25.0" prefHeight="200.0" prefWidth="344.0">
+                        <TableView fx:id="kurseview" layoutX="53.0" layoutY="25.0" prefHeight="200.0" prefWidth="287.0">
                           <columns>
                             <TableColumn fx:id="kursekurseid_col" prefWidth="75.0" text="Kurse ID" />
                             <TableColumn fx:id="kursekursename_col" prefWidth="75.0" text="Kurse Name" />
-                              <TableColumn fx:id="kursefreie_col" prefWidth="75.0" text="#Freie Platz" />
-                              <TableColumn fx:id="kurse_nichtfreie_col" prefWidth="115.20001220703125" text="#Nicht Freie Platz" />
+                              <TableColumn fx:id="kursefreie_col" prefWidth="132.0000762939453" text="Anzahl der Sportler" />
                           </columns>
                         </TableView>
                         <TableView fx:id="kurseview2" layoutX="418.0" layoutY="25.0" prefHeight="200.0" prefWidth="150.0">

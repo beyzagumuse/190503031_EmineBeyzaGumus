@@ -17,6 +17,11 @@ public class  Kurse{
 
     private String trainer;
 
+    public Kurse(){}
+    public Kurse(String name){
+        kursename = name;
+    }
+
     public Kurse(String trainer_id,int kurse_anzahl,String kurse_name){
         trainer = trainer_id;
         kursename = kurse_name;
@@ -54,7 +59,7 @@ public class  Kurse{
     }
 
 
-    public Kurse(){}
+
 
 
 

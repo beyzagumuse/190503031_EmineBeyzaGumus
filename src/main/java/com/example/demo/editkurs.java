@@ -117,7 +117,7 @@ public class editkurs {
 
     @FXML
     private void editKurseId() throws IOException {
-        dbControl.printKurseData(Integer.parseInt(editKursID.getText()));
+        dbControl.printKurseData((editKursID.getText()));
         dbControl.editKurseId(Integer.parseInt(editKursID.getText()));
         System.out.println("Kurs Id'si değiştirildi.");
         goKurspage();

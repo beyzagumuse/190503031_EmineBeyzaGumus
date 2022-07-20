@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.Classes.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -28,7 +27,7 @@ public class deletekursController {
 
    @FXML
     private void deleteKursebyId() throws IOException {
-        dbControl.printKurseData(Integer.parseInt(id_deletekurs.getText()));
+        dbControl.printKurseData((id_deletekurs.getText()));
         dbControl.deleteKurse(Integer.parseInt(id_deletekurs.getText()));
         System.out.println("Patient wurde vom Datenbank geloescht.");
         goKurspage();
