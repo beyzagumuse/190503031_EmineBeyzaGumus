@@ -17,6 +17,11 @@ public class  Kurse{
 
     private String trainer;
 
+    public Kurse(String trainer_id,int kurse_anzahl,String kurse_name){
+        trainer = trainer_id;
+        kursename = kurse_name;
+        anzahlSportler = kurse_anzahl;
+    }
     public Kurse(String kurse_id, String kurse_name, int kurse_preis, String kurse_tage, String trainer, int kurse_anzahlSportler, int kurse_beginn, int kurse_end) {
         super();
         kursenummer = kurse_id;
@@ -48,7 +53,10 @@ public class  Kurse{
         preis = kurse_preis;
     }
 
+
     public Kurse(){}
+
+
 
     public void setPreis(int preis) {
         this.preis = preis;

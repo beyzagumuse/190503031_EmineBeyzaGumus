@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -27,24 +26,22 @@
          </image>
       </ImageView>
       <Button fx:id="homebtn" layoutX="588.0" layoutY="1.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="55.0" style="-fx-background-color: black; -fx-border-color: white;" text="X" textFill="WHITE" />
-      <TableView fx:id="trainerview" layoutX="18.0" layoutY="51.0" prefHeight="165.0" prefWidth="610.0">
+      <TableView fx:id="trainerview" layoutX="70.0" layoutY="51.0" prefHeight="166.0" prefWidth="526.0">
          <columns>
-            <TableColumn fx:id="idcol" prefWidth="52.79995346069336" style="-fx-background-color: tan;" text="ID" />
-            <TableColumn fx:id="namecol" prefWidth="83.199951171875" style="-fx-background-color: darksalmon;" text="Name" />
-            <TableColumn fx:id="nnamecol" prefWidth="93.60003662109375" style="-fx-background-color: tan;" text="Nachname" />
-            <TableColumn fx:id="telcol" prefWidth="84.00001525878906" style="-fx-background-color: darksalmon;" text="Tel No" />
-            <TableColumn fx:id="addcol" prefWidth="92.79998779296875" style="-fx-background-color: tan;" text="Adresse" />
-            <TableColumn fx:id="mailcol" minWidth="0.0" prefWidth="85.5999755859375" style="-fx-background-color: darksalmon;" text="Email" />
-            <TableColumn prefWidth="116.0" style="-fx-background-color: tan;" text="Kurse" />
+            <TableColumn fx:id="idcol" onEditCommit="#oneditchange" prefWidth="52.79995346069336" style="-fx-background-color: tan;" text="ID" />
+            <TableColumn fx:id="namecol" onEditCommit="#oneditchange" prefWidth="83.199951171875" style="-fx-background-color: darksalmon;" text="Name" />
+            <TableColumn fx:id="nnamecol" onEditCommit="#oneditchange2" prefWidth="93.60003662109375" style="-fx-background-color: tan;" text="Nachname" />
+            <TableColumn fx:id="telcol" onEditCommit="#oneditchange3" prefWidth="84.00001525878906" style="-fx-background-color: darksalmon;" text="Tel No" />
+            <TableColumn fx:id="addcol" onEditCommit="#oneditchange4" prefWidth="92.79998779296875" style="-fx-background-color: tan;" text="Adresse" />
+            <TableColumn fx:id="mailcol" minWidth="0.0" onEditCommit="#oneditchange5" prefWidth="115.199951171875" style="-fx-background-color: darksalmon;" text="Email" />
          </columns>
       </TableView>
-      <GridPane layoutX="-1.0" layoutY="230.0" prefHeight="187.0" prefWidth="628.0">
+      <GridPane layoutX="-1.0" layoutY="230.0" prefHeight="187.0" prefWidth="588.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -89,15 +86,9 @@
                </font>
             </Label>
             <TextField fx:id="addnachname" prefHeight="26.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label prefHeight="18.0" prefWidth="323.0" text="                                          Kurse:" textFill="WHITE" GridPane.rowIndex="6">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <ComboBox prefHeight="26.0" prefWidth="326.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <Button fx:id="finishaddtrainer1" layoutX="269.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonadd" style="-fx-background-color: OLDLACE;" text="ADD" />
-      <Button layoutX="333.0" layoutY="458.0" mnemonicParsing="false" style="-fx-background-color: OLDLACE;" text="DELETE" />
+      <Button layoutX="333.0" layoutY="458.0" mnemonicParsing="false" onAction="#deleteaction" style="-fx-background-color: OLDLACE;" text="DELETE" />
    </children>
 </AnchorPane>

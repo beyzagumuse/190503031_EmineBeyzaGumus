@@ -8,9 +8,30 @@ public class Sportler extends Person {
     private String krankenheit; //arraylist or array
     private int muskelv;
     private int fettrate;
+
+    private String kurse_id;
     //private Kurse[];
 
     public Sportler() {
+    }
+
+    public Sportler(String id,String name,String nachname){
+        super(id,name,nachname);
+        sportlernummer = id;
+    }
+
+    public Sportler(String id, int schuld){
+        super(id);
+        sportlernummer = id;
+        this.schuld = schuld;
+    }
+
+
+    public Sportler(String id, String name, String nachname,String kurse,int schuld ){
+        super(id,name,nachname);
+        sportlernummer = id;
+        kurse_id = kurse;
+        this.schuld = schuld;
     }
 
     public Sportler(String id, String name, String nachname, String telno,String adresse,String email){
@@ -23,6 +44,16 @@ public class Sportler extends Person {
         this.krankenheit = krankenheit;
         this.muskelv = muskel;
         this.fettrate = fett;
+    }
+
+    public Sportler(String id, String name, String nachname, String telno, String adresse, String email, int schuld, String krankenheit, int muskel, int fett,String kurse) {
+        super(id, name, nachname, telno, adresse, email);
+        this.sportlernummer = id;
+        this.schuld = schuld;
+        this.krankenheit = krankenheit;
+        this.muskelv = muskel;
+        this.fettrate = fett;
+        kurse_id = kurse;
     }
 
 
@@ -79,6 +110,14 @@ public class Sportler extends Person {
 
     public int getFettrate() {
         return fettrate;
+    }
+
+    public String getKurse_id() {
+        return kurse_id;
+    }
+
+    public void setKurse_id(String kurse_id) {
+        this.kurse_id = kurse_id;
     }
 }
 

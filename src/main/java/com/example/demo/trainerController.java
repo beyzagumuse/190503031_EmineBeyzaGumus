@@ -1,12 +1,16 @@
 package com.example.demo;
 
+import com.example.demo.Classes.Person;
 import com.example.demo.Classes.Trainer;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -79,7 +83,32 @@ public class trainerController {
 
     HelloApplication application;
 
+    public void initialize(){
 
+        idcol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        namecol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nnamecol.setCellValueFactory(new PropertyValueFactory<>("nachname"));
+        telcol.setCellValueFactory(new PropertyValueFactory<>("telno"));
+        addcol.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+        mailcol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        trainerview.setItems(ListPersonal());
+
+        trainerview.setEditable(true);
+
+        namecol.setCellFactory(TextFieldTableCell.forTableColumn());
+        nnamecol.setCellFactory(TextFieldTableCell.forTableColumn());
+        telcol.setCellFactory(TextFieldTableCell.forTableColumn());
+        addcol.setCellFactory(TextFieldTableCell.forTableColumn());
+        mailcol.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
+    }
+
+    public ObservableList ListPersonal(){
+        ObservableList arr = dbControl.listTrainer();
+        return arr;
+    }
     @FXML
     void buttonadd() {
 
@@ -121,36 +150,6 @@ public class trainerController {
     }
 
 
-    @FXML
-    void goaddTrainer() {
-        addtrainerpane.setVisible(true);
-        deletetrainerpane.setVisible(false);
-        edittrainerpane.setVisible(false);
-        detailspane.setVisible(false);
-    }
-    @FXML
-    void godeleteTrainer() {
-        addtrainerpane.setVisible(false);
-        deletetrainerpane.setVisible(true);
-        edittrainerpane.setVisible(false);
-        detailspane.setVisible(false);
-    }
-
-    @FXML
-    void goeditTrainer() {
-        addtrainerpane.setVisible(false);
-        deletetrainerpane.setVisible(false);
-        edittrainerpane.setVisible(true);
-        detailspane.setVisible(false);
-    }
-
-    @FXML
-    void godetailsTrainer() {
-        addtrainerpane.setVisible(false);
-        deletetrainerpane.setVisible(false);
-        edittrainerpane.setVisible(false);
-        detailspane.setVisible(true);
-    }
 
     @FXML
     void closedetails(){
@@ -161,6 +160,98 @@ public class trainerController {
     void closePane(AnchorPane pane) {
         pane.setVisible(false);
     }
+
+    @FXML
+    void deleteaction() {
+        ObservableList<Trainer> allPerson, SinglePerson;
+        allPerson = trainerview.getItems();
+        SinglePerson = trainerview.getSelectionModel().getSelectedItems();
+
+        Trainer person = trainerview.getSelectionModel().getSelectedItem();
+        System.out.println(person.getId());
+
+        String a = person.getId();
+        SinglePerson.forEach(allPerson::remove);
+        dbControl.delete_Trainer((a));
+    }
+
+
+    @FXML
+    void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Trainer person = trainerview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateTrainer(person);
+    }
+
+    @FXML
+    void oneditchange2(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Trainer person = trainerview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateTrainer(person);
+    }
+
+    @FXML
+    void oneditchange3(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Trainer person = trainerview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateTrainer(person);
+    }
+
+    @FXML
+    void oneditchange4(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Trainer person = trainerview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateTrainer(person);
+    }
+
+    @FXML
+    void oneditchange5(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+
+        Trainer person = trainerview.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        person.setEmail(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateTrainer(person);
+    }
+
+
 
 
 }

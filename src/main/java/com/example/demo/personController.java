@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -228,6 +229,12 @@ public class personController {
         mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
         allpersonview.setItems(ListPersonal());
 
+        allpersonview.setEditable(true);
+        name_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        nachname_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        telno_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        add_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        mail_col.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
     }

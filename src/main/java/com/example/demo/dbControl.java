@@ -275,10 +275,12 @@ public class dbControl {
 
         ObservableList<Sportler> sportlerlist = FXCollections.observableArrayList();
         try{
-            Connection conn = database.connect();
-            Statement stmt = conn.createStatement();
+            //Connection conn = database.connect();
+            //Statement stmt = conn.createStatement();
             //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
-            ResultSet rs = stmt.executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email,sportlerr.schuld,sportlerr.krank,sportlerr.muskelv,sportlerr.fettrate FROM person,sportlerr WHERE person_id == sportler_id");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email,sportlerr.schuld,sportlerr.krank,sportlerr.muskelv,sportlerr.fettrate FROM person,sportlerr WHERE person_id == sportler_id");
+
+
 
             while(rs.next()){
                 //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
@@ -308,6 +310,7 @@ public class dbControl {
                 int muskelv = rs.getInt("muskelv");
                 int fett = rs.getInt("fettrate");
                 Sportler p = new Sportler(id,name,nachname,telno,add,mail,schuld,krank,muskelv,fett);
+
                 sportlerlist.add(p);
 
             }
@@ -861,6 +864,93 @@ public class dbControl {
         return mitarbeiters;
     }
 
+    public static void updateTrainer(Trainer p) {
+
+        //String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
+        String name = "UPDATE person SET person_name = '" + p.getName() + "' WHERE person_id = '" + p.getId()+"'";
+        String nachname = "UPDATE person SET person_nachname =  '"+p.getNachname()+"'  WHERE person_id = '" + p.getId()+"'";
+        String telno = "UPDATE person SET person_telno =  '"+p.getTelno()+"'  WHERE person_id = '" + p.getId()+"'";
+        String adresse = "UPDATE person SET person_adresse =  '"+p.getAdresse()+"'  WHERE person_id = '" + p.getId()+"'";
+        String email = "UPDATE person SET person_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getId()+"'";
+        //String typ = "UPDATE Autos SET Getriebetyp = '" + auto.getGetriebetyp() + "' WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+        //String preis = "UPDATE Autos SET Mietpreise =  '" +  auto.getMietpreise() + "'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+
+
+
+
+        try {
+            Statement stm = conn.createStatement();
+            //stm.execute(id);
+            stm.execute(name);
+            stm.execute(nachname);
+            stm.execute(telno);
+            stm.execute(adresse);
+            stm.execute(email);
+
+            //stm.execute(km);
+            //stm.execute(typ);
+            //stm.execute(preis);
+
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void delete_Trainer(String person_id) {
+        String query = "DELETE FROM person WHERE person_id = ?";
+        String query2 = "DELETE FROM trainer WHERE trainer_id =?";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, person_id);
+            pstmt.executeUpdate();
+
+            pstmt2 = dbControl.conn.prepareStatement(query2);
+            pstmt2.setString(1,person_id);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static ObservableList<Trainer> listTrainer(){
+        ObservableList<Trainer> mitarbeiters = FXCollections.observableArrayList();
+
+
+        //SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Statement stmt = database.conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email FROM person,trainer WHERE person_id == trainer_id");
+            while (rs.next()) {
+
+
+
+
+                String id = rs.getString("person_id");
+                String name = rs.getString("person_name");
+                String nachname = rs.getString("person_nachname");
+                String telno = rs.getString("person_telno");
+                //Date geburtsdatum = (Date) dformat.parse(sgeburtsdatum);
+                String adresse = rs.getString("person_adresse");
+                String email = rs.getString("person_email");
+                //String trainernummer = rs.getString("trainer_id");
+
+
+
+
+                mitarbeiters.add(new Trainer(id, name, nachname,telno,adresse,email));
+                System.out.println(mitarbeiters.get(0).getName());
+            }
+
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return mitarbeiters;
+    }
+
     public static void add_Trainer(Trainer p) {
 
         String id = p.getId();
@@ -923,6 +1013,9 @@ public class dbControl {
 
 
     ObservableList trainers = FXCollections.observableArrayList();
+
+
+
     public void filLComboBoxTrainer() throws SQLException {
         String query = "SELECT trainer_id FROM trainer";
         pstmt = dbControl.conn.prepareStatement(query);
@@ -1001,6 +1094,98 @@ public class dbControl {
         }
         return arr;
     }
+
+
+
+    public static ObservableList<Sportler> listKurseList2(String value) {
+        ObservableList<Sportler> arr = FXCollections.observableArrayList();
+
+        try{
+            Connection conn = database.connect();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT sportler_id,schuld FROM sportlerr,kurse WHERE kurse_name == '" + value+ "'");
+
+            while(rs.next()){
+                arr.add(new Sportler(rs.getString("sportler_id"),rs.getInt("schuld")));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return arr;
+    }
+
+    public static ObservableList<Sportler> listSportlerList(String id){
+        ObservableList<Sportler> arr = FXCollections.observableArrayList();
+
+        try {
+            Connection conn = database.connect();
+            //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT sportler_id,person_name,person_nachname,kurse_id,schuld FROM person,sportlerr WHERE sportler_id == person_id AND sportler_id == '" + id +"'");
+            System.out.println(rs);
+            while (rs.next()) {
+
+                String s = rs.getString("sportler_id");
+                String s2 = rs.getString("person_name");
+                String s3 = rs.getString("person_nachname");
+                String s4 = rs.getString("kurse_id");
+                int s5 = rs.getInt("schuld");
+                arr.add(new Sportler(s,s2,s3,s4,s5));
+                //arr.add(new Kurse(s,s3,s2));
+
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return arr;
+    }
+
+
+    public static ObservableList<Kurse> listTrainerList(String id){
+        ObservableList<Kurse> arr = FXCollections.observableArrayList();
+
+        try {
+            Connection conn = database.connect();
+            //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT trainer_id,kurse_name,kurse_anzahl FROM kursee WHERE trainer_id == '" + id +"'");
+            System.out.println(rs);
+            while (rs.next()) {
+
+                String s = rs.getString("trainer_id");
+                String s2 = rs.getString("kurse_name");
+                int s3 = rs.getInt("kurse_anzahl");
+                arr.add(new Kurse(s,s3,s2));
+
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return arr;
+    }
+//?????????????
+    public static ObservableList<Sportler> listTrainerList2(String id){
+        ObservableList<Sportler> arr = FXCollections.observableArrayList();
+
+        try {
+            Connection conn = database.connect();
+            //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT person_id,person_name,person_nachname FROM person,sportlerr,kursee WHERE  sportlerr.kurse_id == kursee.kurse_id AND kursee.trainer_id =='" + id +"' ");
+            //sportlerr.kurse_id == kursee.kurse_id AND
+            System.out.println(rs);
+            while (rs.next()) {
+
+                String s = rs.getString("person_id");
+                String s2 = rs.getString("person_name");
+                String s3 = rs.getString("person_nachname");
+                arr.add(new Sportler(s,s2,s3));
+
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return arr;
+    }
+
 
 
 }

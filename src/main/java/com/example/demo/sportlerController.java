@@ -276,6 +276,7 @@ public class sportlerController {
 
     @FXML
     public void initialize(){
+        Sportler p = new Sportler();
 
         tc_col.setCellValueFactory(new PropertyValueFactory<>("id"));
         name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -283,11 +284,17 @@ public class sportlerController {
         telno_col.setCellValueFactory(new PropertyValueFactory<>("telno"));
         add_col.setCellValueFactory(new PropertyValueFactory<>("adresse"));
         mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
-        schuld_col.setCellValueFactory(new PropertyValueFactory<>("schuld"));
+        String schuld = String.valueOf(p.getSchuld());
+        schuld_col.setCellValueFactory(new PropertyValueFactory<>(schuld));
         krank_col.setCellValueFactory(new PropertyValueFactory<>("krankheit"));
-        muskel_col.setCellValueFactory(new PropertyValueFactory<>("muskelv"));
-        fett_col.setCellValueFactory(new PropertyValueFactory<>("fettrate"));
-        allpersonview.setItems(ListSportler());
+        String m = String.valueOf(p.getMuskelv());
+        muskel_col.setCellValueFactory(new PropertyValueFactory<>(m));
+        String s = String.valueOf(p.getFettrate());
+        fett_col.setCellValueFactory(new PropertyValueFactory<>(s));
+
+        data = ListSportler();
+        System.out.println(data);
+        this.allpersonview.setItems(data);
 
 
 
