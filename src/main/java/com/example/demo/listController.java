@@ -10,6 +10,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
+
 public class listController {
 
     @FXML
@@ -19,7 +21,7 @@ public class listController {
     private TableColumn<Kurse, Integer> kurse_nichtfreie_col;
 
     @FXML
-    private ComboBox<Kurse> kursecombo;
+    private ComboBox<String> kursecombo;
 
     @FXML
     private TableColumn<Kurse, Integer> kursefreie_col;
@@ -49,7 +51,7 @@ public class listController {
     private TextField payfield;
 
     @FXML
-    private ComboBox<Sportler> sportlercombo;
+    private ComboBox<String> sportlercombo;
 
     @FXML
     private TableColumn<Kurse, String> sportlerkurse_col;
@@ -76,7 +78,7 @@ public class listController {
     private TableColumn<Kurse, Integer> traineranzahl_col;
 
     @FXML
-    private ComboBox<Trainer> trainercombo;
+    private ComboBox<String> trainercombo;
 
     @FXML
     private TableColumn<Trainer, String> trainerid_col;
@@ -99,4 +101,52 @@ public class listController {
     @FXML
     private TableView<Sportler> trainerview2;
 
+
+    HelloApplication application;
+
+    @FXML
+    private void goHomepage() throws IOException {
+        application.showHomepageScene();
+    }
+
+    @FXML
+    private void listTrainer(){
+        Trainerlist.setVisible(true);
+        kurselist.setVisible(false);
+        sportlerlist.setVisible(false);
+    }
+
+    @FXML
+    private void listKurse(){
+        Trainerlist.setVisible(false);
+        kurselist.setVisible(true);
+        sportlerlist.setVisible(false);
+    }
+
+    @FXML
+    private void listSportler(){
+        Trainerlist.setVisible(false);
+        kurselist.setVisible(false);
+        sportlerlist.setVisible(true);
+    }
+
+    @FXML
+    private void initialize(){
+
+        sportlercombo.setItems(dbControl.listSportlerCombo());
+        kursecombo.setItems(dbControl.listKurseCombo());
+        trainercombo.setItems(dbControl.listTrainerCombo());
+    }
+
+
+
+
+
+
+    @FXML
+    private void closeall(){
+        Trainerlist.setVisible(false);
+        kurselist.setVisible(false);
+        sportlerlist.setVisible(false);
+    }
 }

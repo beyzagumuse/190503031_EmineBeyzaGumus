@@ -5,9 +5,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -174,7 +176,7 @@ public class personController {
     ObservableList<Person> data = FXCollections.observableArrayList();
 
 
-
+/*
     @FXML
     public void initializee() {
 
@@ -189,31 +191,31 @@ public class personController {
             }
         } catch (SQLException e) {
             Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
-        }*/
-        dbControl.initPerson();
+        }*//*
+            dbControl.initPerson();
 
-        tc_col.setCellValueFactory(new PropertyValueFactory<>("id"));
-        name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
-        nachname_col.setCellValueFactory(new PropertyValueFactory<>("nachname"));
-        telno_col.setCellValueFactory(new PropertyValueFactory<>("telno"));
-        add_col.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-        mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-
-
-        data = dbControl.getDataperson();
-        System.out.println(data);
-        this.allpersonview.setItems(data);
-
-        allpersonview.setEditable(true);
-        name_col.setCellFactory(TextFieldTableCell.forTableColumn());
-        nachname_col.setCellFactory(TextFieldTableCell.forTableColumn());
-        telno_col.setCellFactory(TextFieldTableCell.forTableColumn());
-        add_col.setCellFactory(TextFieldTableCell.forTableColumn());
-        mail_col.setCellFactory(TextFieldTableCell.forTableColumn());
+            tc_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+            name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+            nachname_col.setCellValueFactory(new PropertyValueFactory<>("nachname"));
+            telno_col.setCellValueFactory(new PropertyValueFactory<>("telno"));
+            add_col.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+            mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
 
 
-    }
+
+            data = dbControl.getDataperson();
+            System.out.println(data);
+            this.allpersonview.setItems(data);
+
+            allpersonview.setEditable(true);
+            name_col.setCellFactory(TextFieldTableCell.forTableColumn());
+            nachname_col.setCellFactory(TextFieldTableCell.forTableColumn());
+            telno_col.setCellFactory(TextFieldTableCell.forTableColumn());
+            add_col.setCellFactory(TextFieldTableCell.forTableColumn());
+            mail_col.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+    }*/
 
 
     public void initialize(){

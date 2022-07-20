@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.listController">
    <children>
       <SplitPane dividerPositions="0.5" layoutX="-1.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="646.0">
         <items>
@@ -26,8 +26,8 @@
                               <Image url="D:\demo\photos\fitness-antrenmanlarından-verim-almak-icin-5-onemli-detay-758x571.jpg" />
                            </image>
                         </ImageView>
-                        <ComboBox layoutX="256.0" layoutY="66.0" prefHeight="26.0" prefWidth="258.0" />
-                        <Button layoutX="547.0" layoutY="67.0" mnemonicParsing="false" text="List" />
+                        <ComboBox fx:id="trainercombo" layoutX="256.0" layoutY="66.0" prefHeight="26.0" prefWidth="258.0" />
+                        <Button layoutX="547.0" layoutY="67.0" mnemonicParsing="false" onAction="#listTrainer" text="List" />
                         <Label layoutX="54.0" layoutY="63.0" prefHeight="32.0" prefWidth="162.0" text="Bitte wählen Sie Trainer:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -38,16 +38,16 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="254.0" layoutY="126.0" prefHeight="26.0" prefWidth="259.0" />
+                        <ComboBox fx:id="sportlercombo" layoutX="254.0" layoutY="126.0" prefHeight="26.0" prefWidth="259.0" />
                         <Label layoutX="54.0" layoutY="125.0" prefHeight="26.0" prefWidth="178.0" text="Bitte wählen Sie Sportler:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="254.0" layoutY="183.0" prefHeight="26.0" prefWidth="258.0" />
-                        <Button layoutX="547.0" layoutY="127.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="List" />
-                        <Button layoutX="547.0" layoutY="184.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="List" />
-                        <Button layoutX="594.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" style="-fx-background-color: white;" text="X" />
+                        <ComboBox fx:id="kursecombo" layoutX="254.0" layoutY="183.0" prefHeight="26.0" prefWidth="258.0" />
+                        <Button layoutX="547.0" layoutY="127.0" mnemonicParsing="false" onAction="#listSportler" prefHeight="26.0" prefWidth="34.0" text="List" />
+                        <Button layoutX="547.0" layoutY="184.0" mnemonicParsing="false" onAction="#listKurse" prefHeight="26.0" prefWidth="34.0" text="List" />
+                        <Button layoutX="594.0" layoutY="1.0" mnemonicParsing="false" onAction="#goHomepage" prefHeight="26.0" prefWidth="53.0" style="-fx-background-color: white;" text="X" />
                      </children>
                   </AnchorPane>
                </children>
@@ -56,58 +56,58 @@
                <children>
                   <AnchorPane fx:id="Trainerlist" prefHeight="250.0" prefWidth="646.0" visible="false">
                      <children>
-                        <TableView layoutX="28.0" layoutY="36.0" prefHeight="200.0" prefWidth="294.0">
+                        <TableView fx:id="trainerview" layoutX="28.0" layoutY="36.0" prefHeight="200.0" prefWidth="294.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Trainer ID" />
-                            <TableColumn prefWidth="75.0" text="Kurse" />
-                              <TableColumn prefWidth="142.40000305175784" text="Anzahl der Sportler" />
+                            <TableColumn fx:id="trainerid_col" prefWidth="75.0" text="Trainer ID" />
+                            <TableColumn fx:id="trainerkurse_col" prefWidth="75.0" text="Kurse" />
+                              <TableColumn fx:id="traineranzahl_col" prefWidth="142.40000305175784" text="Anzahl der Sportler" />
                           </columns>
                         </TableView>
-                        <TableView layoutX="323.0" layoutY="36.0" prefHeight="200.0" prefWidth="294.0">
+                        <TableView fx:id="trainerview2" layoutX="323.0" layoutY="36.0" prefHeight="200.0" prefWidth="294.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Sportler ID" />
-                            <TableColumn prefWidth="93.60003662109375" text="Sportler Name" />
-                              <TableColumn prefWidth="124.7999267578125" text="Sportler Nachname" />
+                            <TableColumn fx:id="trainersportlerid_col" prefWidth="75.0" text="Sportler ID" />
+                            <TableColumn fx:id="trainersportlername_col" prefWidth="93.60003662109375" text="Sportler Name" />
+                              <TableColumn fx:id="trainersportlernachname_col" prefWidth="124.7999267578125" text="Sportler Nachname" />
                           </columns>
                         </TableView>
-                        <Button layoutX="589.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="X" />
+                        <Button layoutX="589.0" layoutY="1.0" mnemonicParsing="false" onAction="#closeall" prefHeight="26.0" prefWidth="56.0" text="X" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="sportlerlist" prefHeight="250.0" prefWidth="646.0" visible="false">
                      <children>
-                        <TableView layoutX="25.0" layoutY="25.0" prefHeight="200.0" prefWidth="432.0">
+                        <TableView fx:id="sportlerview" layoutX="25.0" layoutY="25.0" prefHeight="200.0" prefWidth="432.0">
                           <columns>
-                            <TableColumn prefWidth="76.00002670288086" text="Sportler ID" />
-                            <TableColumn prefWidth="98.39996337890625" text="Sportler Name" />
-                              <TableColumn prefWidth="124.00001525878906" text="Sportler Nachname" />
-                              <TableColumn prefWidth="61.60003662109375" text="Kurse" />
-                              <TableColumn prefWidth="69.5999755859375" text="Schuld" />
+                            <TableColumn fx:id="sportlersportlerid_col" prefWidth="76.00002670288086" text="Sportler ID" />
+                            <TableColumn fx:id="sportlersportlername_col" prefWidth="98.39996337890625" text="Sportler Name" />
+                              <TableColumn fx:id="sportlersportlernachname_col" prefWidth="124.00001525878906" text="Sportler Nachname" />
+                              <TableColumn fx:id="sportlerkurse_col" prefWidth="61.60003662109375" text="Kurse" />
+                              <TableColumn fx:id="sportlerschuld_col" prefWidth="69.5999755859375" text="Schuld" />
                           </columns>
                         </TableView>
                         <Label layoutX="484.0" layoutY="41.0" text="Ödenen Taksit:" />
-                        <TextField layoutX="484.0" layoutY="66.0" />
+                        <TextField fx:id="payfield" layoutX="484.0" layoutY="66.0" />
                         <Button layoutX="524.0" layoutY="113.0" mnemonicParsing="false" text="Pay" />
                         <Button layoutX="516.0" layoutY="155.0" mnemonicParsing="false" text="Refresh" />
-                        <Button layoutX="589.0" layoutY="2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="X" />
+                        <Button layoutX="589.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeall" prefHeight="26.0" prefWidth="54.0" text="X" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="kurselist" layoutX="7.0" prefHeight="250.0" prefWidth="639.0" visible="false">
                      <children>
-                        <TableView layoutX="53.0" layoutY="25.0" prefHeight="200.0" prefWidth="344.0">
+                        <TableView fx:id="kurseview" layoutX="53.0" layoutY="25.0" prefHeight="200.0" prefWidth="344.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Kurse ID" />
-                            <TableColumn prefWidth="75.0" text="Kurse Name" />
-                              <TableColumn prefWidth="75.0" text="#Freie Platz" />
-                              <TableColumn prefWidth="115.20001220703125" text="#Nicht Freie Platz" />
+                            <TableColumn fx:id="kursekurseid_col" prefWidth="75.0" text="Kurse ID" />
+                            <TableColumn fx:id="kursekursename_col" prefWidth="75.0" text="Kurse Name" />
+                              <TableColumn fx:id="kursefreie_col" prefWidth="75.0" text="#Freie Platz" />
+                              <TableColumn fx:id="kurse_nichtfreie_col" prefWidth="115.20001220703125" text="#Nicht Freie Platz" />
                           </columns>
                         </TableView>
-                        <TableView layoutX="418.0" layoutY="25.0" prefHeight="200.0" prefWidth="150.0">
+                        <TableView fx:id="kurseview2" layoutX="418.0" layoutY="25.0" prefHeight="200.0" prefWidth="150.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Sportler ID" />
-                            <TableColumn prefWidth="75.0" text="Schuld" />
+                            <TableColumn fx:id="kurseportlerid_col" prefWidth="75.0" text="Sportler ID" />
+                            <TableColumn fx:id="kurseshuld_col" prefWidth="75.0" text="Schuld" />
                           </columns>
                         </TableView>
-                        <Button layoutX="581.0" layoutY="2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="X" />
+                        <Button layoutX="581.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeall" prefHeight="26.0" prefWidth="54.0" text="X" />
                      </children>
                   </AnchorPane>
                </children>

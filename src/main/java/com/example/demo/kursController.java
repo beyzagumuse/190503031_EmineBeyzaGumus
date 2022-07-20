@@ -2,7 +2,6 @@ package com.example.demo;
 
 import com.example.demo.Classes.Kurse;
 import com.example.demo.Classes.Person;
-import com.example.demo.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,14 +10,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class kursController {
 
@@ -43,7 +42,7 @@ public class kursController {
     private TableColumn<Kurse, Integer> kursepreis;
 
     @FXML
-    private TableColumn<Kurse, Date> kursetag;
+    private TableColumn<Kurse, String> kursetag;
 
     @FXML
     private TableColumn<Kurse, String> kursetrainer;
@@ -111,20 +110,22 @@ public class kursController {
     ResultSet rs = null;
     PreparedStatement pst = null;
 
-
+/*
     @FXML
     public void initialize() {
 
+        /*
         try {
             Connection conn = database.connect();
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM kursee");
 
             while (rs.next()) {
-                this.listKurs.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getDate("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahl"),rs.getInt("kurse_beginn"),rs.getInt("kurse_end")));
+                this.listKurs.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahl"),rs.getInt("kurse_beginn"),rs.getInt("kurse_end")));
             }
         } catch (SQLException e) {
             Logger.getLogger(kursController.class.getName()).log(Level.SEVERE, (String)null, e);
-        }
+        }*/
+    /*
         this.kurseid.setCellValueFactory(new PropertyValueFactory<>("kursenummer"));
         this.kursename.setCellValueFactory(new PropertyValueFactory<>("kursename"));
         this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
@@ -147,6 +148,29 @@ public class kursController {
         //kursebeginn.setCellFactory(TextFieldTableCell.forTableColumn());
         //kurseend.setCellFactory(TextFieldTableCell.forTableColumn());
 
+    }
+    */
+
+    public void initialize(){
+
+        this.kurseid.setCellValueFactory(new PropertyValueFactory<>("kursenummer"));
+        this.kursename.setCellValueFactory(new PropertyValueFactory<>("kursename"));
+        this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
+        //this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tage"));
+        this.kursetrainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
+        this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
+        this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));
+        this.kurseend.setCellValueFactory(new PropertyValueFactory<>("end"));
+        kursetable.setItems(ListKurse());
+
+
+
+    }
+
+    @FXML
+    public ObservableList ListKurse(){
+        ObservableList arr = dbControl.getDatakurse();
+        return arr;
     }
 
     @FXML

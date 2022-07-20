@@ -4,6 +4,9 @@ public class Trainer extends Person{
 
     public Trainer(){}
 
+    public Trainer(String id){
+        trainernummer = id;
+    }
 
     public Trainer(String id, String name, String nachname,String telno,String adresse, String email){
         super( id, name, nachname, telno,adresse, email);

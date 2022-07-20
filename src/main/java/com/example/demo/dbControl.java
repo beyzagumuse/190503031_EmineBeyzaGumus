@@ -179,14 +179,16 @@ public class dbControl {
 
         Connection conn = connect();
         ObservableList<Kurse> kurselist = FXCollections.observableArrayList();
+        SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
         try{
             Statement stmt = conn.createStatement();
             //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
             ResultSet rs = stmt.executeQuery("SELECT * FROM kursee");
 
             while(rs.next()){
+                Date datum = (Date) dformat.parse("kurse_tage");
                 //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
-                kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getDate("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahl"),rs.getInt("kurse_beginn"),rs.getInt("kurse_end")));
+                kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahl"),rs.getInt("kurse_beginn"),rs.getInt("kurse_end")));
             }
         } catch(Exception e){
 
@@ -270,17 +272,19 @@ public class dbControl {
 
     public static ObservableList<Sportler> getDatasportler(){
 
-        Connection conn = connect();
+
         ObservableList<Sportler> sportlerlist = FXCollections.observableArrayList();
         try{
+            Connection conn = database.connect();
             Statement stmt = conn.createStatement();
             //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
-            ResultSet rs = stmt.executeQuery("SELECT * FROM sportler");
+            ResultSet rs = stmt.executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email,sportlerr.schuld,sportlerr.krank,sportlerr.muskelv,sportlerr.fettrate FROM person,sportlerr WHERE person_id == sportler_id");
 
             while(rs.next()){
                 //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
                 //personlist.add(new Person(rs.getString("kurse_name")));
-                Sportler p = new Sportler();
+
+               /*
                 p.setSportlernummer(rs.getString("sportler_id"));
                 p.setName(rs.getString("sportler_name"));
                 p.setNachname(rs.getString("sportler_nachname"));
@@ -291,6 +295,19 @@ public class dbControl {
                 p.setKrankenheit(rs.getString("sportler_schuld"));
                 p.setMuskelv(rs.getInt("sportler_muskelv"));
                 p.setFettrate(rs.getInt("sportler_fettrate"));
+                */
+
+                String id = rs.getString("person_id");
+                String name = rs.getString("person_name");
+                String nachname = rs.getString("person_nachname");
+                String telno = rs.getString("person_telno");
+                String add = rs.getString("person_adresse");
+                String mail = rs.getString("person_email");
+                int schuld = rs.getInt("schuld");
+                String krank = rs.getString("krank");
+                int muskelv = rs.getInt("muskelv");
+                int fett = rs.getInt("fettrate");
+                Sportler p = new Sportler(id,name,nachname,telno,add,mail,schuld,krank,muskelv,fett);
                 sportlerlist.add(p);
 
             }
@@ -905,6 +922,85 @@ public class dbControl {
     }
 
 
+    ObservableList trainers = FXCollections.observableArrayList();
+    public void filLComboBoxTrainer() throws SQLException {
+        String query = "SELECT trainer_id FROM trainer";
+        pstmt = dbControl.conn.prepareStatement(query);
+        rs = pstmt.executeQuery();
+
+        while(rs.next()){
+
+            trainers.add(rs.getString("trainer_id"));
+        }
+        pstmt.close();
+        rs.close();
+    }
+
+    public static ObservableList<String> listTrainerCombo(){
+        ObservableList<String> arr = FXCollections.observableArrayList();
+
+        try {
+            Connection conn = database.connect();
+            //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT person_id FROM person,trainer WHERE person_id == trainer_id");
+            System.out.println(rs);
+            while (rs.next()) {
+
+                String s = rs.getString("person_id");
+
+                arr.add(s);
+
+
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return arr;
+    }
+
+    public static ObservableList<String> listKurseCombo(){
+        ObservableList<String> arr = FXCollections.observableArrayList();
+
+        try {
+            Connection conn = database.connect();
+            //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT kurse_name FROM kursee");
+            System.out.println(rs);
+            while (rs.next()) {
+
+                String s = rs.getString("kurse_name");
+
+                arr.add(s);
+
+
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return arr;
+    }
+
+    public static ObservableList<String> listSportlerCombo(){
+        ObservableList<String> arr = FXCollections.observableArrayList();
+
+        try {
+            Connection conn = database.connect();
+            //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT sportler_id FROM sportlerr");
+            System.out.println(rs);
+            while (rs.next()) {
+
+                String s = rs.getString("sportler_id");
+
+                arr.add(s);
+
+
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return arr;
+    }
 
 
 }

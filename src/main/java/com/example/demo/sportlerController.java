@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -272,6 +273,37 @@ public class sportlerController {
 
 
     }*/
+
+    @FXML
+    public void initialize(){
+
+        tc_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+        name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nachname_col.setCellValueFactory(new PropertyValueFactory<>("nachname"));
+        telno_col.setCellValueFactory(new PropertyValueFactory<>("telno"));
+        add_col.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+        mail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
+        schuld_col.setCellValueFactory(new PropertyValueFactory<>("schuld"));
+        krank_col.setCellValueFactory(new PropertyValueFactory<>("krankheit"));
+        muskel_col.setCellValueFactory(new PropertyValueFactory<>("muskelv"));
+        fett_col.setCellValueFactory(new PropertyValueFactory<>("fettrate"));
+        allpersonview.setItems(ListSportler());
+
+
+
+
+    }
+
+
+
+    @FXML
+    public ObservableList ListSportler(){
+        ObservableList arr = dbControl.getDatasportler();
+        for(int i=0;i<arr.size();i++){
+            System.out.println(arr.get(i));
+        }
+        return arr;
+    }
 
 
 
