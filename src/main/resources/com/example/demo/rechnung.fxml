@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.rechnungController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.rechnungController">
    <children>
       <Label alignment="CENTER" layoutX="239.0" layoutY="25.0" prefHeight="46.0" prefWidth="122.0" text="RECHNUNG" />
       <Label layoutX="94.0" layoutY="80.0" prefHeight="34.0" prefWidth="148.0" text="Rechnung No:" />
@@ -23,5 +23,6 @@
       <TextField fx:id="tage" layoutX="274.0" layoutY="259.0" />
       <Button layoutX="249.0" layoutY="361.0" mnemonicParsing="false" onAction="#addRechnung" text="OK" />
       <Button layoutX="310.0" layoutY="361.0" mnemonicParsing="false" text="Cancel" />
+      <Button layoutX="460.0" layoutY="85.0" mnemonicParsing="false" text="DELETE" />
    </children>
 </AnchorPane>

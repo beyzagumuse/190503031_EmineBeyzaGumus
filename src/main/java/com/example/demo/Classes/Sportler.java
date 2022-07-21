@@ -16,6 +16,7 @@ public class Sportler extends Person {
     public Sportler(){}
 
     public Sportler(int schuld, String krank, int muskelv, int fett) {
+        super();
         this.schuld=schuld;
         krankenheit = krank;
         this.muskelv = muskelv;

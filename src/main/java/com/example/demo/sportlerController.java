@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -284,10 +285,29 @@ public class sportlerController {
 
 
 
-        //this.allpersonview.setItems(ListSportler());
+
+        String schuld = String.valueOf(p.getSchuld());
+        schuld_col.setCellValueFactory(new PropertyValueFactory<>("schuld"));
+        krank_col.setCellValueFactory(new PropertyValueFactory<>("krankenheit"));
+        String m = String.valueOf(p.getMuskelv());
+        muskel_col.setCellValueFactory(new PropertyValueFactory<>("muskelv"));
+        String s = String.valueOf(p.getFettrate());
+        fett_col.setCellValueFactory(new PropertyValueFactory<>("fettrate"));
+        this.allpersonview.setItems(ListSportler());
+        this.allpersonview2.setItems(ListSportler());
 
 
-        //initialize2(p);
+        allpersonview.setEditable(true);
+        allpersonview2.setEditable(true);
+        name_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        nachname_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        telno_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        add_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        mail_col.setCellFactory(TextFieldTableCell.forTableColumn());
+        krank_col.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
 
 
 
@@ -310,9 +330,7 @@ public class sportlerController {
     @FXML
     public ObservableList ListSportler(){
         ObservableList arr = dbControl.getDatasportler();
-        for(int i=0;i<arr.size();i++){
-            System.out.println(arr.get(i));
-        }
+
         return arr;
     }
 
@@ -345,26 +363,26 @@ public class sportlerController {
     public void personList(){
 
     }
-
+*/
 
     @FXML
     void deleteaction() {
-        ObservableList<Sportler> allPerson, SinglePerson;
+        ObservableList<Person> allPerson, SinglePerson;
         allPerson = allpersonview.getItems();
         SinglePerson = allpersonview.getSelectionModel().getSelectedItems();
 
-        Sportler person = allpersonview.getSelectionModel().getSelectedItem();
-        System.out.println(person.getSportlernummer());
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
+        //System.out.println(person.getSportlernummer());
 
-        String a = person.getSportlernummer();
+        String a = person.getId();
         SinglePerson.forEach(allPerson::remove);
-        dbControl.delete_Person((a));
+        dbControl.delete_Sportler((a));
     }
 
     @FXML
     void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
 
-        Sportler person = allpersonview.getSelectionModel().getSelectedItem();
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
         //System.out.println(p.getName());
         //person.setId(personStringCellEditEvent.getNewValue());
         person.setName(personStringCellEditEvent.getNewValue());
@@ -376,10 +394,11 @@ public class sportlerController {
         dbControl.updateSportler(person);
     }
 
+
     @FXML
     void oneditchange2(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
 
-         Sportler person = allpersonview.getSelectionModel().getSelectedItem();
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
         //System.out.println(p.getName());
         //person.setId(personStringCellEditEvent.getNewValue());
         //person.setName(personStringCellEditEvent.getNewValue());
@@ -390,10 +409,11 @@ public class sportlerController {
         //dbControl.editPerson(person);
         dbControl.updateSportler(person);
     }
+
     @FXML
     void oneditchange3(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
 
-        Sportler person = allpersonview.getSelectionModel().getSelectedItem();
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
         //System.out.println(p.getName());
         //person.setId(personStringCellEditEvent.getNewValue());
         //person.setName(personStringCellEditEvent.getNewValue());
@@ -406,9 +426,9 @@ public class sportlerController {
     }
 
     @FXML
-    void oneditchang4(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+    void oneditchange4(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
 
-        Sportler person = allpersonview.getSelectionModel().getSelectedItem();
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
         //System.out.println(p.getName());
         //person.setId(personStringCellEditEvent.getNewValue());
         //person.setName(personStringCellEditEvent.getNewValue());
@@ -423,7 +443,7 @@ public class sportlerController {
     @FXML
     void oneditchange5(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
 
-        Sportler person = allpersonview.getSelectionModel().getSelectedItem();
+        Person person = allpersonview.getSelectionModel().getSelectedItem();
         //System.out.println(p.getName());
         //person.setId(personStringCellEditEvent.getNewValue());
         //person.setName(personStringCellEditEvent.getNewValue());
@@ -434,7 +454,76 @@ public class sportlerController {
         //dbControl.editPerson(person);
         dbControl.updateSportler(person);
     }
-*/
+    @FXML
+    void oneditchange6(TableColumn.CellEditEvent<Sportler,Integer> personStringCellEditEvent) {
+
+        Sportler person = allpersonview2.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        person.setSchuld(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateSportler2(person);
+    }
+
+    @FXML
+    void oneditchange9(TableColumn.CellEditEvent<Sportler,Integer> personStringCellEditEvent) {
+
+        Sportler person = allpersonview2.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        person.setFettrate(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateSportler2(person);
+    }
+
+
+    @FXML
+    void oneditchange7(TableColumn.CellEditEvent<Sportler,String> personStringCellEditEvent) {
+
+        Sportler person = allpersonview2.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        //person.setSchuld(personStringCellEditEvent.getNewValue());
+        person.setKrankenheit(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateSportler2(person);
+    }
+
+
+    @FXML
+    void oneditchange8(TableColumn.CellEditEvent<Sportler,Integer> personStringCellEditEvent) {
+
+        Sportler person = allpersonview2.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //person.setName(personStringCellEditEvent.getNewValue());
+        //person.setNachname(personStringCellEditEvent.getNewValue());
+        //person.setTelno(personStringCellEditEvent.getNewValue());
+        //person.setAdresse(personStringCellEditEvent.getNewValue());
+        //person.setEmail(personStringCellEditEvent.getNewValue());
+        person.setMuskelv(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateSportler2(person);
+    }
+
+
+
+
 
 }
 

@@ -35,8 +35,8 @@
             <TableColumn fx:id="kurseid" prefWidth="49.5999755859375" style="-fx-background-color: tan;" text="ID" />
             <TableColumn fx:id="kursename" onEditCommit="#oneditchange" prefWidth="89.59996795654297" style="-fx-background-color: darksalmon;" text="Name" />
             <TableColumn fx:id="kursepreis" prefWidth="56.79998779296875" style="-fx-background-color: tan;" text="Preis" />
-            <TableColumn fx:id="kursetag" prefWidth="100.79998779296875" style="-fx-background-color: darksalmon;" text="Tag" />
-            <TableColumn fx:id="kursetrainer" prefWidth="120.80001831054688" style="-fx-background-color: tan;" text="Trainer" />
+            <TableColumn fx:id="kursetag" onEditCommit="#oneditchange2" prefWidth="100.79998779296875" style="-fx-background-color: darksalmon;" text="Tag" />
+            <TableColumn fx:id="kursetrainer" onEditCommit="#oneditchange3" prefWidth="120.80001831054688" style="-fx-background-color: tan;" text="Trainer" />
             <TableColumn fx:id="kurseanzahl" prefWidth="74.40008544921875" style="-fx-background-color: darksalmon;" text="Anzahl" />
             <TableColumn fx:id="kursebeginn" prefWidth="67.19992065429688" style="-fx-background-color: tan;" text="Beginn" />
             <TableColumn fx:id="kurseend" prefWidth="62.4000244140625" style="-fx-background-color: darksalmon;" text="End" />

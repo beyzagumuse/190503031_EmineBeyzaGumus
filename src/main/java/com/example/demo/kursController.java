@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.Classes.Kurse;
-import com.example.demo.Classes.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -154,15 +154,25 @@ public class kursController {
 
     public void initialize(){
 
+
         this.kurseid.setCellValueFactory(new PropertyValueFactory<>("kursenummer"));
         this.kursename.setCellValueFactory(new PropertyValueFactory<>("kursename"));
         this.kursepreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
-        //this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tage"));
+        this.kursetag.setCellValueFactory(new PropertyValueFactory<>("tage"));
         this.kursetrainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
-        //this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
-        //this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));
-        //this.kurseend.setCellValueFactory(new PropertyValueFactory<>("end"));
+        this.kurseanzahl.setCellValueFactory(new PropertyValueFactory<>("anzahlSportler"));
+        this.kursebeginn.setCellValueFactory(new PropertyValueFactory<>("beginn"));
+        this.kurseend.setCellValueFactory(new PropertyValueFactory<>("end"));
         kurse_table.setItems(ListKurse());
+
+        kurse_table.setEditable(true);
+        kursename.setCellFactory(TextFieldTableCell.forTableColumn());
+        //kursepreis.setCellFactory(TextFieldTableCell.forTableColumn());
+        kursetag.setCellFactory(TextFieldTableCell.forTableColumn());
+        kursetrainer.setCellFactory(TextFieldTableCell.forTableColumn());
+        //kursebeginn.setCellFactory(TextFieldTableCell.forTableColumn());
+        //kurseend.setCellFactory(TextFieldTableCell.forTableColumn());
+
 
 
 
@@ -175,7 +185,7 @@ public class kursController {
     }
 
     @FXML
-    void oneditchange(TableColumn.CellEditEvent<Person,String> personStringCellEditEvent) {
+    void oneditchange(TableColumn.CellEditEvent<Kurse,String> personStringCellEditEvent) {
 
         Kurse kurse = kurse_table.getSelectionModel().getSelectedItem();
         //System.out.println(p.getName());
@@ -188,6 +198,32 @@ public class kursController {
         //dbControl.editPerson(person);
         dbControl.updateKurs(kurse);
     }
+
+    @FXML
+    void oneditchange2(TableColumn.CellEditEvent<Kurse,String> personStringCellEditEvent) {
+
+        Kurse kurse = kurse_table.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //kurse.setKursename(personStringCellEditEvent.getNewValue());
+        kurse.setTage(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateKurs(kurse);
+    }
+
+    @FXML
+    void oneditchange3(TableColumn.CellEditEvent<Kurse,String> personStringCellEditEvent) {
+
+        Kurse kurse = kurse_table.getSelectionModel().getSelectedItem();
+        //System.out.println(p.getName());
+        //person.setId(personStringCellEditEvent.getNewValue());
+        //kurse.setKursename(personStringCellEditEvent.getNewValue());
+        //kurse.setTage(personStringCellEditEvent.getNewValue());
+        kurse.setTrainer(personStringCellEditEvent.getNewValue());
+        //dbControl.editPerson(person);
+        dbControl.updateKurs(kurse);
+    }
+
 
 
     @FXML

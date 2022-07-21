@@ -177,16 +177,17 @@ public class dbControl {
 
     public static ObservableList<Kurse> getDatakurse(){
 
-        Connection conn = connect();
+
         ObservableList<Kurse> kurselist = FXCollections.observableArrayList();
         SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
         try{
-            Statement stmt = conn.createStatement();
+            Connection conn = database.connect();
+            //Statement stmt = conn.createStatement();
             //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
-            ResultSet rs = stmt.executeQuery("SELECT * FROM kursee");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM kursee");
 
             while(rs.next()){
-                Date datum = (Date) dformat.parse("kurse_tage");
+                //Date datum = (Date) dformat.parse("kurse_tage");
                 //System.out.println(rs.getString("kurse_id") + rs.getString("kurse_name") + rs.getInt("kurse_preis") + rs.getString("kurse_tage") + " " + rs.getString("trainer_id") + " " + rs.getInt("kurse_anzahlSportler") + rs.getInt("beginn") + rs.getInt("end"));
                 kurselist.add(new Kurse(rs.getString("kurse_id"),rs.getString("kurse_name"),rs.getInt("kurse_preis"),rs.getString("kurse_tage"),rs.getString("trainer_id"),rs.getInt("kurse_anzahl"),rs.getInt("kurse_beginn"),rs.getInt("kurse_end")));
             }
@@ -276,10 +277,10 @@ public class dbControl {
 
         ObservableList<Sportler> sportlerlist = FXCollections.observableArrayList();
         try{
-            //Connection conn = database.connect();
+            Connection conn = database.connect();
             //Statement stmt = conn.createStatement();
             //PreparedStatement ps = conn.prepareStatement("SELECT * FROM kurse");
-            ResultSet rs = conn.createStatement().executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email FROM person,sportlerr WHERE person_id == sportler_id");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email,sportlerr.schuld,sportlerr.krankheit,sportlerr.muskelv,sportlerr.fettrate FROM person,sportlerr WHERE person_id == sportler_id");
 
 
 
@@ -307,7 +308,11 @@ public class dbControl {
                 String add = rs.getString("person_adresse");
                 String mail = rs.getString("person_email");
 
-                Sportler p = new Sportler(id,name,nachname,telno,add,mail);
+                int schuld = rs.getInt("schuld");
+                String krank = rs.getString("krankheit");
+                int muskelv = rs.getInt("muskelv");
+                int fettrate = rs.getInt("fettrate");
+                Sportler p = new Sportler(id,name,nachname,telno,add,mail,schuld,krank,muskelv,fettrate);
 
                 sportlerlist.add(p);
 
@@ -325,10 +330,10 @@ public class dbControl {
 
         //SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
         try {
-            Statement stmt = database.conn.createStatement();
+            Connection conn = database.connect();
             //ResultSet rs = stmt.executeQuery("SELECT person.person_id,person.person_name,person.person_nachname,person.person_telno,person.person_adresse,person.person_email FROM person,sportlerr WHERE person_id == sportler_id");
-            ResultSet rs2 = stmt.executeQuery("SELECT schuld,krankheit,muskelv,fettrate FROM person,sportlerr WHERE person_id == sportler_id");
-            while (rs.next()) {
+            ResultSet rs2 = conn.createStatement().executeQuery("SELECT sportlerr.schuld,sportlerr.krankheit,sportlerr.muskelv,sportlerr.fettrate FROM sportlerr,person");
+            while (rs2.next()) {
 
 
                 /*
@@ -455,18 +460,18 @@ public class dbControl {
     }
 
 
-    public static void updateSportler(Sportler p) {
+    public static void updateSportler(Person p) {
 
         //String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
-        String name = "UPDATE sportler SET sportler_name = '" + p.getName() + "' WHERE person_id = '" + p.getSportlernummer()+"'";
-        String nachname = "UPDATE sportler SET sportler_nachname =  '"+p.getNachname()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
-        String telno = "UPDATE sportler SET sportler_telno =  '"+p.getTelno()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
-        String adresse = "UPDATE sportler SET sportler_adresse =  '"+p.getAdresse()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
-        String email = "UPDATE sportler SET sportler_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
-        int schuld = Integer.parseInt("UPDATE sportler SET sportler_schuld =  '"+p.getSchuld()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
-        String krank = "UPDATE sportler SET sportler_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
-        int muskel = Integer.parseInt("UPDATE sportler SET sportler_muskelv =  '"+p.getMuskelv()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
-        int fett = Integer.parseInt("UPDATE sportler SET sportler_fettrate =  '"+p.getFettrate()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
+        String name = "UPDATE sportler SET sportler_name = '" + p.getName() + "' WHERE person_id = '" + p.getId()+"'";
+        String nachname = "UPDATE sportler SET sportler_nachname =  '"+p.getNachname()+"'  WHERE person_id = '" + p.getId()+"'";
+        String telno = "UPDATE sportler SET sportler_telno =  '"+p.getTelno()+"'  WHERE person_id = '" + p.getId()+"'";
+        String adresse = "UPDATE sportler SET sportler_adresse =  '"+p.getAdresse()+"'  WHERE person_id = '" + p.getId()+"'";
+        String email = "UPDATE sportler SET sportler_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getId()+"'";
+        //int schuld = Integer.parseInt("UPDATE sportler SET sportler_schuld =  '"+p.getSchuld()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
+       // String krank = "UPDATE sportler SET sportler_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getSportlernummer()+"'";
+        //int muskel = Integer.parseInt("UPDATE sportler SET sportler_muskelv =  '"+p.getMuskelv()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
+        //int fett = Integer.parseInt("UPDATE sportler SET sportler_fettrate =  '"+p.getFettrate()+"'  WHERE person_id = '" + p.getSportlernummer()+"'");
         //String typ = "UPDATE Autos SET Getriebetyp = '" + auto.getGetriebetyp() + "' WHERE Nummernschild = '" + auto.getNummernschild()+"'";
         //String preis = "UPDATE Autos SET Mietpreise =  '" +  auto.getMietpreise() + "'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
 
@@ -481,21 +486,70 @@ public class dbControl {
             stm.execute(telno);
             stm.execute(adresse);
             stm.execute(email);
-            stm.execute(String.valueOf(schuld));
-            stm.execute(krank);
-            stm.execute(String.valueOf(muskel));
-            stm.execute(String.valueOf(fett));
+            //stm.execute(String.valueOf(schuld));
+            //stm.execute(krank);
+            //stm.execute(String.valueOf(muskel));
+            //stm.execute(String.valueOf(fett));
 
 
-            //stm.execute(km);
-            //stm.execute(typ);
-            //stm.execute(preis);
 
 
         }catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+    public static void updateSportler2(Sportler p) {
+
+        //String id = "UPDATE person SET person_id =  '"+p.getId()+"'  WHERE person_id = '" + p.getId()+"'";
+        //String name = "UPDATE sportler SET sportler_name = '" + p.getName() + "' WHERE person_id = '" + p.getId()+"'";
+        //String nachname = "UPDATE sportler SET sportler_nachname =  '"+p.getNachname()+"'  WHERE person_id = '" + p.getId()+"'";
+        //String telno = "UPDATE sportler SET sportler_telno =  '"+p.getTelno()+"'  WHERE person_id = '" + p.getId()+"'";
+        //String adresse = "UPDATE sportler SET sportler_adresse =  '"+p.getAdresse()+"'  WHERE person_id = '" + p.getId()+"'";
+        //String email = "UPDATE sportler SET sportler_email =  '"+p.getEmail()+"'  WHERE person_id = '" + p.getId()+"'";
+        //int schuld = Integer.parseInt("UPDATE sportler SET sportler_schuld =  '"+p.getSchuld()+"'  WHERE sportler_id = '" + p.getSportlernummer()+"'");
+         String krank = "UPDATE sportler SET sportler_email =  '"+p.getEmail()+"'  WHERE sportler_id = '" + p.getSportlernummer()+"'";
+        //int muskel = Integer.parseInt("UPDATE sportler SET sportler_muskelv =  '"+p.getMuskelv()+"'  WHERE sportler_id = '" + p.getSportlernummer()+"'");
+        //int fett = Integer.parseInt("UPDATE sportler SET sportler_fettrate =  '"+p.getFettrate()+"'  WHERE sportler_id = '" + p.getSportlernummer()+"'");
+        //String typ = "UPDATE Autos SET Getriebetyp = '" + auto.getGetriebetyp() + "' WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+        //String preis = "UPDATE Autos SET Mietpreise =  '" +  auto.getMietpreise() + "'  WHERE Nummernschild = '" + auto.getNummernschild()+"'";
+
+
+
+
+        try {
+            Statement stm = conn.createStatement();
+            //stm.execute(id);
+            //stm.execute(name);
+            //stm.execute(nachname);
+            //stm.execute(telno);
+            //stm.execute(adresse);
+            //stm.execute(email);
+            //stm.execute(String.valueOf(schuld));
+            stm.execute(krank);
+            //stm.execute(String.valueOf(muskel));
+            //stm.execute(String.valueOf(fett));
+
+
+
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void delete_Sportler(String person_id) {
+        String query = "DELETE FROM person WHERE person_id = ? ";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, person_id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     //PERSON
 
@@ -1014,7 +1068,7 @@ public class dbControl {
             pstmt.setString(3, p.getNachname());
             pstmt.setString(4,p.getTelno());
             pstmt.setString(5,p.getAdresse());
-            pstmt.setString(6,p.getAdresse());
+            pstmt.setString(6,p.getEmail());
             //pstmt2.setString(7,id);
             //pstmt.setString(2, password);
 
@@ -1053,6 +1107,17 @@ public class dbControl {
         }
     }
 
+    public static void deleteRechnung(String text) {
+        String query = "DELETE FROM rechnung WHERE rechnung_id = ? ";
+
+        try {
+            pstmt = dbControl.conn.prepareStatement(query);
+            pstmt.setString(1, text);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     ObservableList trainers = FXCollections.observableArrayList();
 
@@ -1162,7 +1227,7 @@ public class dbControl {
 
         try{
             Connection conn = database.connect();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT sportler_id,schuld FROM sportlerr,kurse WHERE kurse_name == '" + value+ "'");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT sportler_id,schuld FROM sportlerr,kursee WHERE sportlerr.kurse_id = kursee.kurse_id AND kurse_name == '" + value+ "'");
 
             while(rs.next()){
                 arr.add(new Sportler(rs.getString("sportler_id"),rs.getInt("schuld")));
@@ -1229,7 +1294,7 @@ public class dbControl {
         try {
             Connection conn = database.connect();
             //ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM person");
-            ResultSet rs = conn.createStatement().executeQuery("SELECT person_id,person_name,person_nachname FROM person,sportlerr,kursee WHERE  sportlerr.kurse_id == kursee.kurse_id AND kursee.trainer_id =='" + id +"' ");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT person_id,person_name,person_nachname FROM person,sportlerr,kursee WHERE  sportlerr.sportler_id = person.person_id AND sportlerr.kurse_id == kursee.kurse_id AND kursee.trainer_id =='" + id +"' ");
             //sportlerr.kurse_id == kursee.kurse_id AND
             System.out.println(rs);
             while (rs.next()) {

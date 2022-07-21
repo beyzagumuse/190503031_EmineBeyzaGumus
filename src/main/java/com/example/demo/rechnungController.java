@@ -35,7 +35,7 @@ public class rechnungController {
     private void addRechnung() throws IOException {
 
         Rechnung r = new Rechnung();
-        r.setRechnungsnummer(kursno.getText());
+        r.setRechnungsnummer(rechnungno.getText());
         r.setKursenummer(kursno.getText());
         r.setKurseTage(tage.getText());
         r.setSportlernummer(sportno.getText());
@@ -45,6 +45,14 @@ public class rechnungController {
 
         System.out.println("Person wurde zum Datenbank addiert.");
         //goKurspage();
+
+    }
+
+    @FXML
+    private void deleteRechnungbyId() throws IOException {
+        //dbControl.printKurseData((rechnungno.getText());
+        dbControl.deleteRechnung((rechnungno.getText()));
+        System.out.println("Patient wurde vom Datenbank geloescht.");
 
     }
 }

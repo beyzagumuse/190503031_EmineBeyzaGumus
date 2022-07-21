@@ -54,11 +54,11 @@
       <TableView fx:id="allpersonview" layoutX="-1.0" layoutY="40.0" prefHeight="176.0" prefWidth="350.0">
          <columns>
             <TableColumn fx:id="tc_col" prefWidth="42.39996415376663" style="-fx-background-color: TAN;" text="TC" />
-            <TableColumn fx:id="name_col" minWidth="0.0" prefWidth="64.79995727539062" style="-fx-background-color: darksalmon;" text="Name" />
-            <TableColumn fx:id="nachname_col" prefWidth="77.60000610351562" style="-fx-background-color: tan;" text="Nachname" />
-            <TableColumn fx:id="telno_col" prefWidth="56.0" style="-fx-background-color: darksalmon;" text="Tel No" />
-            <TableColumn fx:id="add_col" minWidth="0.0" prefWidth="59.20001220703125" style="-fx-background-color: tan;" text="Adresse" />
-            <TableColumn fx:id="mail_col" prefWidth="48.0" style="-fx-background-color: darksalmon;" text="Email" />
+            <TableColumn fx:id="name_col" minWidth="0.0" onEditCommit="#oneditchange" prefWidth="64.79995727539062" style="-fx-background-color: darksalmon;" text="Name" />
+            <TableColumn fx:id="nachname_col" onEditCommit="#oneditchange2" prefWidth="77.60000610351562" style="-fx-background-color: tan;" text="Nachname" />
+            <TableColumn fx:id="telno_col" onEditCommit="#oneditchange3" prefWidth="56.0" style="-fx-background-color: darksalmon;" text="Tel No" />
+            <TableColumn fx:id="add_col" minWidth="0.0" onEditCommit="#oneditchange4" prefWidth="59.20001220703125" style="-fx-background-color: tan;" text="Adresse" />
+            <TableColumn fx:id="mail_col" onEditCommit="#oneditchange5" prefWidth="48.0" style="-fx-background-color: darksalmon;" text="Email" />
          </columns>
       </TableView>
       <GridPane layoutY="226.0" prefHeight="214.0" prefWidth="616.0">
@@ -142,13 +142,13 @@
          </children>
       </GridPane>
       <Button layoutX="257.0" layoutY="459.0" mnemonicParsing="false" onAction="#buttonadd" style="-fx-background-color: OLDLACE;" text="ADD" />
-      <Button layoutX="323.0" layoutY="459.0" mnemonicParsing="false" style="-fx-background-color: OLDLACE;" text="DELETE" />
+      <Button layoutX="323.0" layoutY="459.0" mnemonicParsing="false" onAction="#deleteaction" style="-fx-background-color: OLDLACE;" text="DELETE" />
       <TableView fx:id="allpersonview2" layoutX="348.0" layoutY="40.0" prefHeight="176.0" prefWidth="300.0">
         <columns>
-            <TableColumn fx:id="schuld_col" prefWidth="57.60003662109375" style="-fx-background-color: tan;" text="Schuld" />
-            <TableColumn fx:id="krank_col" minWidth="0.0" prefWidth="85.59991455078125" style="-fx-background-color: darksalmon;" text="Krankenheit" />
-            <TableColumn fx:id="muskel_col" minWidth="1.5999755859375" prefWidth="91.199951171875" style="-fx-background-color: tan;" text="Muskel" />
-            <TableColumn fx:id="fett_col" prefWidth="66.4000244140625" style="-fx-background-color: darksalmon;" text="Fettrate" />
+            <TableColumn fx:id="schuld_col" onEditCommit="#oneditchange6" prefWidth="57.60003662109375" style="-fx-background-color: tan;" text="Schuld" />
+            <TableColumn fx:id="krank_col" minWidth="0.0" onEditCommit="#oneditchange7" prefWidth="85.59991455078125" style="-fx-background-color: darksalmon;" text="Krankenheit" />
+            <TableColumn fx:id="muskel_col" minWidth="1.5999755859375" onEditCommit="#oneditchange8" prefWidth="91.199951171875" style="-fx-background-color: tan;" text="Muskel" />
+            <TableColumn fx:id="fett_col" onEditCommit="#oneditchange9" prefWidth="66.4000244140625" style="-fx-background-color: darksalmon;" text="Fettrate" />
         </columns>
       </TableView>
    </children>

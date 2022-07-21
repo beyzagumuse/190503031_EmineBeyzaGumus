@@ -49,8 +49,8 @@
                   <TableColumn fx:id="mail_col" onEditCommit="#oneditchange5" prefWidth="106.39998779296877" style="-fx-background-color: darksalmon;" text="Email" />
               </columns>
             </TableView>
-            <Button layoutX="206.0" layoutY="456.0" mnemonicParsing="false" onAction="#buttonadd" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
-            <Button layoutX="406.0" layoutY="456.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Delete" />
+            <Button layoutX="279.0" layoutY="456.0" mnemonicParsing="false" onAction="#buttonadd" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Add" />
+            <Button layoutX="336.0" layoutY="456.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" style="-fx-background-color: OLDLACE;" text="Delete" />
             <Button layoutX="309.0" layoutY="456.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: OLDLACE;" text="Edit" visible="false" />
             <GridPane layoutX="27.0" layoutY="281.0" prefHeight="141.0" prefWidth="617.0">
                <columnConstraints>
